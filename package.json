@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "private": false,
   "main": "dist/index.js",
   "files": [
@@ -50,11 +50,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "7.12.17",
+    "@babel/preset-env": "7.12.17",
+    "@babel/preset-react": "7.12.13",
     "@storybook/addon-actions": "6.1.18",
     "@storybook/addon-essentials": "6.1.18",
     "@storybook/addon-links": "6.1.18",
     "@storybook/node-logger": "6.1.18",
     "@storybook/preset-create-react-app": "3.1.6",
-    "@storybook/react": "6.1.18"
-  }
+    "@storybook/react": "6.1.18",
+    "babel-plugin-module-resolver": "4.1.0",
+    "cross-env": "7.0.3"
+  },
+  "license": "MIT"
 }
