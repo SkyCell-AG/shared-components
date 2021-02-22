@@ -8,5 +8,5 @@ declare module '@skycell-ag/shared-components' {
         excursion: number;
     }
 
-    declare const TemperatureChart: React.SFC<TemperatureChartProps>
+    const TemperatureChart: React.SFC<TemperatureChartProps>
 }
