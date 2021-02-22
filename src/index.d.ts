@@ -2,11 +2,11 @@ import React from 'react'
 
 declare module '@skycell-ag/shared-components' {
     interface TemperatureChartProps {
-        ambient: int[],
-        simulated: int[],
-        energyLevel: int[],
-        excursion: int,
+        ambient: number[];
+        simulated: number[];
+        energyLevel: number[];
+        excursion: number;
     }
 
-    export declare const TemperatureChart: React.SFC<TemperatureChartProps>
+    declare const TemperatureChart: React.SFC<TemperatureChartProps>
 }
