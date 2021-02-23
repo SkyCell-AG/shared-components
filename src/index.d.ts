@@ -9,4 +9,10 @@ declare module '@skycell-ag/shared-components' {
     }
 
     const TemperatureChart: React.SFC<TemperatureChartProps>
+
+    interface RouteProps {
+        destinations: [number, number][]
+    }
+
+    const Route: React.SFC<RouteProps>
 }
