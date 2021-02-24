@@ -98,7 +98,7 @@ const TemperatureChart = ({
   ])
 
   const tickPercentFormat = useCallback((val) => {
-    return `${Math.random(val/scale)}%`
+    return `${Math.round(val/scale)}%`
   }, [
     scale,
   ])
