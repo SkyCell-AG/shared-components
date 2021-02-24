@@ -5,7 +5,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  build-package:
     runs-on: ubuntu-latest
     steps:
       - name: Install Node
@@ -19,8 +19,15 @@ jobs:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1
       - name: Compile
-        run: npm run compile
+        run: |
+          npm run build
+          npm run build-storybook
       - name: Publish to npm
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Deploy to ghpages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages
+          folder: storybook-static
