@@ -9,7 +9,7 @@ import {
   Line,
 } from 'react-simple-maps'
 
-const geoUrl = 'https://prodskynetstaticwebsite.blob.core.windows.net/shared/world-110m.json'
+import mapData from './mapData'
 
 const propTypes = {
   destinations: PropTypes.arrayOf(PropTypes.number).isRequired,
@@ -18,8 +18,6 @@ const propTypes = {
 const Route = ({
   destinations,
 }) => {
-  console.log(destinations)
-
   const first = destinations[0]
   const last = destinations[destinations.length - 1]
 
@@ -29,7 +27,7 @@ const Route = ({
     >
       <Graticule stroke="#DDD" />
       <Geographies
-        geography={geoUrl}
+        geography={mapData}
         fill="#D6D6DA"
         stroke="#FFFFFF"
         strokeWidth={0.5}

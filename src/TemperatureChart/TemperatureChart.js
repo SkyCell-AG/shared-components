@@ -92,7 +92,7 @@ const TemperatureChart = ({
   ])
 
   const tickPercentValues = useMemo(() => {
-    return [0, 20, 40, 60, 80, 100].map(val => val*scale)
+    return [0, 20, 40, 60, 80, 100].map(val => Math.round(val*scale))
   }, [
     scale,
   ])
