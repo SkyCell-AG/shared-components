@@ -7,7 +7,7 @@ const RouteStory = {
   component: Route,
   argTypes: {
     destinations: {
-      control: 'array',
+      control: 'object',
       description: 'Array of tuples [longitude, latitude]'
     },
   },

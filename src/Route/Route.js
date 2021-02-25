@@ -13,7 +13,9 @@ import GeographiesSync from './components/GeographiesSync'
 import mapData from './mapData'
 
 const propTypes = {
-  destinations: PropTypes.arrayOf(PropTypes.number).isRequired,
+  destinations: PropTypes.arrayOf(
+    PropTypes.arrayOf(PropTypes.number),
+  ).isRequired,
 }
 
 const Route = ({
