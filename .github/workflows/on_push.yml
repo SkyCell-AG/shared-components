@@ -20,7 +20,7 @@ jobs:
       - uses: bahmutov/npm-install@v1
       - name: Compile
         run: |
-          npm run build
+          npm run compile
           npm run build-storybook
       - name: Publish to npm
         run: npm publish --access public
