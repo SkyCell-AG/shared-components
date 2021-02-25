@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   ComposableMap,
-  Geographies,
   Geography,
   Graticule,
   Marker,
   Line,
 } from 'react-simple-maps'
+
+import GeographiesSync from './components/GeographiesSync'
 
 import mapData from './mapData'
 
@@ -26,7 +27,7 @@ const Route = ({
       projection="geoEqualEarth"
     >
       <Graticule stroke="#DDD" />
-      <Geographies
+      <GeographiesSync
         geography={mapData}
         fill="#D6D6DA"
         stroke="#FFFFFF"
@@ -35,7 +36,7 @@ const Route = ({
         {({ geographies }) =>
             geographies.map(geo => <Geography key={geo.rsmKey} geography={geo} />)
         }
-      </Geographies>
+      </GeographiesSync>
       <Line
         coordinates={destinations}
         stroke="#F53"
