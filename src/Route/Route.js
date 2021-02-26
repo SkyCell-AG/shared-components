@@ -52,10 +52,10 @@ const Route = ({
   }, [borders])
 
   const zoom = useMemo(() => {
-    return Math.floor(Math.min(
-      90/(borders.longMax - borders.longMin),
+    return 0.75*Math.min(
+      180/(borders.longMax - borders.longMin),
       360/(borders.latMax - borders.latMin),
-    ))+1
+    )+1
   }, [borders])
 
   return (
@@ -79,14 +79,14 @@ const Route = ({
         </GeographiesSync>
         <Line
           coordinates={destinations}
-          stroke="#F53"
+          stroke="#61c6e9"
           strokeWidth={2}
         />
         <Marker coordinates={first}>
-          <circle r={4} fill="#F53" />
+          <circle r={4} fill="#61c6e9" />
         </Marker>
         <Marker coordinates={last}>
-          <circle r={4} fill="#A43" />
+          <circle r={4} fill="#61c6e9" />
         </Marker>
       </ZoomableGroup>
     </ComposableMap>
