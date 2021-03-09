@@ -8,11 +8,14 @@ declare module '@skycell-ag/shared-components' {
         excursion: number;
     }
 
-    const TemperatureChart: React.SFC<TemperatureChartProps>
+    const TemperatureChart: React.FC<TemperatureChartProps>
 
     interface RouteProps {
         destinations: [number, number][]
     }
 
-    const Route: React.SFC<RouteProps>
+    const Route: React.FC<RouteProps>
+
+    interface LoadingScreenProps {}
+    const LoadingScreen: React.FC<LoadingScreenProps>
 }
