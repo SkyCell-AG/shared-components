@@ -13,13 +13,13 @@ const defaultProps = {
 }
 
 const Avatar = ({
-    data, ...rest
+    img, ...rest
 }) => {
     return (
         <AvatarM
             {...rest}
             alt="user photo"
-            src={data || '/assets/images/avatars/profile.jpg'}
+            src={img || '/assets/icons/profile.svg'}
         />
     )
 }
