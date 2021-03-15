@@ -4,6 +4,8 @@ import {
     Avatar as AvatarM,
 } from '@material-ui/core'
 
+import profile from './profile.jpg'
+
 const propTypes = {
     data: PropTypes.string,
 }
@@ -19,7 +21,7 @@ const Avatar = ({
         <AvatarM
             {...rest}
             alt="user photo"
-            src={img || '/assets/icons/profile.svg'}
+            src={img || profile}
         />
     )
 }
