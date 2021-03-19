@@ -6,10 +6,7 @@ const AvatarStory = {
     title: 'Example/Avatar',
     component: Avatar,
     argTypes: {
-        data: {
-            control: 'string',
-        },
-        status: {
+        img: {
             control: 'string',
         },
     },
@@ -24,8 +21,7 @@ const Template = (props) => {
 export const Primary = Template.bind({});
 
 Primary.args = {
-    data: '',
-    status: 'FAILURE',
+    img: '',
 };
 
 export default AvatarStory

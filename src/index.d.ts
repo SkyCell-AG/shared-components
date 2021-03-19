@@ -18,4 +18,18 @@ declare module '@skycell-ag/shared-components' {
 
     interface LoadingScreenProps {}
     const LoadingScreen: React.FC<LoadingScreenProps>
+
+    interface AvatarProps {
+        img: string;
+    }
+    const Avatar: React.FC<AvatarProps>
+
+    interface TypeaheadProps {
+        loadOptions: (phrase: string) => array<object>;
+        loadLabel: (value: string) => string;
+        value: string;
+        valueField: string;
+        labelField: string;
+    }
+    const Typeahead: React.FC<TypeaheadProps>
 }
