@@ -102,6 +102,11 @@ const useRemoteData = (
         if (cancelRequest.current) {
             cancelRequest.current()
         }
+        return () => {
+            if (cancelRequest.current) {
+                cancelRequest.current()
+            }
+        }
     }, [loadData])
 
     useEffect(() => {
