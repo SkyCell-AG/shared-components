@@ -17,7 +17,10 @@
     "react-simple-maps": "2.3.0",
     "topojson-client": "3.1.0",
     "victory": "35.4.9",
-    "web-vitals": "1.1.0"
+    "web-vitals": "1.1.0",
+    "@material-ui/core": "4.11.2",
+    "jss": "10.5.0",
+    "clsx": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -53,10 +56,7 @@
     "react-scripts": "4.0.1",
     "prop-types": "15.7.2",
     "axios": "0.21.1",
-    "@material-ui/core": "4.11.2",
-    "clsx": "1.1.1",
-    "@material-ui/lab": "4.0.0-alpha.57",
-    "jss": "10.5.0"
+    "@material-ui/lab": "4.0.0-alpha.57"
   },
   "devDependencies": {
     "@babel/cli": "7.12.17",
@@ -75,10 +75,7 @@
     "react-scripts": "4.0.1",
     "prop-types": "15.7.2",
     "axios": "0.21.1",
-    "@material-ui/core": "4.11.2",
-    "clsx": "1.1.1",
-    "@material-ui/lab": "4.0.0-alpha.57",
-    "jss": "10.5.0"
+    "@material-ui/lab": "4.0.0-alpha.57"
   },
   "license": "MIT"
 }

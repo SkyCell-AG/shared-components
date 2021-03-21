@@ -7,25 +7,24 @@ const TypeaheadStory = {
     component: Typeahead,
     argTypes: {
         loadOptions: {
-            control: 'string',
+            control: 'text',
         },
         loadLabel: {
-            control: 'string'
+            control: 'text'
         },
         value: {
-            control: 'string'
+            control: 'text'
         },
         valueField: {
-            control: 'string'
+            control: 'text'
         },
         labelField: {
-            control: 'string'
+            control: 'text'
         },
     },
 };
 
 const Template = (props) => {
-    console.log('props', props)
     return (
         <Typeahead {...props} />
     )
