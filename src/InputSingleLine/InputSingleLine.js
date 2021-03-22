@@ -21,6 +21,9 @@ const propTypes = {
     onKeyPress: PropTypes.func,
     onBlur: PropTypes.func,
     className: PropTypes.string,
+    classNames: PropTypes.shape({
+        textField: PropTypes.string,
+    }),
     title: PropTypes.string,
     value: PropTypes.oneOfType([
         PropTypes.number,
@@ -33,6 +36,7 @@ const propTypes = {
     fullWidth: PropTypes.bool,
     fullHeight: PropTypes.bool,
     rightAligned: PropTypes.bool,
+    hideUnderline: PropTypes.bool,
     suffix: PropTypes.string,
 }
 
@@ -41,6 +45,7 @@ const defaultProps = {
     onKeyPress: noop,
     onBlur: noop,
     className: '',
+    classNames: {},
     title: '',
     value: '',
     disabled: false,
@@ -50,6 +55,7 @@ const defaultProps = {
     fullWidth: false,
     fullHeight: false,
     rightAligned: false,
+    hideUnderline: false,
     suffix: '',
 }
 
@@ -64,11 +70,13 @@ const InputSingleLine = (props) => {
         onBlur,
         onKeyPress,
         className,
+        classNames,
         fullHeight,
         rightAligned,
         suffix,
         value,
         type,
+        hideUnderline,
     } = props
 
     const defineValue = useCallback((newValue) => {
@@ -113,6 +121,7 @@ const InputSingleLine = (props) => {
                 }),
                 underline: clsx({
                     [classes.disabledUnderline]: disabled,
+                    [classes.hideUnderline]: hideUnderline,
                 }),
             },
             onBlur,
@@ -171,7 +180,7 @@ const InputSingleLine = (props) => {
                     onChange={handleChange}
                     onKeyPress={onKeyPress}
                     InputProps={inputProps}
-                    className={clsx({
+                    className={clsx(classNames.textField, {
                         [classes.inputControl]: true,
                         [classes.fullHeight]: fullHeight,
                     })}
