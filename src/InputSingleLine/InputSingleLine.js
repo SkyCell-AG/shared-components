@@ -115,6 +115,7 @@ const InputSingleLine = (props) => {
                     [classes.isRequired]: required && !disabled,
                     [classes.fullHeight]: fullHeight,
                     [classes.disabled]: disabled,
+                    [classes.withoutUnderline]: hideUnderline,
                 }),
                 root: clsx({
                     [classes.fullHeight]: fullHeight,
