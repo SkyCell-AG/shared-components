@@ -48,6 +48,14 @@ const useStyles = makeStyles((theme) => {
                 border: '0 !important',
             },
         },
+        hideUnderline: {
+            '&::before': {
+                border: '0 !important',
+            },
+            '&::after': {
+                border: '0 !important',
+            },
+        },
         requiredMark: {
             position: 'absolute',
             left: -8,
