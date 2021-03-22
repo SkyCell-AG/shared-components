@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => {
             fontSize: theme.typography.body1.fontSize,
             width: '100%',
         },
+        withoutUnderline: {
+            padding: '7px 0 7px 0',
+        },
         textField: {
             width: '100%',
             position: 'relative',
