@@ -128,6 +128,9 @@ const InputSingleLine = (props) => {
             onBlur,
         }
     }, [
+        hideUnderline,
+        classes.withoutUnderline,
+        classes.hideUnderline,
         classes.disabled,
         classes.disabledUnderline,
         classes.fullHeight,

@@ -3,12 +3,12 @@ import {
     mount,
 } from 'enzyme'
 
-import useRemoteData from 'app/hooks/useRemoteData'
+import useRemoteData from 'hooks/useRemoteData'
 
 import TypeaheadContainer from '../TypeaheadContainer'
 import Typeahead from '../Typeahead'
 
-jest.mock('app/hooks/useRemoteData')
+jest.mock('hooks/useRemoteData')
 jest.mock('../Typeahead', () => {
     return () => {
         return <div>empty</div>

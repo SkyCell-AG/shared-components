@@ -4,7 +4,7 @@ exports[`Typeahead snapshot 1`] = `
 <div
   className="makeStyles-root-1"
 >
-  <InputSinglelineContainer
+  <Component
     autoComplete="off"
     classNames={Object {}}
     closeOptions={[MockFunction]}

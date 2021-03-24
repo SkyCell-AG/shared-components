@@ -1,10 +1,10 @@
 import React from 'react'
 
-import InputSingleLine from "InputSingleLine";
+import ContainerTemperatureChart from 'ContainerTemperatureChart'
 
-const InputSingleLineStory = {
-    title: 'Example/InputSingleLine',
-    component: InputSingleLine,
+const ContainerTemperatureChartStory = {
+    title: 'Example/ContainerTemperatureChart',
+    component: ContainerTemperatureChart,
     argTypes: {
         title: {
             control: 'text',
@@ -13,19 +13,19 @@ const InputSingleLineStory = {
             control: 'text',
         },
     },
-};
+}
 
 const Template = (props) => {
     return (
-        <InputSingleLine {...props} />
+        <ContainerTemperatureChart {...props} />
     )
 }
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 
 Primary.args = {
     title: 'Title',
     value: 'value',
-};
+}
 
-export default InputSingleLineStory
+export default ContainerTemperatureChartStory

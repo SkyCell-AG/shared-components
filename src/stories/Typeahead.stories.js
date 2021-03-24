@@ -10,19 +10,19 @@ const TypeaheadStory = {
             control: 'text',
         },
         loadLabel: {
-            control: 'text'
+            control: 'text',
         },
         value: {
-            control: 'text'
+            control: 'text',
         },
         valueField: {
-            control: 'text'
+            control: 'text',
         },
         labelField: {
-            control: 'text'
+            control: 'text',
         },
     },
-};
+}
 
 const Template = (props) => {
     return (
@@ -30,11 +30,11 @@ const Template = (props) => {
     )
 }
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 
 Primary.args = {
     valueField: '1',
     labelField: 'id',
-};
+}
 
 export default TypeaheadStory

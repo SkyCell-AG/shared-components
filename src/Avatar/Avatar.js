@@ -7,15 +7,16 @@ import {
 import profile from './profile.jpg'
 
 const propTypes = {
-    data: PropTypes.string,
+    img: PropTypes.string,
 }
 
 const defaultProps = {
-    data: '',
+    img: '',
 }
 
 const Avatar = ({
-    img, ...rest
+    img,
+    ...rest
 }) => {
     return (
         <AvatarM

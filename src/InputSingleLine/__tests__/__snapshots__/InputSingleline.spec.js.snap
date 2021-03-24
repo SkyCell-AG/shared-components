@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`shared-components/InputSingleline should match snapshot 1`] = `
-<InputSingleline
+<InputSingleLine
   className=""
+  classNames={Object {}}
   disabled={false}
   fullHeight={false}
   fullWidth={false}
   hasError=""
+  hideUnderline={false}
   onBlur={[Function]}
   onChange={[MockFunction]}
   onKeyPress={[Function]}
