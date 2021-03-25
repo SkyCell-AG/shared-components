@@ -6,23 +6,8 @@ const TypeaheadStory = {
     title: 'Example/Typeahead',
     component: Typeahead,
     argTypes: {
-        loadOptions: {
-            control: 'text',
-        },
-        loadLabel: {
-            control: 'text'
-        },
-        value: {
-            control: 'text'
-        },
-        valueField: {
-            control: 'text'
-        },
-        labelField: {
-            control: 'text'
-        },
     },
-};
+}
 
 const Template = (props) => {
     return (
@@ -30,11 +15,18 @@ const Template = (props) => {
     )
 }
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 
 Primary.args = {
-    valueField: '1',
-    labelField: 'id',
-};
+    valueField: 'id',
+    labelField: 'value',
+    loadOptions: () => Promise.resolve([{
+        value: 'value1',
+        id: 'id1',
+    }, {
+        value: 'value2',
+        id: 'id2',
+    }])
+}
 
 export default TypeaheadStory

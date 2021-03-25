@@ -10,10 +10,10 @@ const CardStory = {
             control: 'text',
         },
         children: {
-            control: 'text'
+            control: 'text',
         },
     },
-};
+}
 
 const Template = (props) => {
     return (
@@ -21,11 +21,11 @@ const Template = (props) => {
     )
 }
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 
 Primary.args = {
     title: 'Title Card',
     children: 'body',
-};
+}
 
 export default CardStory

@@ -4,7 +4,7 @@ import {
     mount,
 } from 'enzyme'
 
-import InputSingleline from '../InputSinglelineContainer'
+import InputSingleline from '../InputSingleLineContainer'
 
 describe('shared-components/InputSingleline', () => {
     it('should match snapshot', () => {
@@ -17,6 +17,7 @@ describe('shared-components/InputSingleline', () => {
 
         expect(wrapper).toMatchSnapshot()
     })
+
     it('mount correct without data', () => {
         mount(
             <InputSingleline

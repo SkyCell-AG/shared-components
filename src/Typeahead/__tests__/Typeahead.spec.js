@@ -3,11 +3,11 @@ import {
     shallow,
 } from 'enzyme'
 
-import InputSingleline from 'app/shared-components/InputSingleline'
+import InputSingleline from 'InputSingleLine'
 import Typeahead from '../Typeahead'
 
-jest.mock('app/shared-components/withStatusHandler', () => { return (a) => { return a } })
-jest.mock('app/shared-components/InputSingleline/InputSingleline', () => {
+jest.mock('WithStatusHandler', () => { return (a) => { return a } })
+jest.mock('InputSingleLine', () => {
     return () => {
         return <div>inputsingleline</div>
     }

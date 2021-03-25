@@ -1,10 +1,10 @@
 import React from 'react'
 
-import InputSingleLine from "InputSingleLine";
+import InputSingleline from 'InputSingleLine'
 
-const InputSingleLineStory = {
-    title: 'Example/InputSingleLine',
-    component: InputSingleLine,
+const InputSinglelineStory = {
+    title: 'Example/InputSingleline',
+    component: InputSingleline,
     argTypes: {
         title: {
             control: 'text',
@@ -13,19 +13,19 @@ const InputSingleLineStory = {
             control: 'text',
         },
     },
-};
+}
 
 const Template = (props) => {
     return (
-        <InputSingleLine {...props} />
+        <InputSingleline {...props} />
     )
 }
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 
 Primary.args = {
     title: 'Title',
     value: 'value',
-};
+}
 
-export default InputSingleLineStory
+export default InputSinglelineStory 

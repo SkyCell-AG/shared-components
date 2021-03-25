@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import Avatar from 'Avatar'
 
@@ -10,7 +10,7 @@ const AvatarStory = {
             control: 'string',
         },
     },
-};
+}
 
 const Template = (props) => {
     return (
@@ -18,10 +18,10 @@ const Template = (props) => {
     )
 }
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 
 Primary.args = {
     img: '',
-};
+}
 
 export default AvatarStory

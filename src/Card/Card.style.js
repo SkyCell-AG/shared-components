@@ -1,6 +1,6 @@
 import {
     makeStyles,
-} from '@material-ui/styles'
+} from '@material-ui/styles'  // eslint-disable-line
 
 const useStyles = makeStyles({
     card: {

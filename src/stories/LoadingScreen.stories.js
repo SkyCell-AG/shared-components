@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 import LoadingScreen from 'LoadingScreen'
 
 const LoadingScreenStory = {
     title: 'Example/LoadingScreen',
     component: LoadingScreen,
-};
+}
 
 const Template = (props) => {
     return (
@@ -13,8 +13,8 @@ const Template = (props) => {
     )
 }
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 
-Primary.args = {};
+Primary.args = {}
 
 export default LoadingScreenStory
