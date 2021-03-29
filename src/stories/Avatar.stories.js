@@ -3,7 +3,7 @@ import React from 'react'
 import Avatar from 'Avatar'
 
 const AvatarStory = {
-    title: 'Example/Avatar',
+    title: 'Avatar',
     component: Avatar,
     argTypes: {
         img: {

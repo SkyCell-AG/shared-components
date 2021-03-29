@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TemperatureChart success 1`] = `
+<StatusComp
+  Comp={[Function]}
+  FailureMessage={[Function]}
+  className=""
+  err=""
+  sensorData={
+    Array [
+      Array [
+        2020-02-13T22:55:00.000Z,
+        13,
+        null,
+        null,
+        14,
+        null,
+        null,
+      ],
+      Array [
+        2020-02-13T23:05:00.000Z,
+        13,
+        null,
+        null,
+        11,
+        null,
+        null,
+      ],
+      Array [
+        2020-02-13T23:15:00.000Z,
+        12,
+        null,
+        null,
+        8,
+        null,
+        null,
+      ],
+    ]
+  }
+  status="SUCCESS"
+/>
+`;

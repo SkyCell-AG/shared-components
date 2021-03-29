@@ -3,7 +3,7 @@ import React from 'react'
 import Typeahead from 'Typeahead'
 
 const TypeaheadStory = {
-    title: 'Example/Typeahead',
+    title: 'Typeahead',
     component: Typeahead,
     argTypes: {
     },

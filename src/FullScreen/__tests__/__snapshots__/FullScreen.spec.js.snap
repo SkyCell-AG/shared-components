@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Apps/shared-components/FullScreen FullScreen match snapshot 1`] = `
+<div
+  className="makeStyles-wrapper-244 makeStyles-wrapper-1"
+>
+  <div
+    className="makeStyles-fullScreenButtonOpen-3"
+    onMouseDown={[Function]}
+  >
+    <Memo([object Object]) />
+  </div>
+  <div
+    className="makeStyles-children-4"
+  >
+    <Children />
+  </div>
+</div>
+`;

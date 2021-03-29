@@ -3,7 +3,7 @@ import React from 'react'
 import TemperatureChart from 'TemperatureChart'
 
 const TemperatureChartStory = {
-    title: 'Example/TemperatureChart',
+    title: 'TemperatureChart',
     component: TemperatureChart,
     argTypes: {
         ambient: {
