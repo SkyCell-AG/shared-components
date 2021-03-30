@@ -3,7 +3,7 @@ import React from 'react'
 import Card from 'Card'
 
 const CardStory = {
-    title: 'Example/Card',
+    title: 'Card',
     component: Card,
     argTypes: {
         title: {

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared-components/DateRangeSelector should match snapshot 1`] = `
+<div
+  className="makeStyles-wrapper-1"
+>
+  <div
+    className="makeStyles-optionsWrapper-2"
+  >
+    <div
+      className="makeStyles-option-3"
+      key="1"
+      onMouseDown={[Function]}
+    >
+      24h
+    </div>
+    <div
+      className="makeStyles-option-3"
+      key="7"
+      onMouseDown={[Function]}
+    >
+      7d
+    </div>
+    <div
+      className="makeStyles-option-3"
+      key="14"
+      onMouseDown={[Function]}
+    >
+      14d
+    </div>
+  </div>
+  <div
+    className="makeStyles-inputsWrapper-5"
+  >
+    <div
+      className="makeStyles-input-6"
+    >
+      <DateSelectContainer
+        className="makeStyles-datePicker-7"
+        name="from"
+        onChange={[MockFunction]}
+        title="From"
+        value="16.08.2020"
+      />
+    </div>
+    <div
+      className="makeStyles-input-6"
+    >
+      <DateSelectContainer
+        className="makeStyles-datePicker-7"
+        name="to"
+        onChange={[MockFunction]}
+        title="To"
+        value="18.08.2020"
+      />
+    </div>
+  </div>
+</div>
+`;

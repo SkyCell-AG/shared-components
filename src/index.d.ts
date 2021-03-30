@@ -32,4 +32,8 @@ declare module '@skycell-ag/shared-components' {
         labelField: string;
     }
     const Typeahead: React.FC<TypeaheadProps>
+
+    interface ContainerTemperatureChartProps {
+        serialNumber: string;
+    }
 }

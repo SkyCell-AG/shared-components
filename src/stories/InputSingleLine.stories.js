@@ -3,7 +3,7 @@ import React from 'react'
 import InputSingleline from 'InputSingleLine'
 
 const InputSinglelineStory = {
-    title: 'Example/InputSingleline',
+    title: 'InputSingleline',
     component: InputSingleline,
     argTypes: {
         title: {

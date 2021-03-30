@@ -28,3 +28,6 @@ export {
 export {
     default as generateAsyncActions,
 } from './utils/generateAsyncActions'
+export {
+    default as ContainerTemperatureChart,
+} from './ContainerTemperatureChart'

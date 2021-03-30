@@ -3,7 +3,7 @@ import React from 'react'
 import Route from 'Route'
 
 const RouteStory = {
-    title: 'Example/Route',
+    title: 'Route',
     component: Route,
     argTypes: {
         destinations: {

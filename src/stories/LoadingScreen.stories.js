@@ -3,7 +3,7 @@ import React from 'react'
 import LoadingScreen from 'LoadingScreen'
 
 const LoadingScreenStory = {
-    title: 'Example/LoadingScreen',
+    title: 'LoadingScreen',
     component: LoadingScreen,
 }
 
