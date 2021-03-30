@@ -3,11 +3,11 @@ import {
     shallow,
 } from 'enzyme'
 
-import TemperatureChart from '../TemperatureChart'
+import TemperatureChart2 from '../TemperatureChart2'
 
 it('TemperatureChart success', () => {
     const wrapper = shallow(
-        <TemperatureChart
+        <TemperatureChart2
             status="SUCCESS"
             sensorData={[
                 [

@@ -4,6 +4,10 @@ import React, {
 import {
     RelayEnvironmentProvider,
 } from 'react-relay/hooks'
+import {
+    MuiPickersUtilsProvider,
+} from '@material-ui/pickers'
+import MomentUtils from '@date-io/moment'
 
 import ContainerTemperatureChart from 'ContainerTemperatureChart'
 import RelayEnvironment from 'RelayEnvironment'
@@ -13,16 +17,28 @@ export default {
     component: ContainerTemperatureChart,
     decorators: [(Story) => {
         return (
-            <RelayEnvironmentProvider environment={RelayEnvironment}>
-                <Story />
-            </RelayEnvironmentProvider>
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+                <RelayEnvironmentProvider environment={RelayEnvironment}>
+                    <Story />
+                </RelayEnvironmentProvider>
+            </MuiPickersUtilsProvider>
         )
     }],
-    title: 'ContainerTemperatureChartd'
+    title: 'ContainerTemperatureChartd',
 }
 
-const Template = args => <Suspense fallback={<Loading />}><ContainerTemperatureChart serialNumber="031-10532" {...args} /></Suspense>
+const Template = args => (
+    <Suspense fallback={<Loading />}>
+        <ContainerTemperatureChart
+            {...args}
+        />
+    </Suspense>
+)
+
 
 export const Default = Template.bind({})
 
+Default.args = {
+    serialNumber: '031-10532',
+}
 
