@@ -16,12 +16,15 @@ import addNotationValues from './addNotationValues'
 import useStyles from './TemperatureChart2.style'
 
 const propTypes = {
-    sensorData: PropTypes.arrayOf(PropTypes.any).isRequired,
-    sensorLabels: PropTypes.arrayOf(PropTypes.any).isRequired,
+    sensorData: PropTypes.arrayOf(PropTypes.shape({
+        d: PropTypes.string.isRequired,
+        t: PropTypes.string.isRequired,
+    })).isRequired,
+    sensorLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
     onError: PropTypes.func,
     isChartPrinting: PropTypes.bool,
     onFullScreen: PropTypes.func,
-    userOptions: PropTypes.objectOf(PropTypes.any),
+    userOptions: PropTypes.any, // eslint-disable-line
     temperatureChartFullscreen: PropTypes.bool,
     setTemperatureChartFullscreen: PropTypes.func,
 }
@@ -46,6 +49,8 @@ const TemperatureChart2 = (props) => {
         setTemperatureChartFullscreen,
         onError,
     } = props
+
+    console.log(sensorData)
 
     const classes = useStyles()
 

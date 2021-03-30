@@ -8,7 +8,7 @@ exports[`Apps/shared-components/FullScreen FullScreen match snapshot 1`] = `
     className="makeStyles-fullScreenButtonOpen-3"
     onMouseDown={[Function]}
   >
-    <Memo([object Object]) />
+    <Memo(ForwardRef(FullscreenIcon)) />
   </div>
   <div
     className="makeStyles-children-4"
