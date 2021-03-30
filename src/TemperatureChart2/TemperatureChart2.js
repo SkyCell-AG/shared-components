@@ -50,8 +50,6 @@ const TemperatureChart2 = (props) => {
         onError,
     } = props
 
-    console.log(sensorData)
-
     const classes = useStyles()
 
     const chartArea = useMemo(() => {
