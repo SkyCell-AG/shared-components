@@ -1,3 +1,5 @@
+import theme from '@skycell-ag/theme'
+
 const options = {
     chartArea: {
         left: 30,
@@ -17,7 +19,7 @@ const options = {
         {
             targetAxisIndex: 0,
             lineWidth: 3,
-            color: '#CF3B8A',
+            color: theme.palette.common.purple,
             pointSize: 6,
         },
         {
