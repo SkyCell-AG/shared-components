@@ -23,15 +23,7 @@ const propTypes = {
             d: PropTypes.string,
             t: PropTypes.string,
         })),
-    }),
-    errors: PropTypes.arrayOf(PropTypes.shape({
-        message: PropTypes.string.isRequired,
-    })),
-}
-
-const defaultProps = {
-    data: null,
-    errors: null,
+    }).isRequired,
 }
 
 const ContainerTemperatureChart = (props) => {
@@ -41,7 +33,6 @@ const ContainerTemperatureChart = (props) => {
         timeRange,
         setRange,
         data,
-        errors,
     } = props
 
     const sensorLabels = data?.sensorLabels
@@ -58,18 +49,11 @@ const ContainerTemperatureChart = (props) => {
                         value={timeRange}
                         onChange={setRange}
                     />
-                    {errors ? (
-                        <div>
-                            an error happend
-                        </div>
-                    ) : (
-                        <TemperatureChart
-                            {...props}
-                            sensorData={sensorData}
-                            sensorLabels={sensorLabels}
-                        />
-                    )}
-                    {' '}
+                    <TemperatureChart
+                        {...props}
+                        sensorData={sensorData}
+                        sensorLabels={sensorLabels}
+                    />
                 </Card>
             </div>
         </div>
@@ -77,6 +61,5 @@ const ContainerTemperatureChart = (props) => {
 }
 
 ContainerTemperatureChart.propTypes = propTypes
-ContainerTemperatureChart.defaultProps = defaultProps
 
 export default ContainerTemperatureChart
