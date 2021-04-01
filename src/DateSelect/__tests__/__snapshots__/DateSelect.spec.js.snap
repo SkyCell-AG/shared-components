@@ -16,7 +16,7 @@ exports[`shared-components/DateSelect should match snapshot 1`] = `
       className="makeStyles-dateField-1"
     >
       <div
-        className="makeStyles-requiredMark-3 makeStyles-requiredMark-7"
+        className="makeStyles-requiredMark-3"
       />
       <PickerWithState
         allowKeyboardControl={true}
