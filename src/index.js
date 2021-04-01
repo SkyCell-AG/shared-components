@@ -31,3 +31,6 @@ export {
 export {
     default as ContainerTemperatureChart,
 } from './ContainerTemperatureChart'
+export {
+    default as ErrorBoundary,
+} from './ErrorBoundary'

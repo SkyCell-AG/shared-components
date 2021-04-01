@@ -36,4 +36,10 @@ declare module '@skycell-ag/shared-components' {
     interface ContainerTemperatureChartProps {
         serialNumber: string;
     }
+    const ContainerTemperatureChart: React.FC<ContainerTemperatureChartProps>
+
+    interface ErrorBoundaryProps {
+        children: JSX.Element
+    }
+    const ErrorBoundary: React.FC<ErrorBoundaryProps>
 }
