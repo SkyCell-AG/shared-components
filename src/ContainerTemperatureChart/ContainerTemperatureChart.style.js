@@ -1,8 +1,8 @@
 import {
     makeStyles,
-} from '@material-ui/styles'
+} from '@material-ui/core'
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles(() => {
     return {
         wrapper: {
             position: 'relative',
@@ -13,14 +13,6 @@ const useStyles = makeStyles((theme) => {
             width: '100%',
             height: '100%',
             padding: 0,
-        },
-        progres: {
-            margin: theme.spacing(0.25),
-        },
-        loading: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
         },
         chartContainer: {
             position: 'relative',
