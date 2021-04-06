@@ -5,6 +5,9 @@ export {
     default as Route,
 } from './Route'
 export {
+    default as Loading,
+} from './Loading'
+export {
     default as LoadingScreen,
 } from './LoadingScreen'
 export {

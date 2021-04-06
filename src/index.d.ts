@@ -16,6 +16,11 @@ declare module '@skycell-ag/shared-components' {
 
     const Route: React.FC<RouteProps>
 
+    interface LoadingProps {
+        className: string;
+    }
+    const Loading: React.FC<LoadingProps>
+
     interface LoadingScreenProps {}
     const LoadingScreen: React.FC<LoadingScreenProps>
 
