@@ -14,13 +14,14 @@ import options from './options'
 import addNotationValues from './addNotationValues'
 
 import useStyles from './TemperatureChart2.style'
+import FailureMessage from './FailureMessage'
 
 const propTypes = {
     sensorData: PropTypes.arrayOf(PropTypes.shape({
-        d: PropTypes.string.isRequired,
-        t: PropTypes.string.isRequired,
-    })).isRequired,
-    sensorLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
+        d: PropTypes.arrayOf(PropTypes.number),
+        t: PropTypes.string,
+    })),
+    sensorLabels: PropTypes.arrayOf(PropTypes.string),
     onError: PropTypes.func,
     isChartPrinting: PropTypes.bool,
     onFullScreen: PropTypes.func,
@@ -30,6 +31,8 @@ const propTypes = {
 }
 
 const defaultProps = {
+    sensorData: undefined,
+    sensorLabels: undefined,
     onError: noop,
     onFullScreen: noop,
     isChartPrinting: false,
@@ -90,6 +93,9 @@ const TemperatureChart2 = (props) => {
     ])
 
     const value = useMemo(() => {
+        if (!sensorData) {
+            return []
+        }
         return sensorData.map(({
             d,
             t,
@@ -102,22 +108,30 @@ const TemperatureChart2 = (props) => {
     }, [sensorData])
 
     return (
-        <FullScreen
-            {...props}
-            className={classes.wrapper}
-            onFullScreen={onFullScreen}
-            setTemperatureChartFullscreen={setTemperatureChartFullscreen}
-        >
-            <LineChart
-                value={value}
-                columns={columns}
-                userOptions={chartOptions}
-                onError={onError}
-                className={temperatureChartFullscreen
-                    ? classes.fullscreen
-                    : chartPrinting}
-            />
-        </FullScreen>
+        <>
+            {sensorData
+                ? (
+                    <FullScreen
+                        {...props}
+                        className={classes.wrapper}
+                        onFullScreen={onFullScreen}
+                        setTemperatureChartFullscreen={setTemperatureChartFullscreen}
+                    >
+                        <LineChart
+                            value={value}
+                            columns={columns}
+                            userOptions={chartOptions}
+                            onError={onError}
+                            className={temperatureChartFullscreen
+                                ? classes.fullscreen
+                                : chartPrinting}
+                        />
+                    </FullScreen>
+                )
+                : (
+                    <FailureMessage />
+                )}
+        </>
     )
 }
 

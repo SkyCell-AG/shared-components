@@ -8,12 +8,12 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type ContainerTemperatureChartContainerQueryVariables = {|
+export type ContainerChartQueryVariables = {|
   serialNumber: string,
   from: string,
   to: string,
 |};
-export type ContainerTemperatureChartContainerQueryResponse = {|
+export type ContainerChartQueryResponse = {|
   +sensorDataContainer: ?{|
     +sensorLabels: ?$ReadOnlyArray<?string>,
     +sensorData: ?$ReadOnlyArray<?{|
@@ -22,15 +22,15 @@ export type ContainerTemperatureChartContainerQueryResponse = {|
     |}>,
   |}
 |};
-export type ContainerTemperatureChartContainerQuery = {|
-  variables: ContainerTemperatureChartContainerQueryVariables,
-  response: ContainerTemperatureChartContainerQueryResponse,
+export type ContainerChartQuery = {|
+  variables: ContainerChartQueryVariables,
+  response: ContainerChartQueryResponse,
 |};
 */
 
 
 /*
-query ContainerTemperatureChartContainerQuery(
+query ContainerChartQuery(
   $serialNumber: String!
   $from: String!
   $to: String!
@@ -144,7 +144,7 @@ return {
     ],
     "kind": "Fragment",
     "metadata": null,
-    "name": "ContainerTemperatureChartContainerQuery",
+    "name": "ContainerChartQuery",
     "selections": (v3/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -157,20 +157,20 @@ return {
       (v2/*: any*/)
     ],
     "kind": "Operation",
-    "name": "ContainerTemperatureChartContainerQuery",
+    "name": "ContainerChartQuery",
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "72b69436412522220d52aa9ffb2ce93e",
+    "cacheID": "484ce0ca872895f3a98b20d62702d21c",
     "id": null,
     "metadata": {},
-    "name": "ContainerTemperatureChartContainerQuery",
+    "name": "ContainerChartQuery",
     "operationKind": "query",
-    "text": "query ContainerTemperatureChartContainerQuery(\n  $serialNumber: String!\n  $from: String!\n  $to: String!\n) {\n  sensorDataContainer(serialNumber: $serialNumber, from: $from, to: $to, position: [AMBIENT, INTERNAL], loggerType: CARTASENSE) {\n    sensorLabels\n    sensorData {\n      d\n      t\n    }\n  }\n}\n"
+    "text": "query ContainerChartQuery(\n  $serialNumber: String!\n  $from: String!\n  $to: String!\n) {\n  sensorDataContainer(serialNumber: $serialNumber, from: $from, to: $to, position: [AMBIENT, INTERNAL], loggerType: CARTASENSE) {\n    sensorLabels\n    sensorData {\n      d\n      t\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '10e4dc4e31e934b80d0e11af1ffcba4c';
+(node/*: any*/).hash = 'd2bca1982b838c7201c7ea354e6bb25c';
 
 module.exports = node;

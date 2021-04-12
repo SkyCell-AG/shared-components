@@ -1,6 +1,4 @@
-import React, {
-    Suspense,
-} from 'react'
+import React from 'react'
 import {
     RelayEnvironmentProvider,
 } from 'react-relay/hooks'
@@ -11,7 +9,6 @@ import MomentUtils from '@date-io/moment'
 
 import ContainerTemperatureChart from 'ContainerTemperatureChart'
 import RelayEnvironment from 'RelayEnvironment'
-import Loading from 'Loading'
 
 export default {
     component: ContainerTemperatureChart,
@@ -24,17 +21,14 @@ export default {
             </MuiPickersUtilsProvider>
         )
     }],
-    title: 'ContainerTemperatureChartd',
+    title: 'ContainerTemperatureChart',
 }
 
 const Template = args => (
-    <Suspense fallback={<Loading />}>
-        <ContainerTemperatureChart
-            {...args}
-        />
-    </Suspense>
+    <ContainerTemperatureChart
+        {...args}
+    />
 )
-
 
 export const Default = Template.bind({})
 
