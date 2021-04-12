@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {
+    Suspense,
+} from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -7,22 +9,16 @@ import {
 
 import Card from 'Card'
 import DateRangeSelector from 'DateRangeSelector'
-import TemperatureChart from 'TemperatureChart2'
+import Loading from 'Loading'
 
+import ContainerChart from './ContainerChart'
 import useStyles from './ContainerTemperatureChart.style'
 
 const propTypes = {
     setRange: PropTypes.func.isRequired,
     timeRange: PropTypes.shape({
-        from: PropTypes.string,
-        to: PropTypes.string,
-    }).isRequired,
-    data: PropTypes.shape({
-        sensorLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
-        sensorData: PropTypes.arrayOf(PropTypes.shape({
-            d: PropTypes.string,
-            t: PropTypes.string,
-        })),
+        from: PropTypes.instanceOf(Date),
+        to: PropTypes.instanceOf(Date),
     }).isRequired,
 }
 
@@ -32,11 +28,7 @@ const ContainerTemperatureChart = (props) => {
     const {
         timeRange,
         setRange,
-        data,
     } = props
-
-    const sensorLabels = data?.sensorLabels
-    const sensorData = data?.sensorData
 
     return (
         <div className={classes.wrapper}>
@@ -49,11 +41,12 @@ const ContainerTemperatureChart = (props) => {
                         value={timeRange}
                         onChange={setRange}
                     />
-                    <TemperatureChart
-                        {...props}
-                        sensorData={sensorData}
-                        sensorLabels={sensorLabels}
-                    />
+                    <Suspense fallback={<Loading />}>
+                        <ContainerChart
+                            {...props}
+                            timeRange={timeRange}
+                        />
+                    </Suspense>
                 </Card>
             </div>
         </div>
