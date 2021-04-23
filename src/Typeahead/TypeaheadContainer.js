@@ -14,14 +14,17 @@ import Typeahead from './Typeahead'
 const propTypes = {
     loadOptions: PropTypes.func.isRequired,
     loadLabel: PropTypes.func,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
     valueField: PropTypes.string,
     labelField: PropTypes.string,
 }
 const defaultProps = {
     valueField: 'id',
     loadLabel: noop,
-    value: '',
+    value: undefined,
     labelField: '',
 }
 
@@ -118,10 +121,8 @@ const TypeaheadContainer = (props) => {
             return Promise.resolve(value)
         }
 
-        return labels.then(({
-            data,
-        }) => {
-            const label = data[0][labelField]
+        return labels.then((data) => {
+            const label = data[labelField]
 
             return label
         })
