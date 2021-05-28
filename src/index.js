@@ -2,6 +2,9 @@ export {
     default as TemperatureChart,
 } from './TemperatureChart'
 export {
+    default as TemperatureChart2,
+} from './TemperatureChart2'
+export {
     default as Route,
 } from './Route'
 export {
