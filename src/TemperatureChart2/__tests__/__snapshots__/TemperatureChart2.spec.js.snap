@@ -90,7 +90,7 @@ exports[`TemperatureChart success 1`] = `
       columns={
         Array [
           Array [
-            "date",
+            "datetime",
             "Date",
           ],
         ]
