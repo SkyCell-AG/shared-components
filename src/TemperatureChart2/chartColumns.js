@@ -1,5 +1,5 @@
 const chartColumns = [[
-    'date',
+    'datetime',
     'Date',
 ]]
 
