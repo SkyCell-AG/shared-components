@@ -67,6 +67,10 @@ const TemperatureChart2 = (props) => {
     const columns = useMemo(() => {
         return [
             ...chartColumns,
+            [
+                'number',
+                'Filler',
+            ],
             ...createChartColumns(sensorLabels),
         ]
     }, [sensorLabels])
@@ -94,7 +98,12 @@ const TemperatureChart2 = (props) => {
 
     const value = useMemo(() => {
         if (!sensorData) {
-            return []
+            const date = new Date()
+
+            return [[
+                new Date(date.getTime() - 24 * 60 * 60 * 1000),
+                0,
+            ]]
         }
         return sensorData.map(({
             d,
@@ -102,6 +111,7 @@ const TemperatureChart2 = (props) => {
         }) => {
             return [
                 strToDate(t),
+                0,
                 ...addNotationValues(d),
             ]
         })
@@ -109,7 +119,7 @@ const TemperatureChart2 = (props) => {
 
     return (
         <>
-            {sensorData
+            {value
                 ? (
                     <FullScreen
                         {...props}

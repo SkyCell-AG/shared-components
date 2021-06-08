@@ -18,6 +18,14 @@ const options = {
     series: [
         {
             targetAxisIndex: 0,
+            lineWidth: 0,
+            color: 'transparent',
+            pointSize: 0,
+            visibleInLegend: false,
+            tooltip: false,
+        },
+        {
+            targetAxisIndex: 0,
             lineWidth: 3,
             color: theme.palette.common.purple,
             pointSize: 6,
