@@ -39,10 +39,6 @@ const loadChart = (chartData, elm, columns, options, onError) => {
                 ],
             ]
 
-            console.log('columns', columns)
-            console.log('chartData', chartData)
-            console.log('updatedChartData', updatedChartData)
-
             data.addRows(updatedChartData)
 
             const chart = new google.visualization.LineChart(elm)
