@@ -4,6 +4,8 @@ exports[`TemperatureChart success 1`] = `
 <Fragment>
   <FullScreen
     className="makeStyles-wrapper-1"
+    customColumns={Array []}
+    customData={Array []}
     isChartPrinting={false}
     onError={[Function]}
     onFullScreen={[Function]}
@@ -45,6 +47,14 @@ exports[`TemperatureChart success 1`] = `
         },
         "curveType": "function",
         "series": Array [
+          Object {
+            "color": "transparent",
+            "lineWidth": 0,
+            "pointSize": 0,
+            "targetAxisIndex": 0,
+            "tooltip": false,
+            "visibleInLegend": false,
+          },
           Object {
             "color": "#CF3B8A",
             "lineWidth": 3,
@@ -93,6 +103,10 @@ exports[`TemperatureChart success 1`] = `
             "datetime",
             "Date",
           ],
+          Array [
+            "number",
+            "Filler",
+          ],
         ]
       }
       onError={[Function]}
@@ -107,6 +121,14 @@ exports[`TemperatureChart success 1`] = `
           },
           "curveType": "function",
           "series": Array [
+            Object {
+              "color": "transparent",
+              "lineWidth": 0,
+              "pointSize": 0,
+              "targetAxisIndex": 0,
+              "tooltip": false,
+              "visibleInLegend": false,
+            },
             Object {
               "color": "#CF3B8A",
               "lineWidth": 3,
@@ -150,6 +172,7 @@ exports[`TemperatureChart success 1`] = `
         Array [
           Array [
             2021-03-29T10:40:00.000Z,
+            0,
             18.1,
             null,
             null,
@@ -159,6 +182,7 @@ exports[`TemperatureChart success 1`] = `
           ],
           Array [
             2021-03-29T10:50:00.000Z,
+            0,
             18.1,
             null,
             null,
@@ -168,6 +192,7 @@ exports[`TemperatureChart success 1`] = `
           ],
           Array [
             2021-03-29T11:00:00.000Z,
+            0,
             18.2,
             null,
             null,

@@ -28,6 +28,8 @@ const propTypes = {
     userOptions: PropTypes.any, // eslint-disable-line
     temperatureChartFullscreen: PropTypes.bool,
     setTemperatureChartFullscreen: PropTypes.func,
+    customColumns: PropTypes.arrayOf(PropTypes.array),
+    customData: PropTypes.arrayOf(PropTypes.object),
 }
 
 const defaultProps = {
@@ -35,11 +37,15 @@ const defaultProps = {
     sensorLabels: undefined,
     onError: noop,
     onFullScreen: noop,
+    customColumns: [],
+    customData: [],
     isChartPrinting: false,
     userOptions: options,
     temperatureChartFullscreen: false,
     setTemperatureChartFullscreen: noop,
 }
+
+const DAY = 24 * 60 * 60 * 1000
 
 const TemperatureChart2 = (props) => {
     const {
@@ -51,6 +57,8 @@ const TemperatureChart2 = (props) => {
         temperatureChartFullscreen,
         setTemperatureChartFullscreen,
         onError,
+        customColumns,
+        customData,
     } = props
 
     const classes = useStyles()
@@ -67,9 +75,17 @@ const TemperatureChart2 = (props) => {
     const columns = useMemo(() => {
         return [
             ...chartColumns,
+            [
+                'number',
+                'Filler',
+            ],
             ...createChartColumns(sensorLabels),
+            ...customColumns,
         ]
-    }, [sensorLabels])
+    }, [
+        sensorLabels,
+        customColumns,
+    ])
 
     const chartPrinting = useMemo(() => {
         return isChartPrinting
@@ -94,22 +110,40 @@ const TemperatureChart2 = (props) => {
 
     const value = useMemo(() => {
         if (!sensorData) {
-            return []
+            const date = new Date()
+
+            return [[
+                new Date(date.getTime() - DAY),
+                0,
+            ]]
         }
         return sensorData.map(({
             d,
             t,
-        }) => {
+        }, i) => {
+            if (customData.length > 0) {
+                return [
+                    strToDate(t),
+                    0,
+                    ...addNotationValues(d),
+                    ...customData[i],
+                ]
+            }
+
             return [
                 strToDate(t),
+                0,
                 ...addNotationValues(d),
             ]
         })
-    }, [sensorData])
+    }, [
+        sensorData,
+        customData,
+    ])
 
     return (
         <>
-            {sensorData
+            {value
                 ? (
                     <FullScreen
                         {...props}

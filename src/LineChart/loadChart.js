@@ -10,6 +10,12 @@ const createColumns = (chart, chartColumns) => {
     })
 }
 
+const fillerNulls = (columns) => {
+    return columns.slice(1, columns.length - 1).map(() => {
+        return null
+    })
+}
+
 const loadChart = (chartData, elm, columns, options, onError) => {
     loadScript(url).then(() => {
         google.charts.load('current', {
@@ -24,7 +30,16 @@ const loadChart = (chartData, elm, columns, options, onError) => {
 
             createColumns(data, columns)
 
-            data.addRows(chartData)
+            const updatedChartData = [
+                ...chartData,
+                [
+                    new Date(),
+                    0,
+                    ...fillerNulls(columns),
+                ],
+            ]
+
+            data.addRows(updatedChartData)
 
             const chart = new google.visualization.LineChart(elm)
 
