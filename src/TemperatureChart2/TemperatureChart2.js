@@ -28,6 +28,8 @@ const propTypes = {
     userOptions: PropTypes.any, // eslint-disable-line
     temperatureChartFullscreen: PropTypes.bool,
     setTemperatureChartFullscreen: PropTypes.func,
+    customColumns: PropTypes.arrayOf(PropTypes.array),
+    customData: PropTypes.arrayOf(PropTypes.object),
 }
 
 const defaultProps = {
@@ -35,6 +37,8 @@ const defaultProps = {
     sensorLabels: undefined,
     onError: noop,
     onFullScreen: noop,
+    customColumns: [],
+    customData: [],
     isChartPrinting: false,
     userOptions: options,
     temperatureChartFullscreen: false,
@@ -51,6 +55,8 @@ const TemperatureChart2 = (props) => {
         temperatureChartFullscreen,
         setTemperatureChartFullscreen,
         onError,
+        customColumns,
+        customData,
     } = props
 
     const classes = useStyles()
@@ -72,8 +78,12 @@ const TemperatureChart2 = (props) => {
                 'Filler',
             ],
             ...createChartColumns(sensorLabels),
+            ...customColumns,
         ]
-    }, [sensorLabels])
+    }, [
+        sensorLabels,
+        customColumns,
+    ])
 
     const chartPrinting = useMemo(() => {
         return isChartPrinting
@@ -108,14 +118,26 @@ const TemperatureChart2 = (props) => {
         return sensorData.map(({
             d,
             t,
-        }) => {
+        }, i) => {
+            if (customData.length > 0) {
+                return [
+                    strToDate(t),
+                    0,
+                    ...addNotationValues(d),
+                    ...customData[i],
+                ]
+            }
+
             return [
                 strToDate(t),
                 0,
                 ...addNotationValues(d),
             ]
         })
-    }, [sensorData])
+    }, [
+        sensorData,
+        customData,
+    ])
 
     return (
         <>

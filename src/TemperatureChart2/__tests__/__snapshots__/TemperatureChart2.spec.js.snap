@@ -4,6 +4,8 @@ exports[`TemperatureChart success 1`] = `
 <Fragment>
   <FullScreen
     className="makeStyles-wrapper-1"
+    customColumns={Array []}
+    customData={Array []}
     isChartPrinting={false}
     onError={[Function]}
     onFullScreen={[Function]}
