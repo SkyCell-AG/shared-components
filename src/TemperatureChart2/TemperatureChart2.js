@@ -45,7 +45,7 @@ const defaultProps = {
     setTemperatureChartFullscreen: noop,
 }
 
-const DAY_BEFORE = 24 * 60 * 60 * 1000
+const DAY = 24 * 60 * 60 * 1000
 
 const TemperatureChart2 = (props) => {
     const {
@@ -113,7 +113,7 @@ const TemperatureChart2 = (props) => {
             const date = new Date()
 
             return [[
-                new Date(date.getTime() - DAY_BEFORE),
+                new Date(date.getTime() - DAY),
                 0,
             ]]
         }
