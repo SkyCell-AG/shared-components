@@ -29,7 +29,7 @@ const propTypes = {
     temperatureChartFullscreen: PropTypes.bool,
     setTemperatureChartFullscreen: PropTypes.func,
     customColumns: PropTypes.arrayOf(PropTypes.array),
-    customData: PropTypes.arrayOf(PropTypes.object),
+    customData: PropTypes.arrayOf(PropTypes.array),
 }
 
 const defaultProps = {
