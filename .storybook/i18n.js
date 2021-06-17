@@ -19,7 +19,7 @@ i18n.use(initReactI18next).init({
     },
     de: {
         translation: {
-          "SomeLocalizedKey": "It should be some German text"
+          "SomeLocalizedKey": "Es ist Deutsch"
         }
       }
   },
