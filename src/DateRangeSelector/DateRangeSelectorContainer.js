@@ -4,7 +4,6 @@ import React, {
 import PropTypes from 'prop-types'
 
 import dayPassedToRange from 'utils/dayPassedToRange'
-import strToDateWithCurrentTime from 'utils/strToDateWithCurrentTime'
 import dateToDateStr from 'utils/dateToDateStr'
 
 import DateRangeSelector from './DateRangeSelector'
@@ -40,7 +39,7 @@ const DateRangeSelectorContainer = ({
         const updatedData = {
             from,
             to,
-            [name]: strToDateWithCurrentTime(newValue),
+            [name]: newValue,
         }
 
         onChange(updatedData, {

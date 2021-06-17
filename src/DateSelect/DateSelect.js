@@ -18,7 +18,6 @@ import {
 import Label from 'Label'
 
 import strToDate from 'utils/strToDate'
-import dateToDateStr from 'utils/dateToDateStr'
 
 import useStyles from './DateSelect.styles'
 
@@ -58,12 +57,12 @@ const DateSelect = (props) => {
     } = props
 
     const handleOnChange = useCallback((date) => {
-        const newValue = dateToDateStr(date)
+        const newValue = new Date(date)
 
         onChange(newValue, {
             target: {
                 name,
-                value: newValue,
+                value: name === 'from' ? newValue.setHours(0, 0, 0) : newValue.setHours(23, 59, 59),
             },
         })
     }, [
