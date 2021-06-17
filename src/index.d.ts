@@ -47,4 +47,9 @@ declare module '@skycell-ag/shared-components' {
         children: JSX.Element
     }
     const ErrorBoundary: React.FC<ErrorBoundaryProps>
+   
+    interface I18nLocaleProviderProps {
+        children: JSX.Element
+    }
+    const I18nLocaleProvider: React.FC<I18nLocaleProviderProps>
 }

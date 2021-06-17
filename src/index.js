@@ -40,3 +40,6 @@ export {
 export {
     default as ErrorBoundary,
 } from './ErrorBoundary'
+export {
+    default as I18nLocaleProvider,
+} from './I18nLocaleProvider'
