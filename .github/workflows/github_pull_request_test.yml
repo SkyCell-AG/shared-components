@@ -20,8 +20,14 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Unit testing
-        run: npm run test
+        run: npm run test -- --coverage
       - name: Try to build
         run: |
           npm run compile
           npm run build-storybook
+      - name: SonarCloud
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_SHA: ${{ github.event.after }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
