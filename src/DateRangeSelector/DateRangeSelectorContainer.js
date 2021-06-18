@@ -10,8 +10,8 @@ import DateRangeSelector from './DateRangeSelector'
 
 const propTypes = {
     value: PropTypes.shape({
-        from: PropTypes.object, // eslint-disable-line
-        to: PropTypes.object, // eslint-disable-line
+        from: PropTypes.string,
+        to: PropTypes.string,
     }).isRequired,
     onChange: PropTypes.func.isRequired,
 }

@@ -41,5 +41,8 @@ export {
     default as ContainerTemperatureChart,
 } from './ContainerTemperatureChart'
 export {
+    default as I18nLocaleProvider,
+} from './I18nLocaleProvider'
+export {
     default as ErrorBoundary,
 } from './ErrorBoundary'
