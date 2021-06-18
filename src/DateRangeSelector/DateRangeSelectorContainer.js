@@ -10,8 +10,8 @@ import DateRangeSelector from './DateRangeSelector'
 
 const propTypes = {
     value: PropTypes.shape({
-        from: PropTypes.instanceOf(Date),
-        to: PropTypes.instanceOf(Date),
+        from: PropTypes.string,
+        to: PropTypes.string,
     }).isRequired,
     onChange: PropTypes.func.isRequired,
 }
