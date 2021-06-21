@@ -59,6 +59,7 @@ const DateSelect = (props) => {
     const handleOnChange = useCallback((date) => {
         const newValue = new Date(date)
 
+        console.log(newValue)
         onChange(newValue, {
             target: {
                 name,

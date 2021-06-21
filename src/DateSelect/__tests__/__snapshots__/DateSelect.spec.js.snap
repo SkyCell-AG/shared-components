@@ -22,7 +22,7 @@ exports[`shared-components/DateSelect should match snapshot 1`] = `
         allowKeyboardControl={true}
         animateYearScrolling={true}
         className="makeStyles-input-2"
-        data-testid="dateSelect-validFrom"
+        data-testid="dateSelect-from"
         disabled={false}
         error={false}
         format="DD.MM.YYYY"
@@ -34,7 +34,7 @@ exports[`shared-components/DateSelect should match snapshot 1`] = `
         minDateMessage="Date should not be before minimal date"
         onChange={[Function]}
         openTo="date"
-        value={2020-06-26T00:00:00.000Z}
+        value={2018-06-10T00:00:00.000Z}
         views={
           Array [
             "year",
