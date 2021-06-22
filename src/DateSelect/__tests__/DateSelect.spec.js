@@ -12,7 +12,7 @@ describe('shared-components/DateSelect', () => {
     it('should match snapshot', () => {
         const wrapper = shallow(
             <DateSelect
-                value="10.6.2018"
+                value="10.06.2018"
                 onChange={jest.fn()}
                 name="from"
             />,
@@ -27,7 +27,7 @@ describe('shared-components/DateSelect', () => {
 
         const wrapper = shallow(
             <DateSelect
-                value="10.6.2018"
+                value="10.06.2018"
                 onChange={onChange}
                 name="from"
             />,
@@ -59,7 +59,7 @@ describe('shared-components/DateSelect', () => {
 
         const wrapper = shallow(
             <DateSelect
-                value="10.6.2018"
+                value="10.06.2018"
                 onChange={onChange}
                 name="to"
             />,
