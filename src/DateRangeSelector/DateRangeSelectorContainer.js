@@ -4,15 +4,14 @@ import React, {
 import PropTypes from 'prop-types'
 
 import dayPassedToRange from 'utils/dayPassedToRange'
-import strToDateWithCurrentTime from 'utils/strToDateWithCurrentTime'
 import dateToDateStr from 'utils/dateToDateStr'
 
 import DateRangeSelector from './DateRangeSelector'
 
 const propTypes = {
     value: PropTypes.shape({
-        from: PropTypes.object, // eslint-disable-line
-        to: PropTypes.object, // eslint-disable-line
+        from: PropTypes.string,
+        to: PropTypes.string,
     }).isRequired,
     onChange: PropTypes.func.isRequired,
 }
@@ -40,7 +39,7 @@ const DateRangeSelectorContainer = ({
         const updatedData = {
             from,
             to,
-            [name]: strToDateWithCurrentTime(newValue),
+            [name]: newValue,
         }
 
         onChange(updatedData, {

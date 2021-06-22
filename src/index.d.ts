@@ -16,6 +16,13 @@ declare module '@skycell-ag/shared-components' {
 
     const Route: React.FC<RouteProps>
 
+    interface DateRangeSelectorProps {
+        value: {from: string, to: string};
+        onChange: (_: string, event: {target: {name: string, value: date}}) => void;
+    }
+
+    const DateRangeSelector: React.FC<DateRangeSelectorProps>
+
     interface LoadingProps {
         className: string;
     }

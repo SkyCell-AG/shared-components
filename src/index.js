@@ -5,6 +5,9 @@ export {
     default as TemperatureChart2,
 } from './TemperatureChart2'
 export {
+    default as DateRangeSelector,
+} from './DateRangeSelector'
+export {
     default as Route,
 } from './Route'
 export {
