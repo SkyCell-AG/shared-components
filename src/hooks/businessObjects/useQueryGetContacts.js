@@ -5,6 +5,9 @@ import {
 import {
     useQuery,
 } from 'react-query'
+import {
+    NotInitializedVariableError,
+} from 'init'
 
 const useQueryGetContacts = (queryFn) => {
     const {
@@ -24,6 +27,10 @@ const useQueryGetContacts = (queryFn) => {
         queryFn,
         enabled: Boolean(user),
         refetchOnWindowFocus: false,
+        retry: (failureCount, error) => {
+            if (error instanceof NotInitializedVariableError) return false
+            return error.statusCode === 404 && failureCount <= 3
+        },
     })
 }
 

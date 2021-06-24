@@ -5,16 +5,21 @@ import {
   } from 'react-query'
   import Auth from '@skycell-ag/auth'
 import {useUserContacts, useUserLocales} from 'hooks/businessObjects'
+import ErrorBoundary from 'ErrorBoundary'
+import { initVariables } from 'init'
 
 export default {
     decorators: [(Story) => {
         const queryClient = new QueryClient()
+        initVariables({key: 'REACT_APP_SKYMIND_API',value:'https://skymind.dev.skycell.ch'})
         return (
-            <Auth>
-                <QueryClientProvider client={queryClient}>   
-                    <Story />
-                </QueryClientProvider>          
-            </Auth>                 
+            <ErrorBoundary>
+                <Auth>
+                    <QueryClientProvider client={queryClient}>   
+                        <Story />
+                    </QueryClientProvider>          
+                </Auth>
+            </ErrorBoundary>               
         )
     }],
     title: 'Hooks',
@@ -24,11 +29,16 @@ const ComponentWithHook = (props) => {
     const {
         data,
         isLoading,
+        error,
     } = props.hook()
 
     if (isLoading) {
         return (<div>Loading</div>)
     }
+    if (error) {
+        throw error       
+    }
+    
     const formatedData = props.formater ? props.formater(data): data
     
     return (
