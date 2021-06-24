@@ -46,3 +46,7 @@ export {
 export {
     default as I18nLocaleProvider,
 } from './I18nLocaleProvider'
+export {
+    useUserContacts,
+    useUserLocales,
+} from './hooks/businessObjects'

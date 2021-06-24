@@ -4,7 +4,7 @@ import {
     QueryClientProvider,
   } from 'react-query'
   import Auth from '@skycell-ag/auth'
-import useUserContacts, {useUserLocales} from 'hooks/useUserContacts'
+import {useUserContacts, useUserLocales} from 'hooks/businessObjects'
 
 export default {
     decorators: [(Story) => {
@@ -44,7 +44,7 @@ export const UserContacts= () => {
             text="Current user contact"
             hook={useUserContacts}
             formater={(contacts)=>{
-                return contacts && contacts.length ? JSON.stringify(contacts): []
+                return contacts && contacts.length ? JSON.stringify(contacts): ''
             }}
         />  
     )
