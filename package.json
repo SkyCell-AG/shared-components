@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -26,6 +26,7 @@
     "lodash": "4.17.20",
     "moment": "2.29.1",
     "react-i18next": "11.11.0",
+    "react-query": "3.17.1",
     "react-relay": "11.0.1",
     "react-simple-maps": "2.3.0",
     "relay-runtime": "11.0.1",
@@ -62,7 +63,7 @@
     "react-dom": "17.0.1",
     "react-scripts": "4.0.1",
     "prop-types": "15.7.2",
-    "axios": "0.21.1",
+    "axios": "0.21.1",    
     "@material-ui/lab": "4.0.0-alpha.57"
   },
   "devDependencies": {
@@ -80,6 +81,7 @@
     "@testing-library/jest-dom": "5.11.9",
     "@wojtekmaj/enzyme-adapter-react-17": "0.6.0",
     "axios": "0.21.1",
+    "react-query": "3.17.1",
     "babel-plugin-module-resolver": "4.1.0",
     "babel-plugin-relay": "11.0.1",
     "chalk": "4.1.0",
