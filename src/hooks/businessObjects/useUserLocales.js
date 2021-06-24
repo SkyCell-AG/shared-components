@@ -14,7 +14,7 @@ const getLocales = flow([
     },
 ])
 
-export const useUserLocales = () => {
+const useUserLocales = () => {
     return useQueryGetContacts(getLocales)
 }
 
