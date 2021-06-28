@@ -1,6 +1,6 @@
 export {
-    default as NotInitializedVariableError,
-} from './NotInitializedVariableError'
+    default as NoEnvVarError,
+} from './NoEnvVarError'
 
 export {
     default as initVariables,
