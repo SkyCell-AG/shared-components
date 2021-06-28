@@ -1,12 +1,17 @@
 import axios from 'axios'
+import {
+    getVariable,
+} from 'init'
 
 const businessObjects = ({
     token,
     ...rest
 }) => {
+    const skymindApiURL = getVariable('REACT_APP_SKYMIND_API')
+
     return axios.request({
         ...rest,
-        baseURL: `${process.env.REACT_APP_SKYMIND_API}/business-objects`,
+        baseURL: `${skymindApiURL}/business-objects`,
         headers: {
             Authorization: `Bearer ${token}`,
         },
