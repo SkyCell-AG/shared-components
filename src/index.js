@@ -48,5 +48,5 @@ export {
 } from './I18nLocaleProvider'
 export {
     useUserContacts,
-    useUserLocales,
+    useUserAddresses,
 } from './hooks/businessObjects'

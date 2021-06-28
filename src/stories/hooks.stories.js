@@ -4,7 +4,7 @@ import {
     QueryClientProvider,
   } from 'react-query'
   import Auth from '@skycell-ag/auth'
-import {useUserContacts, useUserLocales} from 'hooks/businessObjects'
+import {useUserContacts, useUserAddresses} from 'hooks/businessObjects'
 import ErrorBoundary from 'ErrorBoundary'
 import { initVariables } from 'init'
 
@@ -64,7 +64,10 @@ export const UserContacts= () => {
     return (
         <ComponentWithHook 
             text="Current user location"
-            hook={useUserLocales}                
+            hook={useUserAddresses}
+            formater={(addresses)=>{               
+                return addresses && addresses.length ? addresses.map((address)=> address.addressName).join(', '): ''
+            }}            
         />  
     )
  }

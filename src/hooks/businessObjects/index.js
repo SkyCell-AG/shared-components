@@ -3,5 +3,5 @@ export {
 } from './useUserContacts'
 
 export {
-    default as useUserLocales,
-} from './useUserLocales'
+    default as useUserAddresses,
+} from './useUserAddresses'

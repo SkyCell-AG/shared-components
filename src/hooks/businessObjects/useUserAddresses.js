@@ -2,20 +2,20 @@ import flow from 'lodash/flow'
 import getContacts from './getContacts'
 import useQueryGetContacts from './useQueryGetContacts'
 
-const getLocales = flow([
+const getAddresses = flow([
     getContacts,
     (promise) => {
         return promise.then((contacts) => {
             if (!contacts || contacts.length === 0) return []
             return contacts.map((contact) => {
-                return contact.address.addressName
+                return contact.address
             })
         })
     },
 ])
 
-const useUserLocales = () => {
-    return useQueryGetContacts(getLocales)
+const useUserAddresses = () => {
+    return useQueryGetContacts(getAddresses)
 }
 
-export default useUserLocales
+export default useUserAddresses
