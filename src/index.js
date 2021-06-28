@@ -50,3 +50,6 @@ export {
     useUserContacts,
     useUserAddresses,
 } from './hooks/businessObjects'
+export {
+    initVariables,
+} from './init'
