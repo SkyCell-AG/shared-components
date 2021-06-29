@@ -4,7 +4,7 @@ import {
     QueryClientProvider,
   } from 'react-query'
   import Auth from '@skycell-ag/auth'
-import {useUserContacts, useUserAddresses} from 'hooks/businessObjects'
+import {useUserContacts, useUserAddresses, useProcesses} from 'hooks/businessObjects'
 import ErrorBoundary from 'ErrorBoundary'
 import { initVariables } from 'init'
 
@@ -30,7 +30,7 @@ const ComponentWithHook = (props) => {
         data,
         isLoading,
         error,
-    } = props.hook()
+    } = props.hook(props.hookParams)
 
     if (isLoading) {
         return (<div>Loading</div>)
@@ -67,6 +67,19 @@ export const UserContacts= () => {
             hook={useUserAddresses}
             formater={(addresses)=>{               
                 return addresses && addresses.length ? addresses.map((address)=> address.addressName).join(', '): ''
+            }}            
+        />  
+    )
+ }
+
+ export const LocalesProcesses= () => {
+    return (
+        <ComponentWithHook 
+            text="Available Processes's names for Location with id=2"
+            hook={useProcesses}
+            hookParams={2}
+            formater={(processes)=>{               
+                return processes && processes.length ? processes.map((process)=> process.processLabel).join(', '): ''
             }}            
         />  
     )
