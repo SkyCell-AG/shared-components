@@ -2,11 +2,9 @@ import NoEnvVarError from './NoEnvVarError'
 
 const EnvVariables = new Map()
 
-const initVariables = (...variables) => {
-    variables.forEach(({
-        key, value,
-    }) => {
-        EnvVariables.set(key, value)
+const initVariables = (variables) => {
+    Object.keys(variables).forEach((key) => {
+        EnvVariables.set(key, variables[key])
     })
 }
 
