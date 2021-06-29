@@ -11,7 +11,7 @@ import { initVariables } from 'init'
 export default {
     decorators: [(Story) => {
         const queryClient = new QueryClient()
-        initVariables({key: 'REACT_APP_SKYMIND_API',value:'https://skymind.dev.skycell.ch'})
+        initVariables({'REACT_APP_SKYMIND_API': 'https://skymind.dev.skycell.ch'})
         return (
             <ErrorBoundary>
                 <Auth>
