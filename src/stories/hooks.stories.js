@@ -4,7 +4,12 @@ import {
     QueryClientProvider,
   } from 'react-query'
   import Auth from '@skycell-ag/auth'
-import {useUserContacts, useUserAddresses, useProcesses} from 'hooks/businessObjects'
+import {
+    useUserContacts,
+    useUserAddresses,
+    useProcesses,
+    useUserLocations,
+} from 'hooks/businessObjects'
 import ErrorBoundary from 'ErrorBoundary'
 import { initVariables } from 'init'
 
@@ -60,13 +65,25 @@ export const UserContacts= () => {
     )
  }
 
- export const UserLocales= () => {
+ export const UserAddresses= () => {
     return (
         <ComponentWithHook 
-            text="Current user location"
+            text="Current user adresses"
             hook={useUserAddresses}
             formater={(addresses)=>{               
                 return addresses && addresses.length ? addresses.map((address)=> address.addressName).join(', '): ''
+            }}            
+        />  
+    )
+ }
+ export const UserLocations= () => {
+    return (
+        <ComponentWithHook 
+            text="Current user locations"
+            hook={useUserLocations}
+            formater={(locations)=>{  
+                console.log(locations)             
+                return locations && locations.length ? locations.map((location)=> location.locationName).join(', '): ''
             }}            
         />  
     )
