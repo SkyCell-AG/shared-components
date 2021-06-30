@@ -5,8 +5,7 @@ import useQueryGetContacts from './useQueryGetContacts'
 const getLocations = flow([
     getContacts,
     (promise) => {
-        return promise.then((contacts) => {
-            if (!contacts || contacts.length === 0) return []
+        return promise.then((contacts = []) => {
             return contacts.map((contact) => {
                 return contact.location
             })

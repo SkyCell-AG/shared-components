@@ -81,8 +81,7 @@ export const UserContacts= () => {
         <ComponentWithHook 
             text="Current user locations"
             hook={useUserLocations}
-            formater={(locations)=>{  
-                console.log(locations)             
+            formater={(locations)=>{
                 return locations && locations.length ? locations.map((location)=> location.locationName).join(', '): ''
             }}            
         />  
@@ -92,9 +91,9 @@ export const UserContacts= () => {
  export const LocalesProcesses= () => {
     return (
         <ComponentWithHook 
-            text="Available Processes's names for Location with id=2"
+            text="Available Processes's names for Location with id=1"
             hook={useProcesses}
-            hookParams={2}
+            hookParams={1}
             formater={(processes)=>{               
                 return processes && processes.length ? processes.map((process)=> process.processLabel).join(', '): ''
             }}            
