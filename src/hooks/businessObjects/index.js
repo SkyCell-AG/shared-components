@@ -9,3 +9,7 @@ export {
 export {
     default as useProcesses,
 } from './useProcesses'
+
+export {
+    default as useUserLocations,
+} from './useUserLocations'
