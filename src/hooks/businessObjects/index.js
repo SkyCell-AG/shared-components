@@ -13,3 +13,7 @@ export {
 export {
     default as useUserLocations,
 } from './useUserLocations'
+
+export {
+    default as useEmptyProcess,
+} from './useEmptyProcess'
