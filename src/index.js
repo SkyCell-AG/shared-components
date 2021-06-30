@@ -54,3 +54,6 @@ export {
 export {
     initVariables,
 } from './init'
+export {
+    default as businessObjects,
+} from './services/businessObjects'
