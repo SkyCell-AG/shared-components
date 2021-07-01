@@ -27,7 +27,7 @@ const getEmptyProcess = ({
     })
 }
 
-function useContacts(process) {
+function useEmptyProcess(process) {
     const token = useJWTToken()
 
     return useQuery({
