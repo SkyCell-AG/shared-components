@@ -43,4 +43,4 @@ function useEmptyProcess(process) {
     })
 }
 
-export default useContacts
+export default useEmptyProcess
