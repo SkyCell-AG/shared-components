@@ -5,7 +5,7 @@ import {
     useQuery,
 } from 'react-query'
 
-import businessObjects from 'services/businessObjects'
+import requestBusinessObjects from 'services/requestBusinessObjects'
 
 const getEmptyProcess = ({
     queryKey: [
@@ -17,9 +17,9 @@ const getEmptyProcess = ({
         },
     ],
 }) => {
-    return businessObjects({
+    return requestBusinessObjects({
         method: 'GET',
-        url: '/v1/process/empty',
+        url: 'process/empty',
         params: {
             process,
         },

@@ -1,4 +1,4 @@
-import businessObjects from 'services/businessObjects'
+import requestBusinessObjects from 'services/requestBusinessObjects'
 
 const getContacts = ({
     queryKey: [
@@ -9,9 +9,9 @@ const getContacts = ({
         },
     ],
 }) => {
-    return businessObjects({
+    return requestBusinessObjects({
         method: 'POST',
-        url: '/v1/contact/filter',
+        url: 'contact/filter',
         data: {
             includeFilters: {
                 email: [email],

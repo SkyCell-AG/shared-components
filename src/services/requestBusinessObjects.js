@@ -3,7 +3,7 @@ import {
     getVariable,
 } from 'init'
 
-const businessObjects = ({
+const requestBusinessObjects = ({
     token,
     ...rest
 }) => {
@@ -11,11 +11,11 @@ const businessObjects = ({
 
     return axios.request({
         ...rest,
-        baseURL: `${skymindApiURL}/business-objects`,
+        baseURL: `${skymindApiURL}/business-objects/v1/`,
         headers: {
             Authorization: `Bearer ${token}`,
         },
     })
 }
 
-export default businessObjects
+export default requestBusinessObjects

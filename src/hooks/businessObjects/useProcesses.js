@@ -7,7 +7,7 @@ import {
 import {
     NoEnvVarError,
 } from 'init'
-import businessObjects from 'services/businessObjects'
+import requestBusinessObjects from 'services/requestBusinessObjects'
 
 const getProcesses = ({
     queryKey: [
@@ -18,9 +18,9 @@ const getProcesses = ({
         },
     ],
 }) => {
-    return businessObjects({
+    return requestBusinessObjects({
         method: 'GET',
-        url: `/v1/process/available?location=${location}`,
+        url: `process/available?location=${location}`,
         token,
     })
         .then((data) => {
