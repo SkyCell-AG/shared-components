@@ -51,6 +51,7 @@ export {
     useUserAddresses,
     useProcesses,
     useUserLocations,
+    useEmptyProcess,
 } from './hooks/businessObjects'
 export {
     initVariables,
