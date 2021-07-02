@@ -55,7 +55,8 @@ export {
 } from './hooks/businessObjects'
 export {
     initVariables,
+    NoEnvVarError,
 } from './init'
 export {
-    default as businessObjects,
-} from './services/businessObjects'
+    default as requestBusinessObjects,
+} from './services/requestBusinessObjects'
