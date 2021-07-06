@@ -24,6 +24,8 @@ const getEmptyProcess = ({
             process,
         },
         token,
+    }).then((response) => {
+        return response.data
     })
 }
 
