@@ -1,11 +1,5 @@
 import downloadDocument from '../downloadDocument'
 
-jest.mock('file-saver', () => {
-    return {
-        saveAs: jest.fn(),
-    }
-})
-
 describe('downloadDocument', () => {
     it('should download file', () => {
         global.URL.createObjectURL = jest.fn()
