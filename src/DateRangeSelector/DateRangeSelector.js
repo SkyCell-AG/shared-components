@@ -16,12 +16,14 @@ const propTypes = {
     })),
     selectOption: PropTypes.func.isRequired,
     onChangeRange: PropTypes.func.isRequired,
+    showTimeRange: PropTypes.bool,
     from: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
 }
 
 const defaultProps = {
     mini: false,
+    showTimeRange: false,
     options: [
         {
             label: '24h',
@@ -42,6 +44,7 @@ const DateRangeSelector = ({
     mini,
     options,
     selectOption,
+    showTimeRange,
     onChangeRange,
     from,
     to,
@@ -76,26 +79,28 @@ const DateRangeSelector = ({
                     })}
                 </div>
             )}
-            <div className={classes.inputsWrapper}>
-                <div className={classes.input}>
-                    <DateSelect
-                        title="From"
-                        className={classes.datePicker}
-                        onChange={onChangeRange}
-                        name="from"
-                        value={from}
-                    />
+            {showTimeRange && (
+                <div className={classes.inputsWrapper}>
+                    <div className={classes.input}>
+                        <DateSelect
+                            title="From"
+                            className={classes.datePicker}
+                            onChange={onChangeRange}
+                            name="from"
+                            value={from}
+                        />
+                    </div>
+                    <div className={classes.input}>
+                        <DateSelect
+                            title="To"
+                            className={classes.datePicker}
+                            onChange={onChangeRange}
+                            name="to"
+                            value={to}
+                        />
+                    </div>
                 </div>
-                <div className={classes.input}>
-                    <DateSelect
-                        title="To"
-                        className={classes.datePicker}
-                        onChange={onChangeRange}
-                        name="to"
-                        value={to}
-                    />
-                </div>
-            </div>
+            )}
         </div>
     )
 }
