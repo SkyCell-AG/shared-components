@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared-components/DownloadOptions should match snapshot 1`] = `
+<Card
+  className=""
+  contentClass=""
+  fullHeight={false}
+  icon=""
+  status=""
+  title="Options"
+  titleClass=""
+>
+  <div
+    className="makeStyles-containerBtn-1"
+  />
+</Card>
+`;

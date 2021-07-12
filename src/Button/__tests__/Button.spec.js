@@ -5,10 +5,24 @@ import {
 
 import Button from '../Button'
 
-it('Button snapshot', () => {
-    const wrapper = shallow(
-        <Button />,
-    )
+describe('Button', () => {
+    it('Button snapshot', () => {
+        const wrapper = shallow(
+            <Button />,
+        )
 
-    expect(wrapper).toMatchSnapshot()
+        expect(wrapper).toMatchSnapshot()
+    })
+
+    it('Button secondary snapshot', () => {
+        const wrapper = shallow(
+            <Button
+                secondary
+                disabled
+                saving
+            />,
+        )
+
+        expect(wrapper).toMatchSnapshot()
+    })
 })
