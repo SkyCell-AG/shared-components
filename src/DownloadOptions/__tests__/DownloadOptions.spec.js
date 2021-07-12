@@ -16,4 +16,18 @@ describe('shared-components/DownloadOptions', () => {
 
         expect(wrapper).toMatchSnapshot()
     })
+
+    it('should match snapshot with all buttons', () => {
+        const wrapper = shallow(
+            <DownloadOptions
+                showPdfButton
+                showCsvButton
+                showTemperatureRangeOption
+                showTempRange
+                onCheckShowTempRange={jest.fn()}
+            />,
+        )
+
+        expect(wrapper).toMatchSnapshot()
+    })
 })

@@ -15,3 +15,45 @@ exports[`shared-components/DownloadOptions should match snapshot 1`] = `
   />
 </Card>
 `;
+
+exports[`shared-components/DownloadOptions should match snapshot with all buttons 1`] = `
+<Card
+  className=""
+  contentClass=""
+  fullHeight={false}
+  icon=""
+  status=""
+  title="Options"
+  titleClass=""
+>
+  <TemperatureRange
+    onCheckShowTempRange={[MockFunction]}
+    showTempRange={true}
+    title="Temperature Range"
+  />
+  <div
+    className="makeStyles-containerBtn-1"
+  >
+    <Button
+      className="makeStyles-btnControl-2"
+      disabled={false}
+      icon={null}
+      isUpperCase={true}
+      label="pdf"
+      onClick={[Function]}
+      saving={false}
+      secondary={false}
+    />
+    <Button
+      className="makeStyles-btnControl-2"
+      disabled={false}
+      icon={null}
+      isUpperCase={true}
+      label="csv"
+      onClick={[Function]}
+      saving={false}
+      secondary={false}
+    />
+  </div>
+</Card>
+`;
