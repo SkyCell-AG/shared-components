@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox snapshot 1`] = `
+<div
+  className=""
+>
+  <WithStyles(ForwardRef(FormControlLabel))
+    control={
+      <WithStyles(ForwardRef(Checkbox))
+        checked={false}
+        color="primary"
+        disabled={false}
+        indeterminate={false}
+        name=""
+        onChange={[Function]}
+        value={false}
+      />
+    }
+    label=""
+  />
+</div>
+`;
