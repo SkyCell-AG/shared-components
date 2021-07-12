@@ -30,4 +30,25 @@ describe('shared-components/DownloadOptions', () => {
 
         expect(wrapper).toMatchSnapshot()
     })
+
+    it('should generate csv data', () => {
+        const wrapper = shallow(
+            <DownloadOptions
+                showCsvButton
+                showTempRange
+                sensorData={[[
+                    new Date('August 16, 2018 06:50:00'),
+                    24.7,
+                    null,
+                    null,
+                    21.5,
+                    null,
+                    null,
+                ]]}
+                onCheckShowTempRange={jest.fn()}
+            />,
+        )
+
+        expect(wrapper).toMatchSnapshot()
+    })
 })

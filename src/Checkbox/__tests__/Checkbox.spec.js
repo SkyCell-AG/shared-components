@@ -5,10 +5,12 @@ import {
 
 import Checkbox from '../Checkbox'
 
-it('Checkbox snapshot', () => {
-    const wrapper = shallow(
-        <Checkbox />,
-    )
+describe('Checkbox', () => {
+    it('Checkbox snapshot', () => {
+        const wrapper = shallow(
+            <Checkbox />,
+        )
 
-    expect(wrapper).toMatchSnapshot()
+        expect(wrapper).toMatchSnapshot()
+    })
 })
