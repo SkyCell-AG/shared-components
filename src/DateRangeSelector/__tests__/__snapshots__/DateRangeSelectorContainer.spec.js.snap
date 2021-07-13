@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shared-components/DateRangeSelectorContainer should match snapshot 1`] = `
+<DateRangeSelector
+  from="Invalid date"
+  mini={false}
+  onChangeRange={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "24h",
+        "value": 1,
+      },
+      Object {
+        "label": "7d",
+        "value": 7,
+      },
+      Object {
+        "label": "14d",
+        "value": 14,
+      },
+    ]
+  }
+  selectOption={[Function]}
+  showTimeRange={false}
+  to="Invalid date"
+/>
+`;
