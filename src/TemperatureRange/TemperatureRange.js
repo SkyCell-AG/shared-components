@@ -3,15 +3,11 @@ import PropTypes from 'prop-types'
 
 import Checkbox from '../Checkbox'
 
-import useStyles from './TemperatureRange.styles'
-
 const propTypes = {
     showTempRange: PropTypes.bool.isRequired,
     onCheckShowTempRange: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired,
 }
-
-const defaultProps = {}
 
 const TemperatureRange = (props) => {
     const {
@@ -20,10 +16,8 @@ const TemperatureRange = (props) => {
         title,
     } = props
 
-    const classes = useStyles()
-
     return (
-        <div className={classes.root}>
+        <div>
             <Checkbox
                 value={showTempRange}
                 onChange={(event) => {
@@ -36,6 +30,5 @@ const TemperatureRange = (props) => {
 }
 
 TemperatureRange.propTypes = propTypes
-TemperatureRange.defaultProps = defaultProps
 
 export default TemperatureRange
