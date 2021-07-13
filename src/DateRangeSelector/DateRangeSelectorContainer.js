@@ -2,6 +2,7 @@ import React, {
     useCallback,
 } from 'react'
 import PropTypes from 'prop-types'
+import noop from 'lodash/noop'
 
 import dayPassedToRange from 'utils/dayPassedToRange'
 import dateToDateStr from 'utils/dateToDateStr'
@@ -13,7 +14,11 @@ const propTypes = {
         from: PropTypes.string,
         to: PropTypes.string,
     }).isRequired,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
+}
+
+const defaultProps = {
+    onChange: noop,
 }
 
 const DateRangeSelectorContainer = ({
@@ -64,5 +69,6 @@ const DateRangeSelectorContainer = ({
 }
 
 DateRangeSelectorContainer.propTypes = propTypes
+DateRangeSelectorContainer.defaultProps = defaultProps
 
 export default DateRangeSelectorContainer
