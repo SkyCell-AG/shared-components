@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Button secondary snapshot 1`] = `
+<div
+  className="makeStyles-buttonContainer-1"
+>
+  <div
+    className="makeStyles-buttonSecondary-4 makeStyles-button-2 makeStyles-disabled-5"
+    data-testid="button-undefined"
+    onMouseDown={[Function]}
+  >
+    <WithStyles(ForwardRef(CircularProgress))
+      color="inherit"
+      size={16}
+    />
+     
+     
+    <div
+      className="makeStyles-buttonTitleUppercase-7 makeStyles-buttonTitle-6"
+    />
+  </div>
+</div>
+`;
+
+exports[`Button Button snapshot 1`] = `
+<div
+  className="makeStyles-buttonContainer-1"
+>
+  <div
+    className="makeStyles-buttonPrimary-3 makeStyles-button-2"
+    data-testid="button-undefined"
+  >
+     
+    <div
+      className="makeStyles-buttonTitleUppercase-7 makeStyles-buttonTitle-6"
+    />
+  </div>
+</div>
+`;

@@ -23,6 +23,19 @@ declare module '@skycell-ag/shared-components' {
 
     const DateRangeSelector: React.FC<DateRangeSelectorProps>
 
+    interface DownloadOptionsProps {
+        serialNumber: string,
+        showTemperatureRangeOption: boolean,
+        showPdfButton: boolean,
+        showCsvButton: boolean,
+        showTempRange: boolean,
+        onCheckShowTempRange: () => boolean,
+        sensorData: array<any>,
+        printChart: () => void,
+    }
+
+    const DownloadOptions: React.FC<DownloadOptionsProps>
+
     interface LoadingProps {
         className: string;
     }
