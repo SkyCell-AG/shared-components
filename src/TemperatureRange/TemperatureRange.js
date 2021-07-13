@@ -17,15 +17,13 @@ const TemperatureRange = (props) => {
     } = props
 
     return (
-        <div>
-            <Checkbox
-                value={showTempRange}
-                onChange={(event) => {
-                    onCheckShowTempRange(event)
-                }}
-                title={title}
-            />
-        </div>
+        <Checkbox
+            value={showTempRange}
+            onChange={(event) => {
+                onCheckShowTempRange(event)
+            }}
+            title={title}
+        />
     )
 }
 

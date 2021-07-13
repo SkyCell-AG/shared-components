@@ -1,15 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`shared-components/TemperatureRange should match snapshot 1`] = `
-<div>
-  <Checkbox
-    className=""
-    disabled={false}
-    indeterminate={false}
-    name=""
-    onChange={[Function]}
-    title="Show Temperature Range"
-    value={true}
-  />
-</div>
+<Checkbox
+  className=""
+  disabled={false}
+  indeterminate={false}
+  name=""
+  onChange={[Function]}
+  title="Show Temperature Range"
+  value={true}
+/>
 `;
