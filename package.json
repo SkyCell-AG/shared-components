@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -25,6 +25,7 @@
     "jss": "10.5.0",
     "lodash": "4.17.20",
     "moment": "2.29.1",
+    "quagga": "0.12.1",
     "react-i18next": "11.11.0",
     "react-query": "3.17.1",
     "react-relay": "11.0.1",
@@ -59,12 +60,12 @@
     ]
   },
   "peerDependencies": {
+    "@material-ui/lab": "4.0.0-alpha.57",
+    "axios": "0.21.1",
+    "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-scripts": "4.0.1",
-    "prop-types": "15.7.2",
-    "axios": "0.21.1",
-    "@material-ui/lab": "4.0.0-alpha.57"
+    "react-scripts": "4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "7.12.17",
@@ -78,10 +79,11 @@
     "@storybook/node-logger": "6.1.18",
     "@storybook/preset-create-react-app": "3.1.6",
     "@storybook/react": "6.1.18",
+    "@testing-library/react": "11.2.7",
+    "@testing-library/react-hooks": "7.0.1",
     "@testing-library/jest-dom": "5.11.9",
     "@wojtekmaj/enzyme-adapter-react-17": "0.6.0",
     "axios": "0.21.1",
-    "react-query": "3.17.1",
     "babel-plugin-module-resolver": "4.1.0",
     "babel-plugin-relay": "11.0.1",
     "chalk": "4.1.0",
@@ -93,8 +95,10 @@
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-query": "3.17.1",
     "react-scripts": "4.0.3",
-    "relay-compiler": "11.0.1"
+    "relay-compiler": "11.0.1",
+    "react-test-renderer": "17.0.1"
   },
   "license": "MIT",
   "jest": {
