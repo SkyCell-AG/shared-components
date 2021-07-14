@@ -10,8 +10,9 @@ describe('BarcodeReader', () => {
     it('should match snapshot', () => {
         const props = {
             onChange: jest.fn(),
-            decoder: jest.fn(),
             label: 'barcode',
+            skipButton: () => { return (<span>test</span>) },
+            onSubmit: jest.fn(),
         }
 
         const wrapper = shallow(
