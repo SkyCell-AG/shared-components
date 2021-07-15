@@ -72,3 +72,8 @@ export {
 export {
     default as requestBusinessObjects,
 } from './services/requestBusinessObjects'
+
+export {
+    default as BarcodeReader,
+    getContainerNumberFromGRAI,
+} from './BarcodeReader'
