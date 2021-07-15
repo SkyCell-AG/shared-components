@@ -18,7 +18,8 @@ const propTypes = {
     onChange: PropTypes.func.isRequired,
     decoder: PropTypes.func,
     onSubmit: PropTypes.func,
-    skipButton: PropTypes.any, // eslint-disable-line react/forbid-prop-types
+    skipButton: PropTypes.any, // eslint-disable-line react/forbid-prop-types,
+    classes: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 }
 
 const defaultProps = {
@@ -27,6 +28,7 @@ const defaultProps = {
     },
     onSubmit: undefined,
     skipButton: undefined,
+    classes: {},
 }
 
 const BarcodeReader = ({
@@ -35,10 +37,10 @@ const BarcodeReader = ({
     decoder,
     onSubmit,
     skipButton: Component,
-    ...rest
+    classes: classesProps,
 }) => {
     const classes = useStyles({
-        ...rest,
+        classes: classesProps,
     })
     const videoInput = useRef(null)
 
