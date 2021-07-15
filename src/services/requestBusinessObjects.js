@@ -5,7 +5,7 @@ import {
 
 const requestBusinessObjects = ({
     token,
-    headers,
+    headers = {},
     ...rest
 }) => {
     const skymindApiURL = getVariable('REACT_APP_SKYMIND_API')
