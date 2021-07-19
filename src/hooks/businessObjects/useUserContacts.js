@@ -1,8 +1,8 @@
 import getContacts from './getContacts'
-import useQueryGetContacts from './useQueryGetContacts'
+import useQueryGetUserContacts from './useQueryGetUserContacts'
 
 const useUserContacts = () => {
-    return useQueryGetContacts(getContacts)
+    return useQueryGetUserContacts(getContacts)
 }
 
 export default useUserContacts

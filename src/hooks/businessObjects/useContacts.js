@@ -1,6 +1,5 @@
 import {
     useJWTToken,
-    useAuth,
 } from '@skycell-ag/auth'
 import {
     useQuery,
@@ -8,24 +7,21 @@ import {
 import {
     NoEnvVarError,
 } from 'init'
+import getContacts from './getContacts'
 
-const useQueryGetContacts = (queryFn) => {
-    const {
-        user,
-    } = useAuth()
-
+const useContacts = (emailsFilter) => {
     const token = useJWTToken()
 
     return useQuery({
         queryKey: [
             'getContacts',
             {
-                email: user?.email,
+                emails: emailsFilter,
                 token,
             },
         ],
-        queryFn,
-        enabled: Boolean(user),
+        queryFn: getContacts,
+        enabled: Boolean(emailsFilter && emailsFilter.length > 0),
         refetchOnWindowFocus: false,
         retry: (failureCount, error) => {
             if (error instanceof NoEnvVarError) {
@@ -36,4 +32,4 @@ const useQueryGetContacts = (queryFn) => {
     })
 }
 
-export default useQueryGetContacts
+export default useContacts

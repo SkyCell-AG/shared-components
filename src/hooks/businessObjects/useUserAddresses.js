@@ -1,6 +1,6 @@
 import flow from 'lodash/flow'
 import getContacts from './getContacts'
-import useQueryGetContacts from './useQueryGetContacts'
+import useQueryGetUserContacts from './useQueryGetUserContacts'
 
 const getAddresses = flow([
     getContacts,
@@ -15,7 +15,7 @@ const getAddresses = flow([
 ])
 
 const useUserAddresses = () => {
-    return useQueryGetContacts(getAddresses)
+    return useQueryGetUserContacts(getAddresses)
 }
 
 export default useUserAddresses

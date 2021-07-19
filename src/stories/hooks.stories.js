@@ -10,6 +10,7 @@ import {
     useProcesses,
     useUserLocations,
     useEmptyProcess,
+    useContacts,
 } from 'hooks/businessObjects'
 import ErrorBoundary from 'ErrorBoundary'
 import { initVariables } from 'init'
@@ -94,7 +95,7 @@ export const LocalesProcesses = () => {
         <ComponentWithHook
             text="Available Processes's names for Location with id=1"
             hook={useProcesses}
-            hookParams={1}
+            hookParams={4}
             formater={(processes) => {
                 return processes && processes.length ? processes.map((process) => process.processLabel).join(', ') : ''
             }}
@@ -115,4 +116,19 @@ export const EmptyProcess = () => {
     )
 }
 
+export const ContactsByEmails = () => {
+    return (
+        <ComponentWithHook
+            text="Contacts for emails 'christian.wegmann@skycell.ch' and 'julia.miklevska@skycell.ch'"
+            hook={useContacts}
+            hookParams={[
+            "christian.wegmann@skycell.ch",
+            "julia.miklevska@skycell.ch",
+            ]}
+            formater={(contacts) => {
+                return contacts && contacts.length ? contacts.map((contact) => contact.contactName).join(', ') : ''
+            }}
+        />
+    )
+}
 

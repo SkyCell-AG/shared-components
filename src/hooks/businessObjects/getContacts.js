@@ -4,7 +4,7 @@ const getContacts = ({
     queryKey: [
         _key, // eslint-disable-line no-unused-vars
         {
-            email,
+            emails,
             token,
         },
     ],
@@ -14,7 +14,7 @@ const getContacts = ({
         url: 'contact/filter',
         data: {
             includeFilters: {
-                email: [email],
+                email: emails,
             },
             start: 0,
             rows: 50,
