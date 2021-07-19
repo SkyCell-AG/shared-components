@@ -63,6 +63,17 @@ declare module '@skycell-ag/shared-components' {
     }
     const ContainerTemperatureChart: React.FC<ContainerTemperatureChartProps>
 
+    const dayPassedToRange: (value: string) => object
+
+    const dateToDateStr: (d: object) => object
+
+    const dateToISO: (d: object) => object
+
+    const dateToStr: (date: object, mask: string) => string
+
+    const strToDate: (str: string, mask: string) => object
+
+    const addNotationValues: (data: object) => array
     interface ErrorBoundaryProps {
         children: JSX.Element
     }
