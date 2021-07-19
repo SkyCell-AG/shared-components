@@ -50,6 +50,18 @@ export {
     default as generateAsyncActions,
 } from './utils/generateAsyncActions'
 export {
+    default as dayPassedToRange,
+} from './utils/dayPassedToRange'
+export {
+    default as strToDate,
+} from './utils/strToDate'
+export {
+    default as dateToISO,
+} from './utils/dateToISO'
+export {
+    default as addNotationValues,
+} from './utils/addNotationValues'
+export {
     default as ContainerTemperatureChart,
 } from './ContainerTemperatureChart'
 export {
