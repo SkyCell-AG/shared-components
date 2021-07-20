@@ -11,7 +11,7 @@ import strToDate from 'utils/strToDate'
 import createChartColumns from './createChartColumns'
 import chartColumns from './chartColumns'
 import options from './options'
-import addNotationValues from './addNotationValues'
+import addNotationValues from '../utils/addNotationValues'
 
 import useStyles from './TemperatureChart2.style'
 import FailureMessage from './FailureMessage'
