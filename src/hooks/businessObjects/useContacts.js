@@ -4,9 +4,7 @@ import {
 import {
     useQuery,
 } from 'react-query'
-import {
-    NoEnvVarError,
-} from 'init'
+import queryRetry from './query-utils'
 import getContacts from './getContacts'
 
 const useContacts = (emailsFilter) => {
@@ -23,12 +21,7 @@ const useContacts = (emailsFilter) => {
         queryFn: getContacts,
         enabled: Boolean(emailsFilter && emailsFilter.length > 0),
         refetchOnWindowFocus: false,
-        retry: (failureCount, error) => {
-            if (error instanceof NoEnvVarError) {
-                return false
-            }
-            return error.statusCode === 404 && failureCount <= 3
-        },
+        retry: queryRetry,
     })
 }
 

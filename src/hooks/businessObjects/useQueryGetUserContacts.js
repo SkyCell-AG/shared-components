@@ -5,9 +5,7 @@ import {
 import {
     useQuery,
 } from 'react-query'
-import {
-    NoEnvVarError,
-} from 'init'
+import queryRetry from './query-utils'
 
 const useQueryGetUserContacts = (queryFn) => {
     const {
@@ -27,12 +25,7 @@ const useQueryGetUserContacts = (queryFn) => {
         queryFn,
         enabled: Boolean(user),
         refetchOnWindowFocus: false,
-        retry: (failureCount, error) => {
-            if (error instanceof NoEnvVarError) {
-                return false
-            }
-            return error.statusCode === 404 && failureCount <= 3
-        },
+        retry: queryRetry,
     })
 }
 
