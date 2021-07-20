@@ -5,11 +5,11 @@ import {
 } from 'react-query'
 import requestBusinessObjects from 'services/requestBusinessObjects'
 
-const queryClient = new QueryClient()
-
 export const queryWrapper = ({
     children,
 }) => {
+    const queryClient = new QueryClient()
+
     return (
         <QueryClientProvider client={queryClient}>
             {children}
