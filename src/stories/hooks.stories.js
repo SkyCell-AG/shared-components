@@ -125,7 +125,7 @@ export const EmptyProcessForAssets = () => {
             hookParams={'RECEIVING'}
             moreHookParams={{
                 assetNumber: '011-10186',
-                locationId: 4,
+                location: 4,
              }}
             formater={(process) => {
                 return process? JSON.stringify(process) : ''
