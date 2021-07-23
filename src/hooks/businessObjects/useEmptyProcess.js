@@ -44,6 +44,7 @@ function useEmptyProcess(process, params = {}) {
             },
         ],
         queryFn: getEmptyProcess,
+        enabled: Boolean(process),
         refetchOnWindowFocus: false,
     })
 }
