@@ -37,7 +37,7 @@ const ComponentWithHook = (props) => {
         data,
         isLoading,
         error,
-    } = props.hook(props.hookParams)
+    } = props.hook(props.hookParams, props.moreHookParams)
 
     if (isLoading) {
         return (<div>Loading</div>)
@@ -54,6 +54,7 @@ const ComponentWithHook = (props) => {
         </div>
     )
 }
+
 
 export const UserContacts = () => {
     return (
@@ -108,9 +109,26 @@ export const EmptyProcess = () => {
         <ComponentWithHook
             text="Empty Process for SENDING"
             hook={useEmptyProcess}
-            hookParams={'SENDING'}
+            hookParams={'RECEIVING'}
             formater={(process) => {
                 return process ? process.processLabel : ''
+            }}
+        />
+    )
+}
+
+export const EmptyProcessForAssets = () => {
+    return (
+        <ComponentWithHook
+            text="Empty Process RECEIVING for 011-10186 asset"
+            hook={useEmptyProcess}
+            hookParams={'RECEIVING'}
+            moreHookParams={{
+                assetNumber: '011-10186',
+                locationId: 4,
+             }}
+            formater={(process) => {
+                return process? JSON.stringify(process) : ''
             }}
         />
     )

@@ -14,6 +14,7 @@ const getEmptyProcess = ({
         {
             process,
             token,
+            params,
         },
     ],
 }) => {
@@ -22,6 +23,7 @@ const getEmptyProcess = ({
         url: 'process/empty',
         params: {
             process,
+            ...params,
         },
         token,
     }).then((response) => {
@@ -29,7 +31,7 @@ const getEmptyProcess = ({
     })
 }
 
-function useEmptyProcess(process) {
+function useEmptyProcess(process, params = {}) {
     const token = useJWTToken()
 
     return useQuery({
@@ -38,6 +40,7 @@ function useEmptyProcess(process) {
             {
                 token,
                 process,
+                params,
             },
         ],
         queryFn: getEmptyProcess,
