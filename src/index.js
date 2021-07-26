@@ -77,6 +77,7 @@ export {
     useUserLocations,
     useEmptyProcess,
     useContacts,
+    useAttachment,
 } from './hooks/businessObjects'
 export {
     initVariables,
