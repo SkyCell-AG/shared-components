@@ -50,14 +50,16 @@ export {
     default as generateAsyncActions,
 } from './utils/generateAsyncActions'
 export {
-    default as dayPassedToRange,
-} from './utils/dayPassedToRange'
-export {
-    default as strToDate,
-} from './utils/strToDate'
-export {
-    default as dateToISO,
-} from './utils/dateToISO'
+    dateMask,
+    dateTimeMask,
+    dateTimeZonedMask,
+    dateToDateStr,
+    dateToISO,
+    dateToStr,
+    dayPassedToRange,
+    strToDate,
+    strToDateWithCurrentTime,
+} from './utils/Date'
 export {
     default as addNotationValues,
 } from './utils/addNotationValues'

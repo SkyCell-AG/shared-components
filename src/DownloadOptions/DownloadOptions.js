@@ -4,8 +4,10 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
-import dateToStr from '../utils/dateToStr'
-import dateTimeMask from '../utils/dateTimeMask'
+import {
+    dateToStr,
+    dateTimeMask,
+} from '../utils/Date'
 import downloadDocument from '../utils/downloadDocument'
 
 import Button from '../Button'

@@ -6,7 +6,9 @@ import noop from 'lodash/noop'
 
 import LineChart from 'LineChart'
 import FullScreen from 'FullScreen'
-import strToDate from 'utils/strToDate'
+import {
+    strToDate,
+} from 'utils/Date'
 
 import createChartColumns from './createChartColumns'
 import chartColumns from './chartColumns'

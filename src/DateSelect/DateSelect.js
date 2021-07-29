@@ -17,7 +17,9 @@ import {
 
 import Label from 'Label'
 
-import strToDate from 'utils/strToDate'
+import {
+    strToDate,
+} from 'utils/Date'
 
 import useStyles from './DateSelect.styles'
 
