@@ -7,7 +7,7 @@ import noop from 'lodash/noop'
 import {
     dateToStr,
     dateTimeMask,
-} from '../utils/Date'
+} from '../utils/DateUtils'
 import downloadDocument from '../utils/downloadDocument'
 
 import Button from '../Button'

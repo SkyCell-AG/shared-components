@@ -6,7 +6,7 @@ import DateSelect from 'DateSelect'
 import rangeToDayPassed from 'utils/rangeToDayPassed'
 import {
     strToDate,
-} from 'utils/Date'
+} from 'utils/DateUtils'
 
 import useStyles from './DateRangeSelector.style'
 

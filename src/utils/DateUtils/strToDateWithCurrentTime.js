@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-import strToDate from 'utils/Date/strToDate'
+import strToDate from './strToDate'
 
 const strToDateWithCurrentTime = (dateStr) => {
     const currentDate = moment()

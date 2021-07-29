@@ -19,7 +19,7 @@ import Label from 'Label'
 
 import {
     strToDate,
-} from 'utils/Date'
+} from 'utils/DateUtils'
 
 import useStyles from './DateSelect.styles'
 

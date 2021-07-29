@@ -7,7 +7,7 @@ import graphql from 'babel-plugin-relay/macro' // eslint-disable-line
 
 import {
     dateToISO,
-} from 'utils/Date'
+} from 'utils/DateUtils'
 import TemperatureChart from 'TemperatureChart2'
 
 const propTypes = {

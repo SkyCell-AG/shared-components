@@ -4,7 +4,7 @@ import React, {
 
 import {
     dayPassedToRange,
-} from 'utils/Date'
+} from 'utils/DateUtils'
 
 import ContainerTemperatureChart from './ContainerTemperatureChart'
 

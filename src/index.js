@@ -49,17 +49,7 @@ export {
 export {
     default as generateAsyncActions,
 } from './utils/generateAsyncActions'
-export {
-    dateMask,
-    dateTimeMask,
-    dateTimeZonedMask,
-    dateToDateStr,
-    dateToISO,
-    dateToStr,
-    dayPassedToRange,
-    strToDate,
-    strToDateWithCurrentTime,
-} from './utils/Date'
+export * from './utils/DateUtils'
 export {
     default as addNotationValues,
 } from './utils/addNotationValues'

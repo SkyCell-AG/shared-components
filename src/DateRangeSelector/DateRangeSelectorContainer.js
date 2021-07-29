@@ -7,7 +7,7 @@ import noop from 'lodash/noop'
 import {
     dayPassedToRange,
     dateToDateStr,
-} from 'utils/Date'
+} from 'utils/DateUtils'
 
 import DateRangeSelector from './DateRangeSelector'
 
