@@ -4,7 +4,9 @@ import clsx from 'clsx'
 
 import DateSelect from 'DateSelect'
 import rangeToDayPassed from 'utils/rangeToDayPassed'
-import strToDate from 'utils/strToDate'
+import {
+    strToDate,
+} from 'utils/DateUtils'
 
 import useStyles from './DateRangeSelector.style'
 

@@ -2,7 +2,9 @@ import React, {
     useState,
 } from 'react'
 
-import dayPassedToRange from 'utils/dayPassedToRange'
+import {
+    dayPassedToRange,
+} from 'utils/DateUtils'
 
 import ContainerTemperatureChart from './ContainerTemperatureChart'
 
