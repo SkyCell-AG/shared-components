@@ -31,23 +31,25 @@ const defaultProps = {
     excursion: undefined,
 }
 
+const grey = '#00000066'
+
 const axisStyle = {
     axisLabel: {
         fontSize: 8,
         padding: 30,
-        fill: '#00000066',
+        fill: grey,
         fontFamily: 'Arimo, Roboto, Arial, sans-serif',
     },
     tickLabels: {
         fontSize: 8,
         padding: 2,
         fontFamily: 'Arimo, Roboto, Arial, sans-serif',
-        fill: '#00000066',
+        fill: grey,
     },
 }
 
 const axisLineStyle = {
-    stroke: '#00000066',
+    stroke: grey,
 }
 
 const generateBorderLabel = (title) => {
@@ -73,7 +75,7 @@ const rangeLineStyle = {
         strokeWidth: 1.5,
     },
     parent: {
-        border: '1px solid #00000066',
+        border: `1px solid ${grey}`,
     },
     labels: {
         fontSize: 8,
@@ -158,7 +160,7 @@ const TemperatureChart = ({
             <VictoryAxis style={{
                 ...axisStyle,
                 axis: {
-                    stroke: '#00000066',
+                    stroke: grey,
                     strokeWidth: 1,
                 },
             }}
