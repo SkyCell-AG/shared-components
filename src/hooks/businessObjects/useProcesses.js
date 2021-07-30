@@ -20,7 +20,7 @@ const getProcesses = ({
 }) => {
     return requestBusinessObjects({
         method: 'GET',
-        url: `process/available?location=${location}`,
+        url: `process/availableprocesses?location=${location}`,
         token,
     })
         .then((data) => {

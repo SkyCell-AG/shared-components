@@ -49,15 +49,7 @@ export {
 export {
     default as generateAsyncActions,
 } from './utils/generateAsyncActions'
-export {
-    default as dayPassedToRange,
-} from './utils/dayPassedToRange'
-export {
-    default as strToDate,
-} from './utils/strToDate'
-export {
-    default as dateToISO,
-} from './utils/dateToISO'
+export * from './utils/DateUtils'
 export {
     default as addNotationValues,
 } from './utils/addNotationValues'
@@ -76,6 +68,8 @@ export {
     useProcesses,
     useUserLocations,
     useEmptyProcess,
+    useContacts,
+    useAttachment,
 } from './hooks/businessObjects'
 export {
     initVariables,

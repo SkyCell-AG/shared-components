@@ -10,6 +10,7 @@ import {
     useProcesses,
     useUserLocations,
     useEmptyProcess,
+    useContacts,
 } from 'hooks/businessObjects'
 import ErrorBoundary from 'ErrorBoundary'
 import { initVariables } from 'init'
@@ -36,7 +37,7 @@ const ComponentWithHook = (props) => {
         data,
         isLoading,
         error,
-    } = props.hook(props.hookParams)
+    } = props.hook(props.hookParams, props.moreHookParams)
 
     if (isLoading) {
         return (<div>Loading</div>)
@@ -53,6 +54,7 @@ const ComponentWithHook = (props) => {
         </div>
     )
 }
+
 
 export const UserContacts = () => {
     return (
@@ -94,7 +96,7 @@ export const LocalesProcesses = () => {
         <ComponentWithHook
             text="Available Processes's names for Location with id=1"
             hook={useProcesses}
-            hookParams={1}
+            hookParams={4}
             formater={(processes) => {
                 return processes && processes.length ? processes.map((process) => process.processLabel).join(', ') : ''
             }}
@@ -107,7 +109,7 @@ export const EmptyProcess = () => {
         <ComponentWithHook
             text="Empty Process for SENDING"
             hook={useEmptyProcess}
-            hookParams={'SENDING'}
+            hookParams={'RECEIVING'}
             formater={(process) => {
                 return process ? process.processLabel : ''
             }}
@@ -115,4 +117,36 @@ export const EmptyProcess = () => {
     )
 }
 
+export const EmptyProcessForAssets = () => {
+    return (
+        <ComponentWithHook
+            text="Empty Process RECEIVING for 011-10186 asset"
+            hook={useEmptyProcess}
+            hookParams={'RECEIVING'}
+            moreHookParams={{
+                assetNumber: '011-10186',
+                location: 4,
+             }}
+            formater={(process) => {
+                return process? JSON.stringify(process) : ''
+            }}
+        />
+    )
+}
+
+export const ContactsByEmails = () => {
+    return (
+        <ComponentWithHook
+            text="Contacts for emails 'christian.wegmann@skycell.ch' and 'julia.miklevska@skycell.ch'"
+            hook={useContacts}
+            hookParams={[
+            "christian.wegmann@skycell.ch",
+            "julia.miklevska@skycell.ch",
+            ]}
+            formater={(contacts) => {
+                return contacts && contacts.length ? contacts.map((contact) => contact.contactName).join(', ') : ''
+            }}
+        />
+    )
+}
 

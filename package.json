@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "3.2.1",
+  "version": "3.6.1",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -102,6 +102,11 @@
   },
   "license": "MIT",
   "jest": {
-    "globalSetup": "./src/global-setup.js"
+    "globalSetup": "./src/global-setup.js",
+    "coverageReporters": [
+      "lcov",
+      "html",
+      "json-summary"
+    ]
   }
 }

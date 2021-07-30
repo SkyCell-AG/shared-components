@@ -5,7 +5,9 @@ import {
 } from 'react-relay'
 import graphql from 'babel-plugin-relay/macro' // eslint-disable-line
 
-import dateToISO from 'utils/dateToISO'
+import {
+    dateToISO,
+} from 'utils/DateUtils'
 import TemperatureChart from 'TemperatureChart2'
 
 const propTypes = {

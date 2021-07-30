@@ -1,29 +1,30 @@
 import requestBusinessObjects from 'services/requestBusinessObjects'
 
-const getContacts = ({
+const getAttachment = ({
     queryKey: [
         _key, // eslint-disable-line no-unused-vars
         {
-            emails,
+            file,
             token,
         },
     ],
 }) => {
+    const imgFile = new FormData()
+
+    imgFile.append('file', file)
+
     return requestBusinessObjects({
         method: 'POST',
-        url: 'contact/filter',
-        data: {
-            includeFilters: {
-                email: emails,
-            },
-            start: 0,
-            rows: 50,
-        },
+        url: 'attachment',
         token,
+        data: imgFile,
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
     })
         .then((data) => {
-            return data.data.items
+            return data.data
         })
 }
 
-export default getContacts
+export default getAttachment
