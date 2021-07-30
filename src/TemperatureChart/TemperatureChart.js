@@ -187,6 +187,7 @@ const TemperatureChart = ({
             />
             {energyLevel && (
                 <VictoryAxis
+                    data-testid="energyLevelAxis"
                     dependentAxis
                     orientation="right"
                     label="Energy Level"
@@ -211,6 +212,7 @@ const TemperatureChart = ({
             />
             {energyLevel && (
                 <VictoryLine
+                    data-testid="energyLevelLine"
                     data={energyLevelScaled}
                     style={{
                         data: {
@@ -241,6 +243,7 @@ const TemperatureChart = ({
             />
             {excursion !== undefined && (
                 <VictoryAxis
+                    data-testid="excursionAxis"
                     dependentAxis
                     label="Excursion"
                     axisValue={excursion}

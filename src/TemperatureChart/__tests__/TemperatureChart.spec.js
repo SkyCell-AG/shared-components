@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     shallow,
+    mount,
 } from 'enzyme'
 
 import TemperatureChart from '../TemperatureChart'
@@ -44,7 +45,7 @@ describe('TemperatureChart', () => {
     })
 
     it('Should not render energyLevel if energyLevel undefined', () => {
-        const wrapper = shallow(
+        const wrapper = mount(
             <TemperatureChart
                 ambient={[
                     20,
@@ -62,6 +63,28 @@ describe('TemperatureChart', () => {
             />,
         )
 
-        expect(wrapper).toMatchSnapshot()
+        expect(wrapper.find('[data-testid="energyLevelAxis"]').exists()).toEqual(false)
+        expect(wrapper.find('[data-testid="energyLevelLine"]').exists()).toEqual(false)
+    })
+
+    it('Should not render excursion if excursion undefined', () => {
+        const wrapper = mount(
+            <TemperatureChart
+                ambient={[
+                    20,
+                    52,
+                    32,
+                ]}
+                simulated={[
+                    2,
+                    3,
+                    1,
+                ]}
+                upperTempBound={8}
+                lowerTempBound={2}
+            />,
+        )
+
+        expect(wrapper.find('[data-testid="excursionAxis"]').exists()).toEqual(false)
     })
 })

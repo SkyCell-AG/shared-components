@@ -1,199 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TemperatureChart Should not render energyLevel if energyLevel undefined 1`] = `
-<VictoryChart>
-  <VictoryAxis
-    style={
-      Object {
-        "axis": Object {
-          "stroke": "#00000066",
-          "strokeWidth": 1,
-        },
-        "axisLabel": Object {
-          "fill": "#00000066",
-          "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
-          "padding": 30,
-        },
-        "tickLabels": Object {
-          "fill": "#00000066",
-          "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
-          "padding": 2,
-        },
-      }
-    }
-  />
-  <VictoryLabel
-    style={
-      Object {
-        "fill": "#00000066",
-        "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-        "fontSize": 8,
-        "padding": 30,
-      }
-    }
-    text="Temperature"
-    x={15}
-    y={55}
-  />
-  <VictoryAxis
-    dependentAxis={true}
-    gridComponent={
-      <LineSegment
-        style={
-          Object {
-            "stroke": "#00000066",
-          }
-        }
-      />
-    }
-    style={
-      Object {
-        "axis": Object {
-          "stroke": "transparent",
-        },
-        "axisLabel": Object {
-          "fill": "#00000066",
-          "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
-          "padding": 30,
-        },
-        "tickLabels": Object {
-          "fill": "#00000066",
-          "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
-          "padding": 2,
-        },
-      }
-    }
-  />
-  <VictoryLine
-    data={
-      Array [
-        2,
-        3,
-        1,
-      ]
-    }
-    style={
-      Object {
-        "data": Object {
-          "stroke": "#61c6e9",
-          "strokeWidth": 1.5,
-        },
-      }
-    }
-  />
-  <VictoryLine
-    data={
-      Array [
-        20,
-        52,
-        32,
-      ]
-    }
-    style={
-      Object {
-        "data": Object {
-          "stroke": "#cf3b8a",
-          "strokeWidth": 1.5,
-        },
-      }
-    }
-  />
-  <VictoryLine
-    data={
-      Array [
-        Object {
-          "x": 0,
-          "y": 8,
-        },
-        Object {
-          "x": 2,
-          "y": 8,
-        },
-      ]
-    }
-    labels={[Function]}
-    style={
-      Object {
-        "data": Object {
-          "stroke": "#edae49",
-          "strokeDasharray": Array [
-            3,
-            2,
-          ],
-          "strokeWidth": 1.5,
-        },
-        "labels": Object {
-          "fill": "#edae49",
-          "fontSize": 8,
-          "padding": 2,
-        },
-        "parent": Object {
-          "border": "1px solid #00000066",
-        },
-      }
-    }
-  />
-  <VictoryLine
-    data={
-      Array [
-        Object {
-          "x": 0,
-          "y": 2,
-        },
-        Object {
-          "x": 2,
-          "y": 2,
-        },
-      ]
-    }
-    labels={[Function]}
-    style={
-      Object {
-        "data": Object {
-          "stroke": "#edae49",
-          "strokeDasharray": Array [
-            3,
-            2,
-          ],
-          "strokeWidth": 1.5,
-        },
-        "labels": Object {
-          "fill": "#edae49",
-          "fontSize": 8,
-          "padding": 2,
-        },
-        "parent": Object {
-          "border": "1px solid #00000066",
-        },
-      }
-    }
-  />
-  <VictoryAxis
-    axisValue={4}
-    dependentAxis={true}
-    label="Excursion"
-    style={
-      Object {
-        "axis": Object {
-          "stroke": "red",
-        },
-        "axisLabel": Object {
-          "fontSize": 8,
-          "padding": -10,
-        },
-        "tickLabels": Object {
-          "fill": "none",
-        },
-      }
-    }
-  />
-</VictoryChart>
-`;
-
 exports[`TemperatureChart TemperatureChart success 1`] = `
 <VictoryChart>
   <VictoryAxis
@@ -263,6 +69,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     }
   />
   <VictoryAxis
+    data-testid="energyLevelAxis"
     dependentAxis={true}
     gridComponent={
       <LineSegment
@@ -328,6 +135,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         48.96,
       ]
     }
+    data-testid="energyLevelLine"
     style={
       Object {
         "data": Object {
@@ -426,6 +234,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
   />
   <VictoryAxis
     axisValue={4}
+    data-testid="excursionAxis"
     dependentAxis={true}
     label="Excursion"
     style={
