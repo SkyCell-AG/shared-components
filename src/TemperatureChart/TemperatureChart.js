@@ -8,6 +8,7 @@ import {
     VictoryChart,
     VictoryAxis,
     LineSegment,
+    VictoryLabel,
 } from 'victory'
 
 import getScale from './getScaleOffset'
@@ -30,20 +31,25 @@ const defaultProps = {
     excursion: undefined,
 }
 
+const grey = '#00000066'
+
 const axisStyle = {
     axisLabel: {
-        fontSize: 12,
-        fontStyle: 'italic',
+        fontSize: 8,
         padding: 30,
+        fill: grey,
+        fontFamily: 'Arimo, Roboto, Arial, sans-serif',
     },
     tickLabels: {
-        fontSize: 12,
+        fontSize: 8,
         padding: 2,
+        fontFamily: 'Arimo, Roboto, Arial, sans-serif',
+        fill: grey,
     },
 }
 
 const axisLineStyle = {
-    stroke: '#ccc',
+    stroke: grey,
 }
 
 const generateBorderLabel = (title) => {
@@ -66,12 +72,13 @@ const rangeLineStyle = {
             3,
             2,
         ],
+        strokeWidth: 1.5,
     },
     parent: {
-        border: '1px solid #ccc',
+        border: `1px solid ${grey}`,
     },
     labels: {
-        fontSize: 12,
+        fontSize: 8,
         padding: 2,
         fill: '#edae49',
     },
@@ -96,6 +103,10 @@ const TemperatureChart = ({
     ])
 
     const energyLevelScaled = useMemo(() => {
+        if (!energyLevel) {
+            return []
+        }
+
         return energyLevel.map((val) => { return val * scale })
     }, [
         scale,
@@ -146,59 +157,77 @@ const TemperatureChart = ({
 
     return (
         <VictoryChart>
-            <VictoryAxis
-                gridComponent={(
-                    <LineSegment
-                        style={{
-                            stroke: '#ccc',
-                        }}
-                    />
-                )}
+            <VictoryAxis style={{
+                ...axisStyle,
+                axis: {
+                    stroke: grey,
+                    strokeWidth: 1,
+                },
+            }}
+            />
+            <VictoryLabel
+                x={15}
+                y={55}
+                style={axisStyle.axisLabel}
+                text="Temperature"
             />
             <VictoryAxis
                 dependentAxis
-                label="Temperature (℃elsius)"
-                style={axisStyle}
+                style={{
+                    ...axisStyle,
+                    axis: {
+                        stroke: 'transparent',
+                    },
+                }}
                 gridComponent={(
                     <LineSegment
                         style={axisLineStyle}
                     />
                 )}
             />
-            <VictoryAxis
-                dependentAxis
-                orientation="right"
-                label="Energy Level"
-                tickValues={tickPercentValues}
-                tickFormat={tickPercentFormat}
-                style={axisStyle}
-                gridComponent={(
-                    <LineSegment
-                        style={axisLineStyle}
-                    />
-                )}
-            />
+            {energyLevel && (
+                <VictoryAxis
+                    data-testid="energyLevelAxis"
+                    dependentAxis
+                    orientation="right"
+                    label="Energy Level"
+                    tickValues={tickPercentValues}
+                    tickFormat={tickPercentFormat}
+                    style={axisStyle}
+                    gridComponent={(
+                        <LineSegment
+                            style={axisLineStyle}
+                        />
+                    )}
+                />
+            )}
             <VictoryLine
                 data={simulated}
                 style={{
                     data: {
                         stroke: '#61c6e9',
+                        strokeWidth: 1.5,
                     },
                 }}
             />
-            <VictoryLine
-                data={energyLevelScaled}
-                style={{
-                    data: {
-                        stroke: '#9e9e9e',
-                    },
-                }}
-            />
+            {energyLevel && (
+                <VictoryLine
+                    data-testid="energyLevelLine"
+                    data={energyLevelScaled}
+                    style={{
+                        data: {
+                            stroke: '#9e9e9e',
+                            strokeWidth: 1.5,
+                        },
+                    }}
+                />
+            )}
             <VictoryLine
                 data={ambient}
                 style={{
                     data: {
                         stroke: '#cf3b8a',
+                        strokeWidth: 1.5,
                     },
                 }}
             />
@@ -214,6 +243,7 @@ const TemperatureChart = ({
             />
             {excursion !== undefined && (
                 <VictoryAxis
+                    data-testid="excursionAxis"
                     dependentAxis
                     label="Excursion"
                     axisValue={excursion}
