@@ -5,15 +5,15 @@ import {
 
 import TemperatureChart from '../TemperatureChart'
 
-jest.mock('victory', () => {
-    return {
-        VictoryLine: () => { return <div>VictoryLine</div> },
-        VictoryChart: () => { return <div>VictoryChart</div> },
-        VictoryAxis: () => { return <div>VictoryAxis</div> },
-        LineSegment: () => { return <div>LineSegment</div> },
-        VictoryLabel: () => { return <div>VictoryLabel</div> },
-    }
-})
+// jest.mock('victory', () => {
+//     return {
+//         VictoryLine: () => { return <div>VictoryLine</div> },
+//         VictoryChart: () => { return <div>VictoryChart</div> },
+//         VictoryAxis: () => { return <div>VictoryAxis</div> },
+//         LineSegment: () => { return <div>LineSegment</div> },
+//         VictoryLabel: () => { return <div>VictoryLabel</div> },
+//     }
+// })
 
 describe('TemperatureChart', () => {
     it('TemperatureChart success', () => {
