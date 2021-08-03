@@ -1,7 +1,6 @@
 import React from 'react'
 import {
     shallow,
-    mount,
 } from 'enzyme'
 
 import TemperatureChart from '../TemperatureChart'
@@ -45,7 +44,7 @@ describe('TemperatureChart', () => {
     })
 
     it('Should not render energyLevel if energyLevel undefined', () => {
-        const wrapper = mount(
+        const wrapper = shallow(
             <TemperatureChart
                 ambient={[
                     20,
@@ -68,7 +67,7 @@ describe('TemperatureChart', () => {
     })
 
     it('Should not render excursion if excursion undefined', () => {
-        const wrapper = mount(
+        const wrapper = shallow(
             <TemperatureChart
                 ambient={[
                     20,
