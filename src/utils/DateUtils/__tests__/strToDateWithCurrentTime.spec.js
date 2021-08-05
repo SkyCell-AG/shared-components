@@ -4,11 +4,7 @@ import strToDateWithCurrentTime from '../strToDateWithCurrentTime'
 it('strToDateWithCurrentTime', () => {
     const currentDate = moment()
     const h = currentDate.hour()
-
-    console.log(h)
     const m = currentDate.minutes()
-
-    console.log(m)
 
     expect(
         strToDateWithCurrentTime('31.03.2001 16:32 +0200'),
