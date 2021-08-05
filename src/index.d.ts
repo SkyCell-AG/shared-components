@@ -1,11 +1,21 @@
 import React from 'react'
 
 declare module '@skycell-ag/shared-components' {
+
+    interface styleObject {
+        axisLineStyle: object,
+        rangeLineStyle: object,
+        simulated: object,
+        ambient: object,
+        energyLevel: object,
+        excursionAxis: object,
+    }
     interface TemperatureChartProps {
         ambient: number[];
         simulated: number[];
         energyLevel: number[];
         excursion: number;
+        style: styleObject;
     }
 
     const TemperatureChart: React.FC<TemperatureChartProps>
@@ -63,15 +73,19 @@ declare module '@skycell-ag/shared-components' {
     }
     const ContainerTemperatureChart: React.FC<ContainerTemperatureChartProps>
 
-    const dayPassedToRange: (value: string) => object
+    interface dayPassedToRangeProps {
+        from: string;
+        to: string;
+    }
+    const dayPassedToRange: (value: string) => dayPassedToRangeProps
 
-    const dateToDateStr: (d: object) => object
+    const dateToDateStr: (d: object) => Date
 
-    const dateToISO: (d: object) => object
+    const dateToISO: (d: object) => Date
 
     const dateToStr: (date: object, mask: string) => string
 
-    const strToDate: (str: string, mask: string) => object
+    const strToDate: (str: string, mask: string) => Date
 
     const addNotationValues: (data: object) => array
     interface ErrorBoundaryProps {

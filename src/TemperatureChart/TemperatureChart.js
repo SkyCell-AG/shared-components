@@ -20,6 +20,14 @@ const propTypes = {
     upperTempBound: PropTypes.number,
     lowerTempBound: PropTypes.number,
     excursion: PropTypes.number,
+    style: PropTypes.shape({
+        axisLineStyle: PropTypes.shape(),
+        rangeLineStyle: PropTypes.shape(),
+        simulated: PropTypes.shape(),
+        ambient: PropTypes.shape(),
+        energyLevel: PropTypes.shape(),
+        excursionAxis: PropTypes.shape(),
+    }),
 }
 
 const defaultProps = {
@@ -29,6 +37,14 @@ const defaultProps = {
     upperTempBound: 8,
     lowerTempBound: 2,
     excursion: undefined,
+    style: {
+        axisLineStyle: undefined,
+        simulated: undefined,
+        ambient: undefined,
+        energyLevel: undefined,
+        rangeLineStyle: undefined,
+        excursionAxis: undefined,
+    },
 }
 
 const grey = '#00000066'
@@ -91,6 +107,7 @@ const TemperatureChart = ({
     upperTempBound,
     lowerTempBound,
     excursion,
+    style,
 }) => {
     const scale = useMemo(() => {
         return getScale({
@@ -181,7 +198,7 @@ const TemperatureChart = ({
                 }}
                 gridComponent={(
                     <LineSegment
-                        style={axisLineStyle}
+                        style={style.axisLineStyle || axisLineStyle}
                     />
                 )}
             />
@@ -203,7 +220,7 @@ const TemperatureChart = ({
             )}
             <VictoryLine
                 data={simulated}
-                style={{
+                style={style.simulated || {
                     data: {
                         stroke: '#61c6e9',
                         strokeWidth: 1.5,
@@ -214,7 +231,7 @@ const TemperatureChart = ({
                 <VictoryLine
                     data-testid="energyLevelLine"
                     data={energyLevelScaled}
-                    style={{
+                    style={style.energyLevel || {
                         data: {
                             stroke: '#9e9e9e',
                             strokeWidth: 1.5,
@@ -224,7 +241,7 @@ const TemperatureChart = ({
             )}
             <VictoryLine
                 data={ambient}
-                style={{
+                style={style.ambient || {
                     data: {
                         stroke: '#cf3b8a',
                         strokeWidth: 1.5,
@@ -233,12 +250,12 @@ const TemperatureChart = ({
             />
             <VictoryLine
                 data={tempRangeTopData}
-                style={rangeLineStyle}
+                style={style.rangeLineStyle || rangeLineStyle}
                 labels={generateBorderLabel('Max')}
             />
             <VictoryLine
                 data={tempRangeBottomData}
-                style={rangeLineStyle}
+                style={style.rangeLineStyle || rangeLineStyle}
                 labels={generateBorderLabel('Min')}
             />
             {excursion !== undefined && (
@@ -247,7 +264,7 @@ const TemperatureChart = ({
                     dependentAxis
                     label="Excursion"
                     axisValue={excursion}
-                    style={{
+                    style={style.excursionAxis || {
                         axis: {
                             stroke: 'red',
                         },
