@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "3.6.1",
+  "version": "3.6.2",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -20,6 +20,7 @@
     "@material-ui/styles": "4.11.3",
     "@skycell-ag/auth": "0.3.0",
     "@skycell-ag/theme": "1.1.1",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "clsx": "1.1.1",
     "i18next": "20.3.1",
     "jss": "10.5.0",
@@ -96,7 +97,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-query": "3.17.1",
-    "react-scripts": "4.0.3",
+    "react-scripts": "4.0.1",
     "relay-compiler": "11.0.1",
     "react-test-renderer": "17.0.1"
   },

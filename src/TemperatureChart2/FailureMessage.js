@@ -4,7 +4,9 @@ import {
 } from '@material-ui/core'
 import clsx from 'clsx'
 
-import notFound from './not-found.png'
+import {
+    ReactComponent as NotFound,
+} from './not_found.svg'
 import useStyles from './TemperatureChart2.style'
 
 const FailureMessage = () => {
@@ -24,10 +26,7 @@ const FailureMessage = () => {
                     item
                     md={6}
                 >
-                    <img
-                        src={notFound}
-                        alt="Not Found"
-                    />
+                    <NotFound />
                 </Grid>
                 <Grid
                     item

@@ -9,6 +9,7 @@ module.exports = function (api) {
     const plugins = [
         'relay',
         'macros',
+        'inline-react-svg',
         [
             'module-resolver',
             {
