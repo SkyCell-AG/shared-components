@@ -11,6 +11,12 @@ module.exports = function (api) {
         'macros',
         'inline-react-svg',
         [
+            'babel-plugin-inline-import',
+            {
+                extensions: ['.jpg'],
+            },
+        ],
+        [
             'module-resolver',
             {
                 extensions: ['.js'],

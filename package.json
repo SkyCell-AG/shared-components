@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "3.6.4",
+  "version": "3.6.5",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -86,6 +86,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "0.6.0",
     "axios": "0.21.1",
     "babel-loader": "8.1.0",
+    "babel-plugin-inline-import": "3.0.0",
     "babel-plugin-module-resolver": "4.1.0",
     "babel-plugin-relay": "11.0.1",
     "chalk": "4.1.0",
