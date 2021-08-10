@@ -18,7 +18,7 @@
     "@material-ui/icons": "4.11.2",
     "@material-ui/pickers": "3.3.10",
     "@material-ui/styles": "4.11.3",
-    "@skycell-ag/auth": "0.3.0",
+    "@skycell-ag/auth": "0.3.1",
     "@skycell-ag/theme": "1.1.1",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "clsx": "1.1.1",
@@ -66,9 +66,9 @@
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-scripts": "4.0.1"
+    "react-scripts": "4.0.3"
   },
-  "devDependencies": {
+  "devD0ependencies": {
     "@babel/cli": "7.12.17",
     "@babel/preset-env": "7.12.17",
     "@babel/preset-react": "7.12.13",
@@ -97,7 +97,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-query": "3.17.1",
-    "react-scripts": "4.0.1",
+    "react-scripts": "4.0.3",
     "relay-compiler": "11.0.1",
     "react-test-renderer": "17.0.1"
   },
