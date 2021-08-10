@@ -68,7 +68,7 @@
     "react-dom": "17.0.1",
     "react-scripts": "4.0.3"
   },
-  "devD0ependencies": {
+  "devDependencies": {
     "@babel/cli": "7.12.17",
     "@babel/preset-env": "7.12.17",
     "@babel/preset-react": "7.12.13",
