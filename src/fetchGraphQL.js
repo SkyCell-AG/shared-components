@@ -1,5 +1,8 @@
-async function fetchGraphQL(text, variables) {
-    const response = await fetch(`${process.env.REACT_APP_GRAPHQL}`, {
+function fetchGraphQL(
+    text,
+    variables,
+) {
+    return fetch(`${process.env.REACT_APP_GRAPHQL}`, {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
@@ -10,8 +13,9 @@ async function fetchGraphQL(text, variables) {
             variables,
         }),
     })
-
-    return response.json()
+        .then((res) => {
+            return res.json()
+        })
 }
 
 export default fetchGraphQL

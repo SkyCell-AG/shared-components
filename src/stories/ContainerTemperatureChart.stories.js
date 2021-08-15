@@ -6,11 +6,21 @@ import {
     MuiPickersUtilsProvider,
 } from '@material-ui/pickers'
 import MomentUtils from '@date-io/moment'
+import {
+    graphql,
+} from 'msw'
 
 import ContainerTemperatureChart from 'ContainerTemperatureChart'
 import RelayEnvironment from 'RelayEnvironment'
 
 export default {
+    parameters: {
+        msw: [
+            graphql.query('ContainerChartQuery', (_req, res, ctx) => {
+                return res(ctx.data({}))
+            })
+        ]
+    },
     component: ContainerTemperatureChart,
     decorators: [(Story) => {
         return (

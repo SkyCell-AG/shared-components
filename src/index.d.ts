@@ -10,6 +10,7 @@ declare module '@skycell-ag/shared-components' {
         energyLevel: object,
         excursionAxis: object,
     }
+
     interface TemperatureChartProps {
         ambient: number[];
         simulated: number[];
@@ -28,7 +29,7 @@ declare module '@skycell-ag/shared-components' {
 
     interface DateRangeSelectorProps {
         value: {from: string, to: string};
-        onChange: (_: string, event: {target: {name: string, value: date}}) => void;
+        onChange: (_: string, event: {target: {name: string, value: Date}}) => void;
     }
 
     const DateRangeSelector: React.FC<DateRangeSelectorProps>
@@ -40,7 +41,7 @@ declare module '@skycell-ag/shared-components' {
         showCsvButton: boolean,
         showTempRange: boolean,
         onCheckShowTempRange: () => boolean,
-        sensorData: array<any>,
+        sensorData: any[],
         printChart: () => void,
     }
 
@@ -60,7 +61,7 @@ declare module '@skycell-ag/shared-components' {
     const Avatar: React.FC<AvatarProps>
 
     interface TypeaheadProps {
-        loadOptions: (phrase: string) => array<object>;
+        loadOptions: (phrase: string) => object[];
         loadLabel: (value: string) => string;
         value: string;
         valueField: string;
@@ -87,12 +88,12 @@ declare module '@skycell-ag/shared-components' {
 
     const strToDate: (str: string, mask: string) => Date
 
-    const addNotationValues: (data: object) => array
+    const addNotationValues: (data: object) => any[]
     interface ErrorBoundaryProps {
         children: JSX.Element
     }
     const ErrorBoundary: React.FC<ErrorBoundaryProps>
-   
+
     interface I18nLocaleProviderProps {
         children: JSX.Element
     }
