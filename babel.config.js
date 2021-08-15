@@ -11,6 +11,12 @@ module.exports = function (api) {
         'macros',
         'inline-react-svg',
         [
+            'file-loader',
+            {
+                limit: 10000,
+            },
+        ],
+        [
             'module-resolver',
             {
                 extensions: ['.js'],
