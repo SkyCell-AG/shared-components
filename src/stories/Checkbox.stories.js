@@ -5,8 +5,8 @@ import Checkbox from 'Checkbox'
 
 const useStyles = makeStyles({       
     label: {
-        fontSize: '24px',
-        lineHeight: '29px',
+        fontSize: '1.5rem',
+        lineHeight: '1.5rem',
     },
   })
 
