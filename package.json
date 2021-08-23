@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "4.0.1",
+  "version": "4.2.0",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -65,6 +65,7 @@
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "@skycell-ag/auth": "1.x",
     "react-scripts": "4.0.1"
   },
   "devDependencies": {
@@ -72,6 +73,7 @@
     "@babel/preset-env": "7.12.17",
     "@babel/preset-react": "7.12.13",
     "@material-ui/lab": "4.0.0-alpha.57",
+    "@skycell-ag/auth": "1.0.1",
     "@skycell-ag/eslint-config": "1.1.0",
     "@storybook/addon-actions": "6.3.7",
     "@storybook/addon-essentials": "6.3.7",

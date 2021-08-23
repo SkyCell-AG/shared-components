@@ -60,6 +60,18 @@ export {
     default as ErrorBoundary,
 } from './ErrorBoundary'
 export {
+    default as I18nLocaleProvider,
+} from './I18nLocaleProvider'
+export {
+    useUserContacts,
+    useUserAddresses,
+    useProcesses,
+    useUserLocations,
+    useEmptyProcess,
+    useContacts,
+    useAttachment,
+} from './hooks/businessObjects'
+export {
     initVariables,
     NoEnvVarError,
 } from './init'
