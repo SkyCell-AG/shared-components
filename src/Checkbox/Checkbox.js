@@ -4,8 +4,11 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 import {
-    FormControlLabel, Checkbox as MaterialCheckbox,
+    FormControlLabel,
+    Checkbox as MaterialCheckbox,
 } from '@material-ui/core'
+
+import useStyles from './Checkbox.style'
 
 const propTypes = {
     title: PropTypes.string,
@@ -35,7 +38,10 @@ const Checkbox = ({
     name,
     value,
     className,
+    ...rest
 }) => {
+    const classes = useStyles(rest)
+
     const handleChange = useCallback(() => {
         const newValue = !value
 
@@ -68,6 +74,9 @@ const Checkbox = ({
                     )
                 }
                 label={title}
+                classes={{
+                    label: classes.label,
+                }}
             />
         </div>
     )

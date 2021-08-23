@@ -5,6 +5,11 @@ exports[`Checkbox Checkbox snapshot 1`] = `
   className=""
 >
   <WithStyles(ForwardRef(FormControlLabel))
+    classes={
+      Object {
+        "label": "makeStyles-label-1",
+      }
+    }
     control={
       <WithStyles(ForwardRef(Checkbox))
         checked={false}
