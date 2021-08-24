@@ -5,6 +5,7 @@ import {
 const useStyles = makeStyles((theme) => {
     return {
         wrapper: {
+            position: 'relative',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -13,13 +14,15 @@ const useStyles = makeStyles((theme) => {
             width: '100%',
         },
         chart: {
-            height: 575,
+            width: '100%',
+            height: '575px',
         },
         chartPrinting: {
             width: 1020,
             height: 550,
         },
         fullscreen: {
+            position: 'absolute',
             height: '85%',
             width: '100%',
         },

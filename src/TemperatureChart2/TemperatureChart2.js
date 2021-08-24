@@ -32,6 +32,7 @@ const propTypes = {
     setTemperatureChartFullscreen: PropTypes.func,
     customColumns: PropTypes.arrayOf(PropTypes.array),
     customData: PropTypes.arrayOf(PropTypes.array),
+    allowFullScreen: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -45,6 +46,7 @@ const defaultProps = {
     userOptions: options,
     temperatureChartFullscreen: false,
     setTemperatureChartFullscreen: noop,
+    allowFullScreen: true,
 }
 
 const DAY = 24 * 60 * 60 * 1000
@@ -61,9 +63,26 @@ const TemperatureChart2 = (props) => {
         onError,
         customColumns,
         customData,
+        allowFullScreen,
     } = props
 
     const classes = useStyles()
+
+    const FullScreenComponent = useMemo(() => {
+        if (!allowFullScreen) {
+            return ({
+                children, // eslint-disable-line
+            }) => {
+                return (
+                    <>
+                        {children}
+                    </>
+                )
+            }
+        }
+
+        return FullScreen
+    }, [allowFullScreen])
 
     const chartArea = useMemo(() => {
         return {
@@ -147,22 +166,25 @@ const TemperatureChart2 = (props) => {
         <>
             {value
                 ? (
-                    <FullScreen
-                        {...props}
+                    <div
                         className={classes.wrapper}
-                        onFullScreen={onFullScreen}
-                        setTemperatureChartFullscreen={setTemperatureChartFullscreen}
                     >
-                        <LineChart
-                            value={value}
-                            columns={columns}
-                            userOptions={chartOptions}
-                            onError={onError}
-                            className={temperatureChartFullscreen
-                                ? classes.fullscreen
-                                : chartPrinting}
-                        />
-                    </FullScreen>
+                        <FullScreenComponent
+                            {...props}
+                            onFullScreen={onFullScreen}
+                            setTemperatureChartFullscreen={setTemperatureChartFullscreen}
+                        >
+                            <LineChart
+                                value={value}
+                                columns={columns}
+                                userOptions={chartOptions}
+                                onError={onError}
+                                className={temperatureChartFullscreen
+                                    ? classes.fullscreen
+                                    : chartPrinting}
+                            />
+                        </FullScreenComponent>
+                    </div>
                 )
                 : (
                     <FailureMessage />
