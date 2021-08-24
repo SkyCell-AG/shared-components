@@ -4,6 +4,7 @@ import {
 } from 'enzyme'
 
 import FullScreen from 'FullScreen'
+import LineChart from 'LineChart'
 import TemperatureChart2 from '../TemperatureChart2'
 
 it('TemperatureChart success', () => {
@@ -35,7 +36,6 @@ it('TemperatureChart success', () => {
         />,
     )
 
-    expect(wrapper.find(FullScreen).length).toEqual(1)
     expect(wrapper).toMatchSnapshot()
 })
 
@@ -72,4 +72,7 @@ it('TemperatureChart no fullscreen button', () => {
     expect(
         wrapper.find(FullScreen).length,
     ).toEqual(0)
+    expect(
+        wrapper.find(LineChart).length,
+    ).toEqual(1)
 })
