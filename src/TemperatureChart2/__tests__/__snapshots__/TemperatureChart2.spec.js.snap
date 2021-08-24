@@ -2,114 +2,44 @@
 
 exports[`TemperatureChart success 1`] = `
 <Fragment>
-  <FullScreen
+  <div
     className="makeStyles-wrapper-1"
-    customColumns={Array []}
-    customData={Array []}
-    isChartPrinting={false}
-    onError={[Function]}
-    onFullScreen={[Function]}
-    sensorData={
-      Array [
-        Object {
-          "d": Array [
-            18.1,
-            5.3,
-          ],
-          "t": "29.03.2021 10:40",
-        },
-        Object {
-          "d": Array [
-            18.1,
-            5.3,
-          ],
-          "t": "29.03.2021 10:50",
-        },
-        Object {
-          "d": Array [
-            18.2,
-            5.3,
-          ],
-          "t": "29.03.2021 11:00",
-        },
-      ]
-    }
-    setTemperatureChartFullscreen={[Function]}
-    temperatureChartFullscreen={false}
-    userOptions={
-      Object {
-        "axisTitlesPosition": "none",
-        "chartArea": Object {
-          "height": "87%",
-          "left": 30,
-          "top": 20,
-          "width": "95%",
-        },
-        "curveType": "function",
-        "series": Array [
-          Object {
-            "color": "transparent",
-            "lineWidth": 0,
-            "pointSize": 0,
-            "targetAxisIndex": 0,
-            "tooltip": false,
-            "visibleInLegend": false,
-          },
-          Object {
-            "color": "#CF3B8A",
-            "lineWidth": 3,
-            "pointSize": 6,
-            "targetAxisIndex": 0,
-          },
-          Object {
-            "color": "#61C6E9",
-            "lineWidth": 3,
-            "pointSize": 6,
-            "targetAxisIndex": 0,
-          },
-          Object {
-            "color": "#edae49",
-            "lineDashStyle": Array [
-              4,
-              4,
-            ],
-            "lineWidth": 3,
-            "targetAxisIndex": 0,
-          },
-          Object {
-            "color": "#edae49",
-            "lineDashStyle": Array [
-              4,
-              4,
-            ],
-            "lineWidth": 3,
-            "targetAxisIndex": 0,
-          },
-        ],
-        "vAxis": Object {
-          "gridlines": Object {
-            "count": 0,
-          },
-          "title": "Temperature",
-        },
-      }
-    }
   >
-    <LineChart
-      className="makeStyles-chart-2"
-      columns={
+    <FullScreen
+      allowFullScreen={true}
+      className=""
+      customColumns={Array []}
+      customData={Array []}
+      isChartPrinting={false}
+      onError={[Function]}
+      onFullScreen={[Function]}
+      sensorData={
         Array [
-          Array [
-            "datetime",
-            "Date",
-          ],
-          Array [
-            "number",
-            "Filler",
-          ],
+          Object {
+            "d": Array [
+              18.1,
+              5.3,
+            ],
+            "t": "29.03.2021 10:40",
+          },
+          Object {
+            "d": Array [
+              18.1,
+              5.3,
+            ],
+            "t": "29.03.2021 10:50",
+          },
+          Object {
+            "d": Array [
+              18.2,
+              5.3,
+            ],
+            "t": "29.03.2021 11:00",
+          },
         ]
       }
-      onError={[Function]}
+      setTemperatureChartFullscreen={[Function]}
+      temperatureChartFullscreen={false}
       userOptions={
         Object {
           "axisTitlesPosition": "none",
@@ -168,41 +98,116 @@ exports[`TemperatureChart success 1`] = `
           },
         }
       }
-      value={
-        Array [
+    >
+      <LineChart
+        className="makeStyles-chart-2"
+        columns={
           Array [
-            2021-03-29T10:40:00.000Z,
-            0,
-            18.1,
-            null,
-            null,
-            5.3,
-            null,
-            null,
-          ],
+            Array [
+              "datetime",
+              "Date",
+            ],
+            Array [
+              "number",
+              "Filler",
+            ],
+          ]
+        }
+        onError={[Function]}
+        userOptions={
+          Object {
+            "axisTitlesPosition": "none",
+            "chartArea": Object {
+              "height": "87%",
+              "left": 30,
+              "top": 20,
+              "width": "95%",
+            },
+            "curveType": "function",
+            "series": Array [
+              Object {
+                "color": "transparent",
+                "lineWidth": 0,
+                "pointSize": 0,
+                "targetAxisIndex": 0,
+                "tooltip": false,
+                "visibleInLegend": false,
+              },
+              Object {
+                "color": "#CF3B8A",
+                "lineWidth": 3,
+                "pointSize": 6,
+                "targetAxisIndex": 0,
+              },
+              Object {
+                "color": "#61C6E9",
+                "lineWidth": 3,
+                "pointSize": 6,
+                "targetAxisIndex": 0,
+              },
+              Object {
+                "color": "#edae49",
+                "lineDashStyle": Array [
+                  4,
+                  4,
+                ],
+                "lineWidth": 3,
+                "targetAxisIndex": 0,
+              },
+              Object {
+                "color": "#edae49",
+                "lineDashStyle": Array [
+                  4,
+                  4,
+                ],
+                "lineWidth": 3,
+                "targetAxisIndex": 0,
+              },
+            ],
+            "vAxis": Object {
+              "gridlines": Object {
+                "count": 0,
+              },
+              "title": "Temperature",
+            },
+          }
+        }
+        value={
           Array [
-            2021-03-29T10:50:00.000Z,
-            0,
-            18.1,
-            null,
-            null,
-            5.3,
-            null,
-            null,
-          ],
-          Array [
-            2021-03-29T11:00:00.000Z,
-            0,
-            18.2,
-            null,
-            null,
-            5.3,
-            null,
-            null,
-          ],
-        ]
-      }
-    />
-  </FullScreen>
+            Array [
+              2021-03-29T10:40:00.000Z,
+              0,
+              18.1,
+              null,
+              null,
+              5.3,
+              null,
+              null,
+            ],
+            Array [
+              2021-03-29T10:50:00.000Z,
+              0,
+              18.1,
+              null,
+              null,
+              5.3,
+              null,
+              null,
+            ],
+            Array [
+              2021-03-29T11:00:00.000Z,
+              0,
+              18.2,
+              null,
+              null,
+              5.3,
+              null,
+              null,
+            ],
+          ]
+        }
+      />
+    </FullScreen>
+  </div>
 </Fragment>
 `;
