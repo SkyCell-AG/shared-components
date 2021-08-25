@@ -15,7 +15,6 @@ const getAttachment = ({
     imgFile.append('file', file)
     imgFile.append('fileName', fileName)
 
-
     return requestBusinessObjects({
         method: 'POST',
         url: 'attachment',
