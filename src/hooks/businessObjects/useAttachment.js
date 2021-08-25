@@ -7,7 +7,7 @@ import {
 
 import getAttachment from './queries/getAttachment'
 
-function useAttachment(file, enabled) {
+function useAttachment(file, fileName, enabled) {
     const token = useJWTToken()
 
     return useQuery({
@@ -15,6 +15,7 @@ function useAttachment(file, enabled) {
             'getAttachment',
             {
                 file,
+                fileName,
                 token,
             },
         ],

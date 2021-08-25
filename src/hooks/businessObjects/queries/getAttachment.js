@@ -5,6 +5,7 @@ const getAttachment = ({
         _key, // eslint-disable-line no-unused-vars
         {
             file,
+            fileName,
             token,
         },
     ],
@@ -12,6 +13,8 @@ const getAttachment = ({
     const imgFile = new FormData()
 
     imgFile.append('file', file)
+    imgFile.append('fileName', fileName)
+
 
     return requestBusinessObjects({
         method: 'POST',
