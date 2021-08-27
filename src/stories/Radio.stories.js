@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
 import Radio from 'Radio'
 
@@ -52,6 +53,32 @@ const Template = (props) => {
     )
 }
 
+const useStyles = makeStyles({       
+    radioItemLabel: {
+        fontSize: '1.5rem',
+        lineHeight: '1.5rem',
+    },
+  })
+
+  const StyledRadio = (props) => {
+    const [value, setValue] = useState(props.value ?? '');
+    const classes = useStyles()
+    return (
+        <div>
+            <Radio 
+                {...props}
+                options={options}
+                onChange={(...params) => {
+                    props.onChange(...params);
+                    setValue(...params);
+                }}
+                value={value}
+                classes={{ radioItemLabel: classes.radioItemLabel }}
+            />            
+        </div>        
+    )
+}
+
 export const Primary = Template.bind({})
 Primary.args = {
     title: 'Default radio group',  
@@ -61,6 +88,11 @@ Primary.args = {
 export const Column = Template.bind({})
 Column.args = {
     title: 'radio group in column view',
+    showInColumns: true,
+}
+
+export const NoTitleCustomStyle = StyledRadio.bind({})
+NoTitleCustomStyle.args = {    
     showInColumns: true,
 }
 

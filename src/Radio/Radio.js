@@ -11,7 +11,7 @@ import {
 
 import Label from 'Label'
 
-import useStyles from './Radio.styles'
+import useStyles from './Radio.style'
 
 const propTypes = {
     onChange: PropTypes.func.isRequired,
@@ -41,21 +41,20 @@ const defaultProps = {
     showInColumns: false,
 }
 
-const Radio = (props) => {
-    const {
-        onChange,
-        disabled,
-        title,
-        options,
-        name,
-        value,
-        compact,
-        small,
-        className,
-        showInColumns,
-    } = props
-
-    const classes = useStyles()
+const Radio = ({
+    onChange,
+    disabled,
+    title,
+    options,
+    name,
+    value,
+    compact,
+    small,
+    className,
+    showInColumns,
+    ...rest
+}) => {
+    const classes = useStyles(rest)
 
     const handleOnChange = useCallback((event) => {
         onChange(event.target.value, event)
@@ -63,7 +62,7 @@ const Radio = (props) => {
 
     return (
         <>
-            <Label title={title} />
+            {title && (<Label title={title} />)}
             <RadioGroup
                 aria-label="labelType"
                 name={name}
@@ -86,6 +85,9 @@ const Radio = (props) => {
                                 [classes.formControlStyle]: true,
                                 [classes.radioSmall]: small,
                             })}
+                            classes={{
+                                label: classes.radioItemLabel,
+                            }}
                             control={(
                                 <MaterialRadio
                                     color="primary"

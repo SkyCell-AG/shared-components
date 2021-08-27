@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => {
         showInColumns: {
             flexDirection: 'column',
         },
+        radioItemLabel: {},
     }
 })
 

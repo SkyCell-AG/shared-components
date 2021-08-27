@@ -18,6 +18,11 @@ exports[`app/shared-components/Radio should match snapshot 1 should match snapsh
   >
     <WithStyles(ForwardRef(FormControlLabel))
       className="makeStyles-formControlStyle-4"
+      classes={
+        Object {
+          "label": "makeStyles-radioItemLabel-6",
+        }
+      }
       control={
         <WithStyles(ForwardRef(Radio))
           classes={
@@ -36,6 +41,11 @@ exports[`app/shared-components/Radio should match snapshot 1 should match snapsh
     />
     <WithStyles(ForwardRef(FormControlLabel))
       className="makeStyles-formControlStyle-4"
+      classes={
+        Object {
+          "label": "makeStyles-radioItemLabel-6",
+        }
+      }
       control={
         <WithStyles(ForwardRef(Radio))
           classes={
