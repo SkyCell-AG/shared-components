@@ -83,3 +83,6 @@ export {
     default as BarcodeReader,
     getContainerNumberFromGRAI,
 } from './BarcodeReader'
+export {
+    default as Radio,
+} from './Radio'

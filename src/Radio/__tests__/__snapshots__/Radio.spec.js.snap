@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app/shared-components/Radio should match snapshot 1 should match snapshot 1`] = `
+<Fragment>
+  <Label
+    className=""
+    hasError=""
+    title="Temperature Range"
+  />
+  <ForwardRef(RadioGroup)
+    aria-label="labelType"
+    className="makeStyles-radio-1 "
+    data-testid="radio-labelType"
+    disabled={false}
+    name="labelType"
+    onChange={[Function]}
+    value="value"
+  >
+    <WithStyles(ForwardRef(FormControlLabel))
+      className="makeStyles-formControlStyle-4"
+      classes={
+        Object {
+          "label": "makeStyles-radioItemLabel-6",
+        }
+      }
+      control={
+        <WithStyles(ForwardRef(Radio))
+          classes={
+            Object {
+              "root": false,
+            }
+          }
+          color="primary"
+        />
+      }
+      data-value="option1"
+      disabled={false}
+      key="radio-option1"
+      label="label1"
+      value="option1"
+    />
+    <WithStyles(ForwardRef(FormControlLabel))
+      className="makeStyles-formControlStyle-4"
+      classes={
+        Object {
+          "label": "makeStyles-radioItemLabel-6",
+        }
+      }
+      control={
+        <WithStyles(ForwardRef(Radio))
+          classes={
+            Object {
+              "root": false,
+            }
+          }
+          color="primary"
+        />
+      }
+      data-value="option2"
+      disabled={false}
+      key="radio-option2"
+      label="label2"
+      value="option2"
+    />
+  </ForwardRef(RadioGroup)>
+</Fragment>
+`;
