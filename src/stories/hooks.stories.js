@@ -9,7 +9,6 @@ import {
     useUserAddresses,
     useProcesses,
     useUserLocations,
-    useEmptyProcess,
     useContacts,
 } from 'hooks/businessObjects'
 import ErrorBoundary from 'ErrorBoundary'
@@ -99,36 +98,6 @@ export const LocalesProcesses = () => {
             hookParams={4}
             formater={(processes) => {
                 return processes && processes.length ? processes.map((process) => process.processLabel).join(', ') : ''
-            }}
-        />
-    )
-}
-
-export const EmptyProcess = () => {
-    return (
-        <ComponentWithHook
-            text="Empty Process for SENDING"
-            hook={useEmptyProcess}
-            hookParams={'RECEIVING'}
-            formater={(process) => {
-                return process ? process.processLabel : ''
-            }}
-        />
-    )
-}
-
-export const EmptyProcessForAssets = () => {
-    return (
-        <ComponentWithHook
-            text="Empty Process RECEIVING for 011-10186 asset"
-            hook={useEmptyProcess}
-            hookParams={'RECEIVING'}
-            moreHookParams={{
-                assetNumber: '011-10186',
-                location: 4,
-             }}
-            formater={(process) => {
-                return process? JSON.stringify(process) : ''
             }}
         />
     )
