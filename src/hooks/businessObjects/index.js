@@ -15,10 +15,6 @@ export {
 } from './useUserLocations'
 
 export {
-    default as useEmptyProcess,
-} from './useEmptyProcess'
-
-export {
     default as useContacts,
 } from './useContacts'
 

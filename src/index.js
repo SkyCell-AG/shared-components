@@ -67,7 +67,6 @@ export {
     useUserAddresses,
     useProcesses,
     useUserLocations,
-    useEmptyProcess,
     useContacts,
     useAttachment,
 } from './hooks/businessObjects'
