@@ -81,6 +81,7 @@ export {
 export {
     default as BarcodeReader,
     getContainerNumberFromGRAI,
+    useEnumerateDevices,
 } from './BarcodeReader'
 export {
     default as Radio,
