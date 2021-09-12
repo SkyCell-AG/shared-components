@@ -48,7 +48,7 @@ const defaultProps = {
     temperatureChartFullscreen: false,
     setTemperatureChartFullscreen: noop,
     allowFullScreen: true,
-    customClassName = '',
+    customClassName: '',
 }
 
 const DAY = 24 * 60 * 60 * 1000
