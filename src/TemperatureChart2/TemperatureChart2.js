@@ -33,6 +33,7 @@ const propTypes = {
     customColumns: PropTypes.arrayOf(PropTypes.array),
     customData: PropTypes.arrayOf(PropTypes.array),
     allowFullScreen: PropTypes.bool,
+    customClassName: PropTypes.string,
 }
 
 const defaultProps = {
@@ -47,6 +48,7 @@ const defaultProps = {
     temperatureChartFullscreen: false,
     setTemperatureChartFullscreen: noop,
     allowFullScreen: true,
+    customClassName = '',
 }
 
 const DAY = 24 * 60 * 60 * 1000
@@ -64,6 +66,7 @@ const TemperatureChart2 = (props) => {
         customColumns,
         customData,
         allowFullScreen,
+        customClassName,
     } = props
 
     const classes = useStyles()
@@ -111,11 +114,12 @@ const TemperatureChart2 = (props) => {
     const chartPrinting = useMemo(() => {
         return isChartPrinting
             ? classes.chartPrinting
-            : classes.chart
+            : customClassName || classes.chart
     }, [
         classes.chart,
         classes.chartPrinting,
         isChartPrinting,
+        customClassName,
     ])
 
     const chartOptions = useMemo(() => {
