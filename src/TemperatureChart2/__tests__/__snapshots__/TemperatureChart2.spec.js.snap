@@ -8,6 +8,7 @@ exports[`TemperatureChart success 1`] = `
     <FullScreen
       allowFullScreen={true}
       className=""
+      customClassName=""
       customColumns={Array []}
       customData={Array []}
       isChartPrinting={false}
@@ -175,7 +176,7 @@ exports[`TemperatureChart success 1`] = `
         value={
           Array [
             Array [
-              2021-03-29T10:40:00.000Z,
+              2021-03-29T07:40:00.000Z,
               0,
               18.1,
               null,
@@ -185,7 +186,7 @@ exports[`TemperatureChart success 1`] = `
               null,
             ],
             Array [
-              2021-03-29T10:50:00.000Z,
+              2021-03-29T07:50:00.000Z,
               0,
               18.1,
               null,
@@ -195,7 +196,7 @@ exports[`TemperatureChart success 1`] = `
               null,
             ],
             Array [
-              2021-03-29T11:00:00.000Z,
+              2021-03-29T08:00:00.000Z,
               0,
               18.2,
               null,
