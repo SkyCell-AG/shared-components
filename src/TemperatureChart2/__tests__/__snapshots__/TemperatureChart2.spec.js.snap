@@ -8,6 +8,7 @@ exports[`TemperatureChart success 1`] = `
     <FullScreen
       allowFullScreen={true}
       className=""
+      customClassName=""
       customColumns={Array []}
       customData={Array []}
       isChartPrinting={false}
