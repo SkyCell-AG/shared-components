@@ -7,26 +7,8 @@ import {
 import {
     NoEnvVarError,
 } from 'init'
-import requestBusinessObjects from 'services/requestBusinessObjects'
 
-const getProcesses = ({
-    queryKey: [
-        _key, // eslint-disable-line no-unused-vars
-        {
-            location,
-            token,
-        },
-    ],
-}) => {
-    return requestBusinessObjects({
-        method: 'GET',
-        url: `process/availableprocesses?location=${location}`,
-        token,
-    })
-        .then((data) => {
-            return data.data
-        })
-}
+import getProcesses from './queries/getProcesses'
 
 function useProcesses(addressId, options = {}) {
     const token = useJWTToken()
