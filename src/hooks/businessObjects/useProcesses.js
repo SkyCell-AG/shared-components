@@ -42,6 +42,7 @@ function useProcesses(addressId) {
         queryFn: getProcesses,
         enabled: Boolean(addressId),
         refetchOnWindowFocus: false,
+        refetchOnMount: false,
         retry: (failureCount, error) => {
             if (error instanceof NoEnvVarError) {
                 return false

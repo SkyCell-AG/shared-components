@@ -25,6 +25,7 @@ const useQueryGetUserContacts = (queryFn) => {
         queryFn,
         enabled: Boolean(user),
         refetchOnWindowFocus: false,
+        refetchOnMount: false,
         retry: queryRetry,
     })
 }
