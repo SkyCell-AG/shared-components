@@ -28,7 +28,7 @@ const getProcesses = ({
         })
 }
 
-function useProcesses(addressId, options) {
+function useProcesses(addressId, options = {}) {
     const token = useJWTToken()
 
     return useQuery({
@@ -39,7 +39,6 @@ function useProcesses(addressId, options) {
                 token,
             },
         ],
-        ...options,
         queryFn: getProcesses,
         enabled: Boolean(addressId),
         refetchOnWindowFocus: false,
@@ -49,6 +48,7 @@ function useProcesses(addressId, options) {
             }
             return error.statusCode === 404 && failureCount <= 3
         },
+        ...options,
     })
 }
 
