@@ -13,8 +13,8 @@ const getLocations = flow([
     },
 ])
 
-const useUserLocations = () => {
-    return useQueryGetUserContacts(getLocations)
+const useUserLocations = (options) => {
+    return useQueryGetUserContacts(getLocations, options)
 }
 
 export default useUserLocations

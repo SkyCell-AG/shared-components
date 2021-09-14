@@ -7,7 +7,7 @@ import {
 } from 'react-query'
 import queryRetry from './query-utils'
 
-const useQueryGetUserContacts = (queryFn) => {
+const useQueryGetUserContacts = (queryFn, options = {}) => {
     const {
         user,
     } = useAuth()
@@ -26,6 +26,7 @@ const useQueryGetUserContacts = (queryFn) => {
         enabled: Boolean(user),
         refetchOnWindowFocus: false,
         retry: queryRetry,
+        ...options,
     })
 }
 
