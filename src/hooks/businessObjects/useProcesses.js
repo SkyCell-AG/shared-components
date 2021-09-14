@@ -28,7 +28,7 @@ const getProcesses = ({
         })
 }
 
-function useProcesses(addressId) {
+function useProcesses(addressId, options) {
     const token = useJWTToken()
 
     return useQuery({
@@ -39,10 +39,10 @@ function useProcesses(addressId) {
                 token,
             },
         ],
+        ...options,
         queryFn: getProcesses,
         enabled: Boolean(addressId),
         refetchOnWindowFocus: false,
-        refetchOnMount: false,
         retry: (failureCount, error) => {
             if (error instanceof NoEnvVarError) {
                 return false
