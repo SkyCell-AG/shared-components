@@ -34,7 +34,7 @@ describe('useAttachment', () => {
             result,
             waitFor,
         } = renderHook(() => {
-            return useAttachment()
+            return useAttachment({})
         },
         {
             wrapper: queryWrapper,

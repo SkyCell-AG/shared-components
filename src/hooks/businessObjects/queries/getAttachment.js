@@ -6,6 +6,7 @@ const getAttachment = ({
         {
             file,
             fileName,
+            description,
             token,
         },
     ],
@@ -14,6 +15,9 @@ const getAttachment = ({
 
     imgFile.append('file', file)
     imgFile.append('fileName', fileName)
+    if (description) {
+        imgFile.append('description', description)
+    }
 
     return requestBusinessObjects({
         method: 'POST',
