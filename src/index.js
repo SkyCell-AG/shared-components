@@ -65,7 +65,6 @@ export {
 export {
     useUserContacts,
     useUserAddresses,
-    useProcesses,
     useUserLocations,
     useContacts,
     useAttachment,
