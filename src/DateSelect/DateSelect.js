@@ -100,7 +100,7 @@ const DateSelect = (props) => {
                                 {...params}
                                 variant="standard"
                             />
-                        ) // eslint-disable-line react/jsx-props-no-spreading, max-len
+                        )
                     }}
                     disabled={disabled}
                     fullWidth

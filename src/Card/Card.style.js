@@ -3,7 +3,7 @@ import {
 } from '@mui/styles'
 import {
     useTheme,
-} from '@mui/material/styles'  // eslint-disable-line
+} from '@mui/material/styles'
 
 const useStyles = makeStyles(() => {
     const theme = useTheme()
