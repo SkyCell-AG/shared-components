@@ -5,7 +5,7 @@ import {
 } from 'msw-storybook-addon'
 import {
   createTheme,
-  MuiThemeProvider,
+  ThemeProvider,
 } from '@mui/material/styles'
 
 import skyTheme from '@skycell-ag/theme'
@@ -25,9 +25,9 @@ const theme = createTheme(skyTheme)
 
 const withThemeProvider = (Story) => {
   return (
-        <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
           <Story />
-        </MuiThemeProvider>
+        </ThemeProvider>
   )
 }
 
