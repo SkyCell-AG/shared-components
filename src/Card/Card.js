@@ -4,12 +4,9 @@ import {
     CardContent,
     Typography,
     Icon,
-} from '@material-ui/core'
+} from '@mui/material'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-import {
-    useTheme,
-} from '@material-ui/core/styles'
 
 import {
     PENDING,
@@ -40,8 +37,7 @@ const defaultProps = {
 }
 
 const Card = (props) => {
-    const theme = useTheme()
-    const classes = useStyles(theme)
+    const classes = useStyles()
     const {
         children,
         title,

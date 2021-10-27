@@ -4,16 +4,15 @@ import React, {
 import PropTypes from 'prop-types'
 import {
     FormHelperText,
-} from '@material-ui/core'
+    TextField,
+} from '@mui/material'
 import {
-    MuiPickersUtilsProvider,
     DatePicker,
-} from '@material-ui/pickers'
-import MomentUtils from '@date-io/moment'
-import clsx from 'clsx'
+} from '@mui/lab'
 import {
     useTheme,
-} from '@material-ui/core/styles'
+} from '@mui/material/styles'
+import clsx from 'clsx'
 
 import Label from 'Label'
 
@@ -74,40 +73,46 @@ const DateSelect = (props) => {
 
     return (
         <div className={className}>
-            <MuiPickersUtilsProvider utils={MomentUtils}>
-                <Label
-                    title={title}
-                    hasError={hasError}
+            <Label
+                title={title}
+                hasError={hasError}
+            />
+            <div
+                className={clsx(
+                    classes.dateField,
+                    {
+                        [classes.disabled]: disabled,
+                        [classes.isRequired]: required,
+                    },
+                )}
+            >
+                <div className={classes.requiredMark} />
+                <DatePicker
+                    className={classes.input}
+                    value={strToDate(value)}
+                    format="DD.MM.YYYY"
+                    onChange={handleOnChange}
+                    animateYearScrolling
+                    error={Boolean(hasError)}
+                    renderInput={(params) => {
+                        return (
+                            <TextField
+                                {...params}
+                                variant="standard"
+                            />
+                        )
+                    }}
+                    disabled={disabled}
+                    fullWidth
+                    data-testid={`dateSelect-${name}`}
                 />
-                <div
-                    className={clsx(
-                        {
-                            [classes.dateField]: true,
-                            [classes.disabled]: disabled,
-                            [classes.isRequired]: required,
-                        },
-                    )}
+                <FormHelperText
+                    error={Boolean(hasError)}
+                    className={classes.errorMessage}
                 >
-                    <div className={classes.requiredMark} />
-                    <DatePicker
-                        className={classes.input}
-                        value={strToDate(value)}
-                        format="DD.MM.YYYY"
-                        onChange={handleOnChange}
-                        animateYearScrolling
-                        error={Boolean(hasError)}
-                        disabled={disabled}
-                        fullWidth
-                        data-testid={`dateSelect-${name}`}
-                    />
-                    <FormHelperText
-                        error={Boolean(hasError)}
-                        className={classes.errorMessage}
-                    >
-                        {hasError}
-                    </FormHelperText>
-                </div>
-            </MuiPickersUtilsProvider>
+                    {hasError}
+                </FormHelperText>
+            </div>
         </div>
     )
 }

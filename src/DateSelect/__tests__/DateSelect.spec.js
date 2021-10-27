@@ -4,7 +4,7 @@ import {
 } from 'enzyme'
 import {
     DatePicker,
-} from '@material-ui/pickers'
+} from '@mui/lab'
 
 import DateSelect from '../DateSelect'
 

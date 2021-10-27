@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 import {
     CircularProgress,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import useStyles from './Loading.styles'
 

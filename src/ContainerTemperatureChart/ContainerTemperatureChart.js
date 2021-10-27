@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import {
     Typography,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import Card from 'Card'
 import DateRangeSelector from 'DateRangeSelector'

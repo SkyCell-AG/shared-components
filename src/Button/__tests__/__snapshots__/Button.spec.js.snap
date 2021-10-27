@@ -9,7 +9,7 @@ exports[`Button Button secondary snapshot 1`] = `
     data-testid="button-undefined"
     onMouseDown={[Function]}
   >
-    <WithStyles(ForwardRef(CircularProgress))
+    <ForwardRef(CircularProgress)
       color="inherit"
       size={16}
     />

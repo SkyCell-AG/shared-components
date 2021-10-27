@@ -4,7 +4,7 @@ import {
 } from 'react-relay/hooks'
 import {
     MuiPickersUtilsProvider,
-} from '@material-ui/pickers'
+} from '@mui/lab'
 import MomentUtils from '@date-io/moment'
 import {
     graphql,

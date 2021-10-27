@@ -1,8 +1,13 @@
 import {
     makeStyles,
-} from '@material-ui/core'
+} from '@mui/styles'
+import {
+    useTheme,
+} from '@mui/material/styles'
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles(() => {
+    const theme = useTheme()
+
     return {
         wrapper: {
             position: 'relative',
@@ -24,7 +29,7 @@ const useStyles = makeStyles((theme) => {
             zIndex: 1,
             position: 'absolute',
             right: 0,
-            top: '-2rem',
+            top: '-6rem',
             opacity: 0.2,
             cursor: 'pointer',
         },

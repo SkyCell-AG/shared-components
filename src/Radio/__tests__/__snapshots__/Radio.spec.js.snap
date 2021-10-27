@@ -16,7 +16,7 @@ exports[`app/shared-components/Radio should match snapshot 1 should match snapsh
     onChange={[Function]}
     value="value"
   >
-    <WithStyles(ForwardRef(FormControlLabel))
+    <ForwardRef(FormControlLabel)
       className="makeStyles-formControlStyle-4"
       classes={
         Object {
@@ -24,7 +24,7 @@ exports[`app/shared-components/Radio should match snapshot 1 should match snapsh
         }
       }
       control={
-        <WithStyles(ForwardRef(Radio))
+        <ForwardRef(Radio)
           classes={
             Object {
               "root": false,
@@ -39,7 +39,7 @@ exports[`app/shared-components/Radio should match snapshot 1 should match snapsh
       label="label1"
       value="option1"
     />
-    <WithStyles(ForwardRef(FormControlLabel))
+    <ForwardRef(FormControlLabel)
       className="makeStyles-formControlStyle-4"
       classes={
         Object {
@@ -47,7 +47,7 @@ exports[`app/shared-components/Radio should match snapshot 1 should match snapsh
         }
       }
       control={
-        <WithStyles(ForwardRef(Radio))
+        <ForwardRef(Radio)
           classes={
             Object {
               "root": false,

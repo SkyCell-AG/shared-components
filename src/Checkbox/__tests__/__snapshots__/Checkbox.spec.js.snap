@@ -4,14 +4,14 @@ exports[`Checkbox Checkbox snapshot 1`] = `
 <div
   className=""
 >
-  <WithStyles(ForwardRef(FormControlLabel))
+  <ForwardRef(FormControlLabel)
     classes={
       Object {
         "label": "makeStyles-label-1",
       }
     }
     control={
-      <WithStyles(ForwardRef(Checkbox))
+      <ForwardRef(Checkbox)
         checked={false}
         color="primary"
         disabled={false}
