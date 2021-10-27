@@ -5,7 +5,7 @@ import {
 } from 'enzyme'
 import {
     RadioGroup,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import Radio from '../Radio'
 

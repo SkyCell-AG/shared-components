@@ -7,8 +7,8 @@ import React, {
 import noop from 'lodash/noop'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-import FullscreenIcon from '@material-ui/icons/Fullscreen'
-import FullscreenExitIcon from '@material-ui/icons/FullscreenExit'
+import FullscreenIcon from '@mui/icons-material/Fullscreen'
+import FullscreenExitIcon from '@mui/icons-material/FullscreenExit'
 
 import useStyles from './FullScreen.styles'
 

@@ -7,7 +7,7 @@ import {
     FormControlLabel,
     RadioGroup,
     Radio as MaterialRadio,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import Label from 'Label'
 

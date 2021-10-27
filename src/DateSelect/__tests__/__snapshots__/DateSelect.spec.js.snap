@@ -4,49 +4,33 @@ exports[`shared-components/DateSelect should match snapshot 1`] = `
 <div
   className=""
 >
-  <MuiPickersUtilsProvider
-    utils={[Function]}
+  <Label
+    className=""
+    hasError=""
+    title=""
+  />
+  <div
+    className="makeStyles-dateField-1"
   >
-    <Label
-      className=""
-      hasError=""
-      title=""
-    />
     <div
-      className="makeStyles-dateField-1"
-    >
-      <div
-        className="makeStyles-requiredMark-3"
-      />
-      <PickerWithState
-        allowKeyboardControl={true}
-        animateYearScrolling={true}
-        className="makeStyles-input-2"
-        data-testid="dateSelect-from"
-        disabled={false}
-        error={false}
-        format="DD.MM.YYYY"
-        fullWidth={true}
-        invalidDateMessage="Invalid Date Format"
-        maxDate={2100-01-01T00:00:00.000Z}
-        maxDateMessage="Date should not be after maximal date"
-        minDate={1900-01-01T00:00:00.000Z}
-        minDateMessage="Date should not be before minimal date"
-        onChange={[Function]}
-        openTo="date"
-        value={2018-06-10T00:00:00.000Z}
-        views={
-          Array [
-            "year",
-            "date",
-          ]
-        }
-      />
-      <WithStyles(ForwardRef(FormHelperText))
-        className="makeStyles-errorMessage-6"
-        error={false}
-      />
-    </div>
-  </MuiPickersUtilsProvider>
+      className="makeStyles-requiredMark-3"
+    />
+    <ForwardRef(DatePicker)
+      animateYearScrolling={true}
+      className="makeStyles-input-2"
+      data-testid="dateSelect-from"
+      disabled={false}
+      error={false}
+      format="DD.MM.YYYY"
+      fullWidth={true}
+      onChange={[Function]}
+      renderInput={[Function]}
+      value={2018-06-10T00:00:00.000Z}
+    />
+    <ForwardRef(FormHelperText)
+      className="makeStyles-errorMessage-6"
+      error={false}
+    />
+  </div>
 </div>
 `;

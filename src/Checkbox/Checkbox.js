@@ -6,7 +6,7 @@ import noop from 'lodash/noop'
 import {
     FormControlLabel,
     Checkbox as MaterialCheckbox,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import useStyles from './Checkbox.style'
 

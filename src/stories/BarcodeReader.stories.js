@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     makeStyles,
-} from '@material-ui/core'
+} from '@mui/styles'
 
 import BarcodeReader, { getContainerNumberFromGRAI } from 'BarcodeReader'
 import Button from '../Button'

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import {
     CircularProgress,
-} from '@material-ui/core'
+} from '@mui/material'
 import noop from 'lodash/noop'
 
 import useStyles from './Button.style'

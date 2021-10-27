@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
     Avatar as AvatarM,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import profile from './profile.jpg'
 

@@ -5,7 +5,7 @@ import {
 } from 'enzyme'
 import {
     Checkbox as MaterialCheckbox,
-} from '@material-ui/core'
+} from '@mui/material'
 
 import Checkbox from '../Checkbox'
 

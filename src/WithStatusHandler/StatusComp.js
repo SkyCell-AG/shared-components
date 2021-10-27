@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Alert from '@material-ui/lab/Alert'
+import Alert from '@mui/material/Alert'
 
 import {
     PRISTIN,

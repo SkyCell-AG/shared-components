@@ -4,9 +4,9 @@ import {
   mswDecorator,
 } from 'msw-storybook-addon'
 import {
-  createMuiTheme,
+  createTheme,
   MuiThemeProvider,
-} from '@material-ui/core/styles'
+} from '@mui/material/styles'
 
 import skyTheme from '@skycell-ag/theme'
 
@@ -21,7 +21,7 @@ export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
 }
 
-const theme = createMuiTheme(skyTheme)
+const theme = createTheme(skyTheme)
 
 const withThemeProvider = (Story) => {
   return (

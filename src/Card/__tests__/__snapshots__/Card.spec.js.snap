@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card snapshot 1`] = `
-<WithStyles(ForwardRef(Card))
-  className="makeStyles-card-1 makeStyles-card-6"
+<ForwardRef(Card)
+  className="makeStyles-card-1"
 >
-  <WithStyles(ForwardRef(CardContent))
+  <ForwardRef(CardContent)
     className=""
   />
-</WithStyles(ForwardRef(Card))>
+</ForwardRef(Card)>
 `;
