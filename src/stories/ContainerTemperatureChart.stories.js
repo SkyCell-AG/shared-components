@@ -2,12 +2,10 @@ import React from 'react'
 import {
     RelayEnvironmentProvider,
 } from 'react-relay/hooks'
-// import AdapterDateFns from '@mui/lab/AdapterDateFns';
-// import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import {
-    AdapterDateFns,
     LocalizationProvider,
 } from '@mui/lab'
+import MomentUtils from '@date-io/moment'
 import {
     graphql,
 } from 'msw'
@@ -26,7 +24,7 @@ export default {
     component: ContainerTemperatureChart,
     decorators: [(Story) => {
         return (
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider dateAdapter={MomentUtils}>
                 <RelayEnvironmentProvider environment={RelayEnvironment}>
                     <Story />
                 </RelayEnvironmentProvider>
