@@ -3,7 +3,7 @@ import {
     RelayEnvironmentProvider,
 } from 'react-relay/hooks'
 import {
-    MuiPickersUtilsProvider,
+    LocalizationProvider,
 } from '@mui/lab'
 import MomentUtils from '@date-io/moment'
 import {
@@ -24,11 +24,11 @@ export default {
     component: ContainerTemperatureChart,
     decorators: [(Story) => {
         return (
-            <MuiPickersUtilsProvider utils={MomentUtils}>
+            <LocalizationProvider dateAdapter={MomentUtils}>
                 <RelayEnvironmentProvider environment={RelayEnvironment}>
                     <Story />
                 </RelayEnvironmentProvider>
-            </MuiPickersUtilsProvider>
+            </LocalizationProvider>
         )
     }],
     title: 'ContainerTemperatureChart',
