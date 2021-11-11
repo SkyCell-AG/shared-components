@@ -28,6 +28,7 @@ describe('shared-components/DateRangeSelector', () => {
                 onChangeRange={jest.fn()}
                 from="16.08.2020"
                 to="18.08.2020"
+                setDateRange={jest.fn()}
             />,
         )
 
@@ -56,6 +57,7 @@ describe('shared-components/DateRangeSelector', () => {
                 onChangeRange={jest.fn()}
                 from="16.08.2020"
                 to="18.08.2020"
+                setDateRange={jest.fn()}
             />,
         )
 
@@ -69,6 +71,7 @@ describe('shared-components/DateRangeSelector', () => {
                 onChangeRange={jest.fn()}
                 from="16.08.2020"
                 to="18.08.2020"
+                setDateRange={jest.fn()}
             />,
         )
     })

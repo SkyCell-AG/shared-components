@@ -67,10 +67,14 @@ exports[`shared-components/DateRangeSelector should show time range 1`] = `
     <div
       className="makeStyles-input-6"
     >
-      <DateSelectContainer
+      <DateSelect
         className="makeStyles-datePicker-7"
+        disabled={false}
+        hasError=""
         name="from"
         onChange={[MockFunction]}
+        required={false}
+        setDateRange={[MockFunction]}
         title="From"
         value="16.08.2020"
       />
@@ -78,10 +82,14 @@ exports[`shared-components/DateRangeSelector should show time range 1`] = `
     <div
       className="makeStyles-input-6"
     >
-      <DateSelectContainer
+      <DateSelect
         className="makeStyles-datePicker-7"
+        disabled={false}
+        hasError=""
         name="to"
         onChange={[MockFunction]}
+        required={false}
+        setDateRange={[MockFunction]}
         title="To"
         value="18.08.2020"
       />
