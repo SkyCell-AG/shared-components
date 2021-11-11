@@ -16,7 +16,7 @@ const fillerNulls = (columns) => {
     })
 }
 
-const loadChart = (chartData, elm, columns, options, onError) => {
+const loadChart = (chartData, elm, columns, options, onError, isDateRange) => {
     loadScript(url).then(() => {
         google.charts.load('current', {
             packages: [
@@ -39,7 +39,7 @@ const loadChart = (chartData, elm, columns, options, onError) => {
                 ],
             ]
 
-            data.addRows(updatedChartData)
+            data.addRows(!isDateRange ? updatedChartData : chartData)
 
             const chart = new google.visualization.LineChart(elm)
 

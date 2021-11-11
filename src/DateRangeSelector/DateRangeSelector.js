@@ -6,6 +6,7 @@ import DateSelect from 'DateSelect'
 import rangeToDayPassed from 'utils/rangeToDayPassed'
 import {
     strToDate,
+    dateToISO,
 } from 'utils/DateUtils'
 
 import useStyles from './DateRangeSelector.style'
@@ -21,6 +22,7 @@ const propTypes = {
     showTimeRange: PropTypes.bool,
     from: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
+    setDateRange: PropTypes.func.isRequired,
 }
 
 const defaultProps = {
@@ -50,11 +52,12 @@ const DateRangeSelector = ({
     onChangeRange,
     from,
     to,
+    setDateRange,
 }) => {
     const classes = useStyles()
     const dayPassed = from && to ? rangeToDayPassed({
-        from: strToDate(from),
-        to: strToDate(to),
+        from: strToDate(dateToISO(from)),
+        to: strToDate(dateToISO(to)),
     }) : undefined
 
     return (
@@ -73,6 +76,7 @@ const DateRangeSelector = ({
                                 })}
                                 onMouseDown={() => {
                                     selectOption(value)
+                                    setDateRange(false)
                                 }}
                             >
                                 {label}
@@ -88,8 +92,10 @@ const DateRangeSelector = ({
                             title="From"
                             className={classes.datePicker}
                             onChange={onChangeRange}
+                            setDateRange={setDateRange}
                             name="from"
                             value={from}
+
                         />
                     </div>
                     <div className={classes.input}>
@@ -97,6 +103,7 @@ const DateRangeSelector = ({
                             title="To"
                             className={classes.datePicker}
                             onChange={onChangeRange}
+                            setDateRange={setDateRange}
                             name="to"
                             value={to}
                         />

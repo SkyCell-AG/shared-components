@@ -13,6 +13,7 @@ const propTypes = {
     userOptions: PropTypes.objectOf(PropTypes.any),
     onError: PropTypes.func.isRequired,
     className: PropTypes.string,
+    isDateRange: PropTypes.bool.isRequired,
 }
 
 const defaultProps = {
@@ -28,6 +29,7 @@ const LineChart = (props) => {
         onError,
         userOptions,
         className,
+        isDateRange,
     } = props
 
     const elm = useRef()
@@ -36,12 +38,13 @@ const LineChart = (props) => {
         loadChart(value, elm.current, columns, {
             ...defaultOptions,
             ...userOptions,
-        }, onError)
+        }, onError, isDateRange)
     }, [
         columns,
         onError,
         userOptions,
         value,
+        isDateRange,
     ])
 
     return (
