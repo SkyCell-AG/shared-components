@@ -64,6 +64,41 @@ describe('shared-components/DateRangeSelector', () => {
         expect(wrapper).toMatchSnapshot()
     })
 
+    it('should change date range', () => {
+        const setDateRange = jest.fn()
+        const selectOption = jest.fn()
+
+        const wrapper = shallow(
+            <DateRangeSelector
+                options={[
+                    {
+                        label: '24h',
+                        value: 1,
+                    },
+                    {
+                        label: '7d',
+                        value: 7,
+                    },
+                    {
+                        label: '14d',
+                        value: 14,
+                    },
+                ]}
+                selectOption={selectOption}
+                showTimeRange
+                onChangeRange={jest.fn()}
+                from="16.08.2020"
+                to="18.08.2020"
+                setDateRange={setDateRange}
+            />,
+        )
+
+        wrapper.find('[data-testid="date-range-button-1"]').simulate('mousedown')
+
+        expect(setDateRange).toBeCalled()
+        expect(selectOption).toBeCalledWith(1)
+    })
+
     it('renders without crashing', () => {
         mount(
             <DateRangeSelector

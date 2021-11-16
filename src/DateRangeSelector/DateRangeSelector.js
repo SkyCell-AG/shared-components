@@ -70,6 +70,7 @@ const DateRangeSelector = ({
                     }) => {
                         return (
                             <div
+                                data-testid={`date-range-button-${value}`}
                                 key={value}
                                 className={clsx(classes.option, {
                                     [classes.selectedOption]: dayPassed === value,
