@@ -5,9 +5,3 @@ exports[`app/Apps/shared-components/LineChart LineChart page snapshot 1`] = `
   className=""
 />
 `;
-
-exports[`app/Apps/shared-components/LineChart Test 1`] = `
-<div
-  className=""
-/>
-`;

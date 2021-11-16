@@ -22,21 +22,4 @@ describe('app/Apps/shared-components/LineChart', () => {
 
         expect(wrapper).toMatchSnapshot()
     })
-
-    it('Test', () => {
-        const props = {
-            columns: [[
-                'number',
-                'Temperature Range Minimum',
-            ]],
-            onError: jest.fn(),
-            isDateRange: false,
-        }
-
-        const wrapper = shallow(
-            <LineChart {...props} />,
-        )
-
-        expect(wrapper).toMatchSnapshot()
-    })
 })
