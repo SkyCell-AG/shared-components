@@ -30,7 +30,7 @@ const loadChart = (chartData, elm, columns, options, onError, isDateRange) => {
 
             createColumns(data, columns)
 
-            const updatedChartData = [
+            const chartDataWithFillers = [
                 ...chartData,
                 [
                     new Date(),
@@ -39,7 +39,9 @@ const loadChart = (chartData, elm, columns, options, onError, isDateRange) => {
                 ],
             ]
 
-            data.addRows(!isDateRange ? updatedChartData : chartData)
+            const updatedChartData = !isDateRange ? chartDataWithFillers : chartData
+
+            data.addRows(updatedChartData)
 
             const chart = new google.visualization.LineChart(elm)
 

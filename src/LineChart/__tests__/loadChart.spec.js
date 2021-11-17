@@ -41,10 +41,14 @@ describe('loadChart function', () => {
         const onError = jest.fn()
         const isDateRange = true
 
-        loadScript.mockResolvedValue('data')
+        loadScript.mockImplementation(() => {
+            return Promise.resolve('data')
+        })
 
         loadChart(chartData, elm, columns, options, onError, isDateRange)
 
-        expect(loadScript).toBeCalled()
+        loadScript().then(() => {
+            expect(loadScript).toBeCalledWith('https://www.gstatic.com/charts/loader.js')
+        })
     })
 })
