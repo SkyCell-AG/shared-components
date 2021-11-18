@@ -22,7 +22,6 @@ const propTypes = {
     showTimeRange: PropTypes.bool,
     from: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
-    setDateRange: PropTypes.func.isRequired,
 }
 
 const defaultProps = {
@@ -52,7 +51,6 @@ const DateRangeSelector = ({
     onChangeRange,
     from,
     to,
-    setDateRange,
 }) => {
     const classes = useStyles()
     const dayPassed = from && to ? rangeToDayPassed({
@@ -77,7 +75,6 @@ const DateRangeSelector = ({
                                 })}
                                 onMouseDown={() => {
                                     selectOption(value)
-                                    setDateRange(false)
                                 }}
                             >
                                 {label}

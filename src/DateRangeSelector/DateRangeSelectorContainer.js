@@ -37,7 +37,11 @@ const DateRangeSelectorContainer = ({
 
     const selectOption = useCallback((selected) => {
         onChange(dayPassedToRange(selected))
-    }, [onChange])
+        setDateRange(false)
+    }, [
+        onChange,
+        setDateRange,
+    ])
 
     const onChangeRange = useCallback((_, {
         target: {
@@ -69,7 +73,6 @@ const DateRangeSelectorContainer = ({
             {...rest}
             selectOption={selectOption}
             onChangeRange={onChangeRange}
-            setDateRange={setDateRange}
             from={dateToDateStr(from)}
             to={dateToDateStr(to)}
         />
