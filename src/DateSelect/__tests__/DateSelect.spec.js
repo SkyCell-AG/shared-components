@@ -15,6 +15,7 @@ describe('shared-components/DateSelect', () => {
                 value="10.06.2018"
                 onChange={jest.fn()}
                 name="from"
+                setDateRange={jest.fn()}
             />,
         )
 
@@ -30,6 +31,7 @@ describe('shared-components/DateSelect', () => {
                 value="10.06.2018"
                 onChange={onChange}
                 name="from"
+                setDateRange={jest.fn()}
             />,
         )
 
@@ -62,6 +64,7 @@ describe('shared-components/DateSelect', () => {
                 value="10.06.2018"
                 onChange={onChange}
                 name="to"
+                setDateRange={jest.fn()}
             />,
         )
 

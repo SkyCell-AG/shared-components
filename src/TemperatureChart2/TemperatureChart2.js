@@ -34,6 +34,7 @@ const propTypes = {
     customData: PropTypes.arrayOf(PropTypes.array),
     allowFullScreen: PropTypes.bool,
     customClassName: PropTypes.string,
+    isDateRange: PropTypes.bool.isRequired,
 }
 
 const defaultProps = {
@@ -67,6 +68,7 @@ const TemperatureChart2 = (props) => {
         customData,
         allowFullScreen,
         customClassName,
+        isDateRange,
     } = props
 
     const classes = useStyles()
@@ -180,6 +182,7 @@ const TemperatureChart2 = (props) => {
                         >
                             <LineChart
                                 value={value}
+                                isDateRange={isDateRange}
                                 columns={columns}
                                 userOptions={chartOptions}
                                 onError={onError}

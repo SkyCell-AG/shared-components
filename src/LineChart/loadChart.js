@@ -16,7 +16,7 @@ const fillerNulls = (columns) => {
     })
 }
 
-const loadChart = (chartData, elm, columns, options, onError) => {
+const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
     loadScript(url).then(() => {
         google.charts.load('current', {
             packages: [
@@ -30,7 +30,7 @@ const loadChart = (chartData, elm, columns, options, onError) => {
 
             createColumns(data, columns)
 
-            const updatedChartData = [
+            const chartDataWithFillers = [
                 ...chartData,
                 [
                     new Date(),
@@ -38,6 +38,8 @@ const loadChart = (chartData, elm, columns, options, onError) => {
                     ...fillerNulls(columns),
                 ],
             ]
+
+            const updatedChartData = !isDateRange ? chartDataWithFillers : chartData
 
             data.addRows(updatedChartData)
 

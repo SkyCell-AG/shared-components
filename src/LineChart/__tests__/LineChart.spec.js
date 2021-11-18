@@ -13,6 +13,7 @@ describe('app/Apps/shared-components/LineChart', () => {
                 'Temperature Range Minimum',
             ]],
             onError: jest.fn(),
+            isDateRange: true,
         }
 
         const wrapper = shallow(

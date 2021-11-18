@@ -17,6 +17,7 @@ const propTypes = {
         to: PropTypes.string,
     }).isRequired,
     onChange: PropTypes.func,
+    setDateRange: PropTypes.func.isRequired,
 }
 
 const defaultProps = {
@@ -26,6 +27,7 @@ const defaultProps = {
 const DateRangeSelectorContainer = ({
     value = {},
     onChange,
+    setDateRange,
     ...rest
 }) => {
     const {
@@ -35,7 +37,11 @@ const DateRangeSelectorContainer = ({
 
     const selectOption = useCallback((selected) => {
         onChange(dayPassedToRange(selected))
-    }, [onChange])
+        setDateRange(false)
+    }, [
+        onChange,
+        setDateRange,
+    ])
 
     const onChangeRange = useCallback((_, {
         target: {
@@ -53,9 +59,12 @@ const DateRangeSelectorContainer = ({
             name,
             value: updatedData,
         })
+
+        setDateRange(true)
     }, [
         from,
         onChange,
+        setDateRange,
         to,
     ])
 

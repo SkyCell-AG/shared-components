@@ -9,6 +9,7 @@ exports[`shared-components/DateRangeSelector should match snapshot 1`] = `
   >
     <div
       className="makeStyles-option-3"
+      data-testid="date-range-button-1"
       key="1"
       onMouseDown={[Function]}
     >
@@ -16,6 +17,7 @@ exports[`shared-components/DateRangeSelector should match snapshot 1`] = `
     </div>
     <div
       className="makeStyles-option-3"
+      data-testid="date-range-button-7"
       key="7"
       onMouseDown={[Function]}
     >
@@ -23,6 +25,7 @@ exports[`shared-components/DateRangeSelector should match snapshot 1`] = `
     </div>
     <div
       className="makeStyles-option-3"
+      data-testid="date-range-button-14"
       key="14"
       onMouseDown={[Function]}
     >
@@ -41,6 +44,7 @@ exports[`shared-components/DateRangeSelector should show time range 1`] = `
   >
     <div
       className="makeStyles-option-3"
+      data-testid="date-range-button-1"
       key="1"
       onMouseDown={[Function]}
     >
@@ -48,6 +52,7 @@ exports[`shared-components/DateRangeSelector should show time range 1`] = `
     </div>
     <div
       className="makeStyles-option-3"
+      data-testid="date-range-button-7"
       key="7"
       onMouseDown={[Function]}
     >
@@ -55,6 +60,7 @@ exports[`shared-components/DateRangeSelector should show time range 1`] = `
     </div>
     <div
       className="makeStyles-option-3"
+      data-testid="date-range-button-14"
       key="14"
       onMouseDown={[Function]}
     >
@@ -67,10 +73,13 @@ exports[`shared-components/DateRangeSelector should show time range 1`] = `
     <div
       className="makeStyles-input-6"
     >
-      <DateSelectContainer
+      <DateSelect
         className="makeStyles-datePicker-7"
+        disabled={false}
+        hasError=""
         name="from"
         onChange={[MockFunction]}
+        required={false}
         title="From"
         value="16.08.2020"
       />
@@ -78,10 +87,13 @@ exports[`shared-components/DateRangeSelector should show time range 1`] = `
     <div
       className="makeStyles-input-6"
     >
-      <DateSelectContainer
+      <DateSelect
         className="makeStyles-datePicker-7"
+        disabled={false}
+        hasError=""
         name="to"
         onChange={[MockFunction]}
+        required={false}
         title="To"
         value="18.08.2020"
       />
