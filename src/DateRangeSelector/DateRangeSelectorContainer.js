@@ -17,6 +17,7 @@ const propTypes = {
         to: PropTypes.string,
     }).isRequired,
     onChange: PropTypes.func,
+    setDateRange: PropTypes.func.isRequired,
 }
 
 const defaultProps = {
@@ -26,6 +27,7 @@ const defaultProps = {
 const DateRangeSelectorContainer = ({
     value = {},
     onChange,
+    setDateRange,
     ...rest
 }) => {
     const {
@@ -53,9 +55,12 @@ const DateRangeSelectorContainer = ({
             name,
             value: updatedData,
         })
+
+        setDateRange(true)
     }, [
         from,
         onChange,
+        setDateRange,
         to,
     ])
 
@@ -64,6 +69,7 @@ const DateRangeSelectorContainer = ({
             {...rest}
             selectOption={selectOption}
             onChangeRange={onChangeRange}
+            setDateRange={setDateRange}
             from={dateToDateStr(from)}
             to={dateToDateStr(to)}
         />

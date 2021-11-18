@@ -38,7 +38,7 @@ const LineChart = (props) => {
         loadChart(value, elm.current, columns, {
             ...defaultOptions,
             ...userOptions,
-        }, onError, isDateRange)
+        }, isDateRange, onError)
     }, [
         columns,
         onError,

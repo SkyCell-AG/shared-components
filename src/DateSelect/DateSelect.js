@@ -31,7 +31,6 @@ const propTypes = {
     required: PropTypes.bool,
     value: PropTypes.string,
     className: PropTypes.string,
-    setDateRange: PropTypes.func.isRequired,
 }
 
 const defaultProps = {
@@ -56,7 +55,6 @@ const DateSelect = (props) => {
         disabled,
         required,
         className,
-        setDateRange,
     } = props
 
     const handleOnChange = useCallback((date) => {
@@ -68,10 +66,7 @@ const DateSelect = (props) => {
                 value: name === 'from' ? newValue.setHours(0, 0, 0) : newValue.setHours(23, 59, 59),
             },
         })
-
-        setDateRange(true)
     }, [
-        setDateRange,
         name,
         onChange,
     ])

@@ -93,7 +93,6 @@ const DateRangeSelector = ({
                             title="From"
                             className={classes.datePicker}
                             onChange={onChangeRange}
-                            setDateRange={setDateRange}
                             name="from"
                             value={from}
 
@@ -104,7 +103,6 @@ const DateRangeSelector = ({
                             title="To"
                             className={classes.datePicker}
                             onChange={onChangeRange}
-                            setDateRange={setDateRange}
                             name="to"
                             value={to}
                         />

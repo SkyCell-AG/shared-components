@@ -45,7 +45,7 @@ describe('loadChart function', () => {
             return Promise.resolve('data')
         })
 
-        loadChart(chartData, elm, columns, options, onError, isDateRange)
+        loadChart(chartData, elm, columns, options, isDateRange, onError)
 
         loadScript().then(() => {
             expect(loadScript).toBeCalledWith('https://www.gstatic.com/charts/loader.js')
