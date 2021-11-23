@@ -58,6 +58,18 @@ exports[`shared-components/DownloadOptions should match snapshot with all button
     showTempRange={true}
     title="Temperature Range"
   />
+  <Radio
+    className="makeStyles-selectedTemperatureRange-3"
+    compact={true}
+    disabled={false}
+    name="selectedTemperatureRange"
+    onChange={[Function]}
+    options={Array []}
+    showInColumns={false}
+    small={false}
+    title=""
+    value=""
+  />
   <div
     className="makeStyles-containerBtn-1"
   >

@@ -12,6 +12,7 @@ import downloadDocument from '../utils/downloadDocument'
 
 import Button from '../Button'
 import Card from '../Card'
+import Radio from '../Radio'
 import TemperatureRange from '../TemperatureRange'
 
 import useStyles from './DownloadOptions.style'
@@ -20,20 +21,31 @@ const propTypes = {
     showTemperatureRangeOption: PropTypes.bool,
     showPdfButton: PropTypes.bool,
     showCsvButton: PropTypes.bool,
+    showTemperatureRangeAllOptions: PropTypes.bool,
     sensorData: PropTypes.arrayOf(PropTypes.any),
     showTempRange: PropTypes.bool.isRequired,
     onCheckShowTempRange: PropTypes.func.isRequired,
     serialNumber: PropTypes.string,
     printChart: PropTypes.func,
+    selectedTemperatureRange: PropTypes.string,
+    radioOptions: PropTypes.arrayOf(PropTypes.shape({
+        label: PropTypes.string,
+        value: PropTypes.string,
+    })),
+    onChangeSelectedTemperatureRange: PropTypes.func,
 }
 
 const defaultProps = {
     showTemperatureRangeOption: false,
     showPdfButton: false,
     showCsvButton: false,
+    showTemperatureRangeAllOptions: false,
     sensorData: undefined,
     serialNumber: '',
+    selectedTemperatureRange: '',
+    radioOptions: [],
     printChart: noop,
+    onChangeSelectedTemperatureRange: noop,
 }
 
 const DownloadOptions = (props) => {
@@ -43,11 +55,15 @@ const DownloadOptions = (props) => {
         showTemperatureRangeOption,
         showPdfButton,
         showCsvButton,
+        showTemperatureRangeAllOptions,
         serialNumber,
         showTempRange,
         onCheckShowTempRange,
         sensorData,
         printChart,
+        selectedTemperatureRange,
+        radioOptions,
+        onChangeSelectedTemperatureRange,
     } = props
 
     const exportCsv = useCallback(() => {
@@ -85,6 +101,16 @@ const DownloadOptions = (props) => {
                     title="Temperature Range"
                 />
             ) }
+            {showTemperatureRangeAllOptions && (
+                <Radio
+                    className={classes.selectedTemperatureRange}
+                    name="selectedTemperatureRange"
+                    compact
+                    value={selectedTemperatureRange}
+                    options={radioOptions}
+                    onChange={onChangeSelectedTemperatureRange}
+                />
+            )}
             <div className={classes.containerBtn}>
                 {showPdfButton && (
                     <Button

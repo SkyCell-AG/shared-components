@@ -27,6 +27,7 @@ describe('shared-components/DownloadOptions', () => {
                 showPdfButton
                 showCsvButton
                 showTemperatureRangeOption
+                showTemperatureRangeAllOptions
                 showTempRange
                 onCheckShowTempRange={jest.fn()}
             />,
