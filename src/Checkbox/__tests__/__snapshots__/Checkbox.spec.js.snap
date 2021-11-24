@@ -14,6 +14,7 @@ exports[`Checkbox Checkbox snapshot 1`] = `
       <ForwardRef(Checkbox)
         checked={false}
         color="primary"
+        data-testid="checkbox-"
         disabled={false}
         indeterminate={false}
         name=""
