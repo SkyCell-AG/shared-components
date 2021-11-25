@@ -63,6 +63,7 @@ const Checkbox = ({
                 control={
                     (
                         <MaterialCheckbox
+                            data-testid={`checkbox-${name}`}
                             disabled={disabled}
                             checked={value}
                             color="primary"
