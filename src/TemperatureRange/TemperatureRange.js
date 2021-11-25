@@ -7,6 +7,7 @@ const propTypes = {
     showTempRange: PropTypes.bool.isRequired,
     onCheckShowTempRange: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
 }
 
 const TemperatureRange = (props) => {
@@ -14,6 +15,7 @@ const TemperatureRange = (props) => {
         showTempRange,
         onCheckShowTempRange,
         title,
+        name,
     } = props
 
     return (
@@ -23,6 +25,7 @@ const TemperatureRange = (props) => {
                 onCheckShowTempRange(event)
             }}
             title={title}
+            name={name}
         />
     )
 }
