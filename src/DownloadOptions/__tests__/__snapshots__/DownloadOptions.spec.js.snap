@@ -54,6 +54,7 @@ exports[`shared-components/DownloadOptions should match snapshot with all button
   titleClass=""
 >
   <TemperatureRange
+    name="temperatureRange"
     onCheckShowTempRange={[MockFunction]}
     showTempRange={true}
     title="Temperature Range"

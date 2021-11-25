@@ -96,6 +96,7 @@ const DownloadOptions = (props) => {
         <Card title="Options">
             {showTemperatureRangeOption && (
                 <TemperatureRange
+                    name="temperatureRange"
                     showTempRange={showTempRange}
                     onCheckShowTempRange={onCheckShowTempRange}
                     title="Temperature Range"
