@@ -6,7 +6,6 @@ import DateSelect from 'DateSelect'
 import rangeToDayPassed from 'utils/rangeToDayPassed'
 import {
     strToDate,
-    dateToISO,
 } from 'utils/DateUtils'
 
 import useStyles from './DateRangeSelector.style'
@@ -54,8 +53,8 @@ const DateRangeSelector = ({
 }) => {
     const classes = useStyles()
     const dayPassed = from && to ? rangeToDayPassed({
-        from: strToDate(dateToISO(from)),
-        to: strToDate(dateToISO(to)),
+        from: strToDate(from),
+        to: strToDate(to),
     }) : undefined
 
     return (

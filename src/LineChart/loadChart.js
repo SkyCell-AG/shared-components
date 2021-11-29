@@ -43,9 +43,38 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
 
             data.addRows(updatedChartData)
 
+            const dateFormat = new google.visualization.DateFormat({
+                formatType: 'medium', timeZone: 0,
+            })
+
+            dateFormat.format(data, 0)
+
+            const xTicks = []
+
+            // eslint-disable-next-line no-plusplus
+            for (let i = 0; i < data.getNumberOfRows(); i++) {
+                xTicks.push({
+                    v: data.getValue(i, 0),
+                    f: data.getFormattedValue(i, 0),
+                })
+            }
+
             const chart = new google.visualization.LineChart(elm)
 
-            chart.draw(data, options)
+            chart.draw(data, {
+                hAxis: {
+                    ticks: xTicks,
+                },
+            })
+
+            const optionsUpdated = {
+                ...options,
+                hAxis: {
+                    ticks: xTicks,
+                },
+            }
+
+            chart.draw(data, optionsUpdated)
         }
 
         return google.charts.setOnLoadCallback(drawChart)
