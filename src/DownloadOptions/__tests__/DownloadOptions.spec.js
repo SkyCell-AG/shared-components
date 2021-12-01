@@ -22,7 +22,7 @@ describe('shared-components/DownloadOptions', () => {
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('Document Print is loaded', (done) => {
+    it('Document Print is loaded', () => {
         const wrapper = shallow(
             <DownloadOptions
                 showPdfButton
@@ -49,18 +49,15 @@ describe('shared-components/DownloadOptions', () => {
             label: 'csv',
         }).prop('onClick')()
 
-        setTimeout(() => {
-            expect(downloadDocument).toHaveBeenCalledWith({
-                headers: {
-                    'content-type': 'text/csv',
-                },
-                data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,\n031-10279,16.08.2018 06:50,24.7,21.5',
-            }, 'sensor_data_031-10279')
-            done()
-        })
+        expect(downloadDocument).toHaveBeenCalledWith({
+            headers: {
+                'content-type': 'text/csv',
+            },
+            data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,\n031-10279,16.08.2018 06:50,24.7,21.5',
+        }, 'sensor_data_031-10279')
     })
 
-    it('should generate csv data for more than 1 sensor', (done) => {
+    it('should generate csv data for more than 1 sensor', () => {
         const wrapper = shallow(
             <DownloadOptions
                 showCsvButton
@@ -90,18 +87,15 @@ describe('shared-components/DownloadOptions', () => {
             label: 'csv',
         }).prop('onClick')()
 
-        setTimeout(() => {
-            expect(downloadDocument).toHaveBeenCalledWith({
-                headers: {
-                    'content-type': 'text/csv',
-                },
-                data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,SERIAL_NUMBER,INTERNAL_TEMPERATURE\n031-10279,16.08.2018 06:50,24.7,21.5,000019378,24.7',
-            }, 'sensor_data_031-10279')
-            done()
-        })
+        expect(downloadDocument).toHaveBeenCalledWith({
+            headers: {
+                'content-type': 'text/csv',
+            },
+            data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,SERIAL_NUMBER,INTERNAL_TEMPERATURE\n031-10279,16.08.2018 06:50,24.7,21.5,000019378,24.7',
+        }, 'sensor_data_031-10279')
     })
 
-    it('should generate csv data for more than 1 sensor of type savy', (done) => {
+    it('should generate csv data for more than 1 sensor of type savy', () => {
         const wrapper = shallow(
             <DownloadOptions
                 showCsvButton
@@ -131,14 +125,11 @@ describe('shared-components/DownloadOptions', () => {
             label: 'csv',
         }).prop('onClick')()
 
-        setTimeout(() => {
-            expect(downloadDocument).toHaveBeenCalledWith({
-                headers: {
-                    'content-type': 'text/csv',
-                },
-                data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE\n031-10279,16.08.2018 06:50,,24.7,bea4359jer9g9,24.7,21.5',
-            }, 'sensor_data_031-10279')
-            done()
-        })
+        expect(downloadDocument).toHaveBeenCalledWith({
+            headers: {
+                'content-type': 'text/csv',
+            },
+            data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE\n031-10279,16.08.2018 06:50,,24.7,bea4359jer9g9,24.7,21.5',
+        }, 'sensor_data_031-10279')
     })
 })
