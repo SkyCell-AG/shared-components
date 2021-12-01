@@ -4,10 +4,6 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
-import {
-    dateToStr,
-    dateTimeMask,
-} from '../utils/DateUtils'
 import downloadDocument from '../utils/downloadDocument'
 
 import Button from '../Button'
@@ -26,6 +22,7 @@ const propTypes = {
     showTempRange: PropTypes.bool.isRequired,
     onCheckShowTempRange: PropTypes.func.isRequired,
     serialNumber: PropTypes.string,
+    loggerType: PropTypes.string,
     printChart: PropTypes.func,
     selectedTemperatureRange: PropTypes.string,
     radioOptions: PropTypes.arrayOf(PropTypes.shape({
@@ -33,6 +30,11 @@ const propTypes = {
         value: PropTypes.string,
     })),
     onChangeSelectedTemperatureRange: PropTypes.func,
+    otherLoggers: PropTypes.arrayOf(PropTypes.shape({
+        value: PropTypes.string,
+        loggerType: PropTypes.string,
+    })),
+    isContainer: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -42,10 +44,13 @@ const defaultProps = {
     showTemperatureRangeAllOptions: false,
     sensorData: undefined,
     serialNumber: '',
+    loggerType: '',
     selectedTemperatureRange: '',
     radioOptions: [],
+    otherLoggers: [],
     printChart: noop,
     onChangeSelectedTemperatureRange: noop,
+    isContainer: false,
 }
 
 const DownloadOptions = (props) => {
@@ -57,39 +62,75 @@ const DownloadOptions = (props) => {
         showCsvButton,
         showTemperatureRangeAllOptions,
         serialNumber,
+        loggerType,
         showTempRange,
         onCheckShowTempRange,
         sensorData,
         printChart,
         selectedTemperatureRange,
         radioOptions,
+        otherLoggers,
         onChangeSelectedTemperatureRange,
+        isContainer,
     } = props
 
     const exportCsv = useCallback(() => {
         const csvContent = `${sensorData.map((e) => {
-            const element = [
+            let pushedRows = 0
+            const csvArray = [
                 serialNumber,
-                dateToStr(e[0], dateTimeMask),
-                e[1],
-                e[4],
+                e[0],
+                (loggerType === 'SKYCELL_SAVY_BLE' || isContainer) && e[1],
+                (loggerType === 'CARTASENSE') ? e[1] : e[4],
+                ...otherLoggers.map((element) => {
+                    let result = e[3 * pushedRows + 1]
+
+                    let pushedRowsIncrement = 1
+
+                    if (element.loggerType === 'SKYCELL_SAVY_BLE') {
+                        result = [
+                            e[3 * pushedRows + 1],
+                            e[3 * (pushedRows + 1) + 1],
+                        ]
+
+                        pushedRowsIncrement = 2
+                    }
+
+                    pushedRows += pushedRowsIncrement
+                    return [
+                        element.value,
+                        result,
+                    ]
+                }).flat(2),
             ]
 
-            return element.join(',')
+            return csvArray.join(',')
         }).join('\n')}`
+
+        const baseColumns = 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE'
+
+        const columns = otherLoggers.reduce((acc, curr) => {
+            if (curr.loggerType === 'SKYCELL_SAVY_BLE') {
+                return `${acc},SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE`
+            }
+            return `${acc},SERIAL_NUMBER,INTERNAL_TEMPERATURE`
+        }, baseColumns)
 
         downloadDocument(
             {
                 headers: {
                     'content-type': 'text/csv',
                 },
-                data: `SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE\n${csvContent}`,
+                data: `${columns}\n${csvContent}`,
             },
             `sensor_data_${serialNumber}`,
         )
     }, [
         sensorData,
+        otherLoggers,
         serialNumber,
+        loggerType,
+        isContainer,
     ])
 
     return (

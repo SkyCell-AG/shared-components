@@ -49,15 +49,12 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
 
             dateFormat.format(data, 0)
 
-            const xTicks = []
-
-            // eslint-disable-next-line no-plusplus
-            for (let i = 0; i < data.getNumberOfRows(); i++) {
-                xTicks.push({
-                    v: data.getValue(i, 0),
-                    f: data.getFormattedValue(i, 0),
-                })
-            }
+            const xTicks = Array(data.getNumberOfRows() - 1).fill(null).map((_, index) => {
+                return {
+                    v: data.getValue(index, 0),
+                    f: data.getFormattedValue(index, 0),
+                }
+            })
 
             const chart = new google.visualization.LineChart(elm)
 

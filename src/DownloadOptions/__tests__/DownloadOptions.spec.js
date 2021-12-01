@@ -42,8 +42,9 @@ describe('shared-components/DownloadOptions', () => {
                 showCsvButton
                 showTempRange
                 serialNumber="031-10279"
+                loggerType="SKYCELL_SAVY_BLE"
                 sensorData={[[
-                    new Date('August 16, 2018 06:50:00'),
+                    '16.08.2018 06:50',
                     24.7,
                     null,
                     null,
@@ -76,7 +77,7 @@ describe('shared-components/DownloadOptions', () => {
                 showCsvButton
                 showTempRange
                 sensorData={[[
-                    new Date('August 16, 2018 06:50:00'),
+                    '16.08.2018 06:50',
                     24.7,
                     null,
                     null,
