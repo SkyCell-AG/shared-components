@@ -1,32 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shared-components/DownloadOptions should generate csv data 1`] = `
-<Card
-  className=""
-  contentClass=""
-  fullHeight={false}
-  icon=""
-  status=""
-  title="Options"
-  titleClass=""
->
-  <div
-    className="makeStyles-containerBtn-1"
-  >
-    <Button
-      className="makeStyles-btnControl-2"
-      disabled={false}
-      icon={null}
-      isUpperCase={true}
-      label="csv"
-      onClick={[Function]}
-      saving={false}
-      secondary={false}
-    />
-  </div>
-</Card>
-`;
-
 exports[`shared-components/DownloadOptions should match snapshot 1`] = `
 <Card
   className=""
@@ -40,60 +13,5 @@ exports[`shared-components/DownloadOptions should match snapshot 1`] = `
   <div
     className="makeStyles-containerBtn-1"
   />
-</Card>
-`;
-
-exports[`shared-components/DownloadOptions should match snapshot with all buttons 1`] = `
-<Card
-  className=""
-  contentClass=""
-  fullHeight={false}
-  icon=""
-  status=""
-  title="Options"
-  titleClass=""
->
-  <TemperatureRange
-    name="temperatureRange"
-    onCheckShowTempRange={[MockFunction]}
-    showTempRange={true}
-    title="Temperature Range"
-  />
-  <Radio
-    className="makeStyles-selectedTemperatureRange-3"
-    compact={true}
-    disabled={false}
-    name="selectedTemperatureRange"
-    onChange={[Function]}
-    options={Array []}
-    showInColumns={false}
-    small={false}
-    title=""
-    value=""
-  />
-  <div
-    className="makeStyles-containerBtn-1"
-  >
-    <Button
-      className="makeStyles-btnControl-2"
-      disabled={false}
-      icon={null}
-      isUpperCase={true}
-      label="pdf"
-      onClick={[Function]}
-      saving={false}
-      secondary={false}
-    />
-    <Button
-      className="makeStyles-btnControl-2"
-      disabled={false}
-      icon={null}
-      isUpperCase={true}
-      label="csv"
-      onClick={[Function]}
-      saving={false}
-      secondary={false}
-    />
-  </div>
 </Card>
 `;

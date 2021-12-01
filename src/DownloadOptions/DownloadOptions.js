@@ -5,9 +5,10 @@ import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
 import {
-    dateToStr,
-    dateTimeMask,
-} from '../utils/DateUtils'
+    SKYCELL_SAVY_BLE,
+    CARTASENSE,
+} from '../utils/loggerTypesMap'
+
 import downloadDocument from '../utils/downloadDocument'
 
 import Button from '../Button'
@@ -26,6 +27,7 @@ const propTypes = {
     showTempRange: PropTypes.bool.isRequired,
     onCheckShowTempRange: PropTypes.func.isRequired,
     serialNumber: PropTypes.string,
+    loggerType: PropTypes.string,
     printChart: PropTypes.func,
     selectedTemperatureRange: PropTypes.string,
     radioOptions: PropTypes.arrayOf(PropTypes.shape({
@@ -33,6 +35,11 @@ const propTypes = {
         value: PropTypes.string,
     })),
     onChangeSelectedTemperatureRange: PropTypes.func,
+    otherLoggers: PropTypes.arrayOf(PropTypes.shape({
+        value: PropTypes.string,
+        loggerType: PropTypes.string,
+    })),
+    isContainer: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -42,10 +49,13 @@ const defaultProps = {
     showTemperatureRangeAllOptions: false,
     sensorData: undefined,
     serialNumber: '',
+    loggerType: '',
     selectedTemperatureRange: '',
     radioOptions: [],
+    otherLoggers: [],
     printChart: noop,
     onChangeSelectedTemperatureRange: noop,
+    isContainer: false,
 }
 
 const DownloadOptions = (props) => {
@@ -57,39 +67,87 @@ const DownloadOptions = (props) => {
         showCsvButton,
         showTemperatureRangeAllOptions,
         serialNumber,
+        loggerType,
         showTempRange,
         onCheckShowTempRange,
         sensorData,
         printChart,
         selectedTemperatureRange,
         radioOptions,
+        otherLoggers,
         onChangeSelectedTemperatureRange,
+        isContainer,
     } = props
 
+    const getOtherLoggersData = useCallback((sensorDataElement) => {
+        const cleanSensorData = sensorDataElement.filter((element) => {
+            return element
+        })
+
+        let pushedRows = 0
+        const otherLoggersData = otherLoggers.map((otherLoggerInfo) => {
+            let result = cleanSensorData[pushedRows + 1]
+
+            let pushedRowsIncrement = 1
+
+            if (otherLoggerInfo.loggerType === SKYCELL_SAVY_BLE) {
+                result = [
+                    cleanSensorData[pushedRows + 1],
+                    cleanSensorData[(pushedRows + 1) + 1],
+                ]
+
+                pushedRowsIncrement = 2
+            }
+
+            pushedRows += pushedRowsIncrement
+
+            return [
+                otherLoggerInfo.value,
+                result,
+            ]
+        }).flat(2)
+
+        return otherLoggersData
+    }, [otherLoggers])
+
     const exportCsv = useCallback(() => {
-        const csvContent = `${sensorData.map((e) => {
-            const element = [
+        const csvContent = `${sensorData.map((sensorDataElement) => {
+            const csvArray = [
                 serialNumber,
-                dateToStr(e[0], dateTimeMask),
-                e[1],
-                e[4],
+                sensorDataElement[0],
+                (loggerType === SKYCELL_SAVY_BLE || isContainer) ? sensorDataElement[1] : '',
+                (loggerType === CARTASENSE) ? sensorDataElement[1] : sensorDataElement[4],
+                ...getOtherLoggersData(sensorDataElement),
             ]
 
-            return element.join(',')
+            return csvArray.join(',')
         }).join('\n')}`
+
+        const baseColumns = 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE'
+
+        const columns = otherLoggers.map((element) => {
+            if (element.loggerType === SKYCELL_SAVY_BLE) {
+                return 'SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE'
+            }
+            return 'SERIAL_NUMBER,INTERNAL_TEMPERATURE'
+        }).join(',')
 
         downloadDocument(
             {
                 headers: {
                     'content-type': 'text/csv',
                 },
-                data: `SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE\n${csvContent}`,
+                data: `${baseColumns},${columns}\n${csvContent}`,
             },
             `sensor_data_${serialNumber}`,
         )
     }, [
         sensorData,
+        otherLoggers,
         serialNumber,
+        loggerType,
+        isContainer,
+        getOtherLoggersData,
     ])
 
     return (
