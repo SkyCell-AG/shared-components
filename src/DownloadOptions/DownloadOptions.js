@@ -79,17 +79,17 @@ const DownloadOptions = (props) => {
         isContainer,
     } = props
 
-    const getOtherLoggersData = useCallback((e) => {
+    const getOtherLoggersData = useCallback((sensorDataElement) => {
         let pushedRows = 0
-        const otherLoggersData = otherLoggers.map((element) => {
-            let result = e[3 * pushedRows + 1]
+        const otherLoggersData = otherLoggers.map((otherLogger) => {
+            let result = sensorDataElement[3 * pushedRows + 1]
 
             let pushedRowsIncrement = 1
 
-            if (element.loggerType === SKYCELL_SAVY_BLE) {
+            if (otherLogger.loggerType === SKYCELL_SAVY_BLE) {
                 result = [
-                    e[3 * pushedRows + 1],
-                    e[3 * (pushedRows + 1) + 1],
+                    sensorDataElement[3 * pushedRows + 1],
+                    sensorDataElement[3 * (pushedRows + 1) + 1],
                 ]
 
                 pushedRowsIncrement = 2
@@ -98,7 +98,7 @@ const DownloadOptions = (props) => {
             pushedRows += pushedRowsIncrement
 
             return [
-                element.value,
+                otherLogger.value,
                 result,
             ]
         }).flat(2)
@@ -107,13 +107,13 @@ const DownloadOptions = (props) => {
     }, [otherLoggers])
 
     const exportCsv = useCallback(() => {
-        const csvContent = `${sensorData.map((e) => {
+        const csvContent = `${sensorData.map((sensorDataElement) => {
             const csvArray = [
                 serialNumber,
-                e[0],
-                (loggerType === SKYCELL_SAVY_BLE || isContainer) ? e[1] : '',
-                (loggerType === CARTASENSE) ? e[1] : e[4],
-                ...getOtherLoggersData(e),
+                sensorDataElement[0],
+                (loggerType === SKYCELL_SAVY_BLE || isContainer) ? sensorDataElement[1] : '',
+                (loggerType === CARTASENSE) ? sensorDataElement[1] : sensorDataElement[4],
+                ...getOtherLoggersData(sensorDataElement),
             ]
 
             return csvArray.join(',')
