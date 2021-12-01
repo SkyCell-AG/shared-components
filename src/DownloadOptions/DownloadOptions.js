@@ -114,19 +114,19 @@ const DownloadOptions = (props) => {
 
         const baseColumns = 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE'
 
-        const columns = otherLoggers.reduce((acc, curr) => {
-            if (curr.loggerType === SKYCELL_SAVY_BLE) {
-                return `${acc},SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE`
+        const columns = otherLoggers.map((element) => {
+            if (element.loggerType === SKYCELL_SAVY_BLE) {
+                return 'SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE'
             }
-            return `${acc},SERIAL_NUMBER,INTERNAL_TEMPERATURE`
-        }, baseColumns)
+            return 'SERIAL_NUMBER,INTERNAL_TEMPERATURE'
+        }).join(',')
 
         downloadDocument(
             {
                 headers: {
                     'content-type': 'text/csv',
                 },
-                data: `${columns}\n${csvContent}`,
+                data: `${baseColumns},${columns}\n${csvContent}`,
             },
             `sensor_data_${serialNumber}`,
         )
