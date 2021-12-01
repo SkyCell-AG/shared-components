@@ -79,34 +79,41 @@ const DownloadOptions = (props) => {
         isContainer,
     } = props
 
+    const getOtherLoggersData = useCallback((e) => {
+        let pushedRows = 0
+        const otherLoggersData = otherLoggers.map((element) => {
+            let result = e[3 * pushedRows + 1]
+
+            let pushedRowsIncrement = 1
+
+            if (element.loggerType === SKYCELL_SAVY_BLE) {
+                result = [
+                    e[3 * pushedRows + 1],
+                    e[3 * (pushedRows + 1) + 1],
+                ]
+
+                pushedRowsIncrement = 2
+            }
+
+            pushedRows += pushedRowsIncrement
+
+            return [
+                element.value,
+                result,
+            ]
+        }).flat(2)
+
+        return otherLoggersData
+    }, [otherLoggers])
+
     const exportCsv = useCallback(() => {
         const csvContent = `${sensorData.map((e) => {
-            let pushedRows = 0
             const csvArray = [
                 serialNumber,
                 e[0],
-                (loggerType === SKYCELL_SAVY_BLE || isContainer) && e[1],
+                (loggerType === SKYCELL_SAVY_BLE || isContainer) ? e[1] : '',
                 (loggerType === CARTASENSE) ? e[1] : e[4],
-                ...otherLoggers.map((element) => {
-                    let result = e[3 * pushedRows + 1]
-
-                    let pushedRowsIncrement = 1
-
-                    if (element.loggerType === SKYCELL_SAVY_BLE) {
-                        result = [
-                            e[3 * pushedRows + 1],
-                            e[3 * (pushedRows + 1) + 1],
-                        ]
-
-                        pushedRowsIncrement = 2
-                    }
-
-                    pushedRows += pushedRowsIncrement
-                    return [
-                        element.value,
-                        result,
-                    ]
-                }).flat(2),
+                ...getOtherLoggersData(e),
             ]
 
             return csvArray.join(',')
@@ -136,6 +143,7 @@ const DownloadOptions = (props) => {
         serialNumber,
         loggerType,
         isContainer,
+        getOtherLoggersData,
     ])
 
     return (
