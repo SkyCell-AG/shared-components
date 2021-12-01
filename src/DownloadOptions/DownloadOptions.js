@@ -81,12 +81,12 @@ const DownloadOptions = (props) => {
 
     const getOtherLoggersData = useCallback((sensorDataElement) => {
         let pushedRows = 0
-        const otherLoggersData = otherLoggers.map((otherLogger) => {
+        const otherLoggersData = otherLoggers.map((otherLoggerInfo) => {
             let result = sensorDataElement[3 * pushedRows + 1]
 
             let pushedRowsIncrement = 1
 
-            if (otherLogger.loggerType === SKYCELL_SAVY_BLE) {
+            if (otherLoggerInfo.loggerType === SKYCELL_SAVY_BLE) {
                 result = [
                     sensorDataElement[3 * pushedRows + 1],
                     sensorDataElement[3 * (pushedRows + 1) + 1],
@@ -98,7 +98,7 @@ const DownloadOptions = (props) => {
             pushedRows += pushedRowsIncrement
 
             return [
-                otherLogger.value,
+                otherLoggerInfo.value,
                 result,
             ]
         }).flat(2)
