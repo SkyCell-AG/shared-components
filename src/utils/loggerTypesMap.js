@@ -1,0 +1,2 @@
+export const CARTASENSE = 'CARTASENSE'
+export const SKYCELL_SAVY_BLE = 'SKYCELL_SAVY_BLE'

@@ -4,6 +4,11 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
+import {
+    SKYCELL_SAVY_BLE,
+    CARTASENSE,
+} from '../utils/loggerTypesMap'
+
 import downloadDocument from '../utils/downloadDocument'
 
 import Button from '../Button'
@@ -80,14 +85,14 @@ const DownloadOptions = (props) => {
             const csvArray = [
                 serialNumber,
                 e[0],
-                (loggerType === 'SKYCELL_SAVY_BLE' || isContainer) && e[1],
-                (loggerType === 'CARTASENSE') ? e[1] : e[4],
+                (loggerType === SKYCELL_SAVY_BLE || isContainer) && e[1],
+                (loggerType === CARTASENSE) ? e[1] : e[4],
                 ...otherLoggers.map((element) => {
                     let result = e[3 * pushedRows + 1]
 
                     let pushedRowsIncrement = 1
 
-                    if (element.loggerType === 'SKYCELL_SAVY_BLE') {
+                    if (element.loggerType === SKYCELL_SAVY_BLE) {
                         result = [
                             e[3 * pushedRows + 1],
                             e[3 * (pushedRows + 1) + 1],
@@ -110,7 +115,7 @@ const DownloadOptions = (props) => {
         const baseColumns = 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE'
 
         const columns = otherLoggers.reduce((acc, curr) => {
-            if (curr.loggerType === 'SKYCELL_SAVY_BLE') {
+            if (curr.loggerType === SKYCELL_SAVY_BLE) {
                 return `${acc},SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE`
             }
             return `${acc},SERIAL_NUMBER,INTERNAL_TEMPERATURE`
