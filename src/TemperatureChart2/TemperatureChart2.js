@@ -6,9 +6,6 @@ import noop from 'lodash/noop'
 
 import LineChart from 'LineChart'
 import FullScreen from 'FullScreen'
-import {
-    strToDate,
-} from 'utils/DateUtils'
 
 import createChartColumns from './createChartColumns'
 import chartColumns from './chartColumns'
@@ -150,7 +147,7 @@ const TemperatureChart2 = (props) => {
         }, i) => {
             if (customData.length > 0) {
                 return [
-                    strToDate(t),
+                    t,
                     0,
                     ...addNotationValues(d),
                     ...customData[i],
@@ -158,7 +155,7 @@ const TemperatureChart2 = (props) => {
             }
 
             return [
-                strToDate(t),
+                t,
                 0,
                 ...addNotationValues(d),
             ]

@@ -63,7 +63,7 @@ const DateSelect = (props) => {
         onChange(newValue, {
             target: {
                 name,
-                value: name === 'from' ? newValue.setHours(0, 0, 0) : newValue.setHours(23, 59, 59),
+                value: name === 'from' ? new Date(newValue.setHours(0, 0, 0)) : new Date(newValue.setHours(23, 59, 59)),
             },
         })
     }, [
