@@ -42,6 +42,7 @@ declare module '@skycell-ag/shared-components' {
         showTempRange: boolean,
         onCheckShowTempRange: () => boolean,
         sensorData: any[],
+        sensorCodes: any[],
         printChart: () => void,
     }
 

@@ -49,7 +49,7 @@ describe('shared-components/DateSelect', () => {
             new Date('2018-06-10T00:00:00.000Z'), {
                 target: {
                     name: 'from',
-                    value: 1528588800000,
+                    value: new Date('2018-06-10T00:00:00.000Z'),
                 },
             },
         )
@@ -82,7 +82,7 @@ describe('shared-components/DateSelect', () => {
             new Date('2018-06-10T23:59:59.000Z'), {
                 target: {
                     name: 'to',
-                    value: 1528675199000,
+                    value: new Date('2018-06-10T23:59:59.000Z'),
                 },
             },
         )

@@ -13,8 +13,14 @@ import DateRangeSelector from './DateRangeSelector'
 
 const propTypes = {
     value: PropTypes.shape({
-        from: PropTypes.string,
-        to: PropTypes.string,
+        from: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
+        to: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
     }).isRequired,
     onChange: PropTypes.func,
     setDateRange: PropTypes.func.isRequired,
@@ -50,8 +56,8 @@ const DateRangeSelectorContainer = ({
         },
     }) => {
         const updatedData = {
-            from,
-            to,
+            from: new Date(from.setHours(0, 0, 0)),
+            to: new Date(to.setHours(23, 59, 59)),
             [name]: newValue,
         }
 

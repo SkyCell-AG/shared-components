@@ -16,6 +16,10 @@ describe('shared-components/DownloadOptions', () => {
                 showTempRange
                 isContainer
                 onCheckShowTempRange={jest.fn()}
+                sensorCodes={[
+                    'AMBIENT_TEMPERATURE_868618a0d672d4e4',
+                    'INTERNAL_TEMPERATURE_868618a0d672d4e4',
+                ]}
             />,
         )
 
@@ -42,6 +46,11 @@ describe('shared-components/DownloadOptions', () => {
                     null,
                 ]]}
                 onCheckShowTempRange={jest.fn()}
+                sensorCodes={[
+                    'AMBIENT_TEMPERATURE_868618a0d672d4e4',
+                    'INTERNAL_TEMPERATURE_868618a0d672d4e4',
+                ]}
+                isContainer={false}
             />,
         )
 
@@ -53,7 +62,7 @@ describe('shared-components/DownloadOptions', () => {
             headers: {
                 'content-type': 'text/csv',
             },
-            data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,\n031-10279,16.08.2018 06:50,24.7,21.5',
+            data: 'TIMESTAMP,AMBIENT_TEMPERATURE_868618a0d672d4e4,INTERNAL_TEMPERATURE_868618a0d672d4e4\n16.08.2018 06:50,24.7,21.5',
         }, 'sensor_data_031-10279')
     })
 
@@ -80,6 +89,12 @@ describe('shared-components/DownloadOptions', () => {
                     value: '000019378', loggerType: 'CARTASENSE',
                 }]}
                 onCheckShowTempRange={jest.fn()}
+                sensorCodes={[
+                    'AMBIENT_TEMPERATURE',
+                    'INTERNAL_TEMPERATURE',
+                    'BACK_TEMPERATURE',
+                ]}
+                isContainer
             />,
         )
 
@@ -91,7 +106,7 @@ describe('shared-components/DownloadOptions', () => {
             headers: {
                 'content-type': 'text/csv',
             },
-            data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,SERIAL_NUMBER,INTERNAL_TEMPERATURE\n031-10279,16.08.2018 06:50,24.7,21.5,000019378,24.7',
+            data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,BACK_TEMPERATURE\n031-10279,16.08.2018 06:50,24.7,21.5,4',
         }, 'sensor_data_031-10279')
     })
 
@@ -118,6 +133,10 @@ describe('shared-components/DownloadOptions', () => {
                     value: 'bea4359jer9g9', loggerType: 'SKYCELL_SAVY_BLE',
                 }]}
                 onCheckShowTempRange={jest.fn()}
+                sensorCodes={[
+                    'AMBIENT_TEMPERATURE_868618a0d672d4e4',
+                    'INTERNAL_TEMPERATURE_868618a0d672d4e4',
+                ]}
             />,
         )
 
@@ -129,7 +148,7 @@ describe('shared-components/DownloadOptions', () => {
             headers: {
                 'content-type': 'text/csv',
             },
-            data: 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE,SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE\n031-10279,16.08.2018 06:50,,24.7,bea4359jer9g9,24.7,21.5',
+            data: 'TIMESTAMP,AMBIENT_TEMPERATURE_868618a0d672d4e4,INTERNAL_TEMPERATURE_868618a0d672d4e4\n16.08.2018 06:50,24.7,21.5,4',
         }, 'sensor_data_031-10279')
     })
 })
