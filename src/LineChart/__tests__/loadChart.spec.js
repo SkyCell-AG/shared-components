@@ -129,7 +129,7 @@ describe('loadChart function', () => {
 
         loadChart(chartData, elm, columns, options, false, onError)
 
-        loadScript().then(() => {
+        return loadScript().then(() => {
             expect(spyLineChart).toHaveBeenCalled()
             expect(spyDataTable).toHaveBeenCalled()
             expect(spySetOnLoadCallback).toHaveBeenCalled()
