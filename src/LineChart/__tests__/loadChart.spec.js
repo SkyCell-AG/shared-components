@@ -93,4 +93,46 @@ describe('loadChart function', () => {
             expect(spySetOnLoadCallback).toHaveBeenCalled()
         })
     })
+
+    it('load google chart data for false DateRange', () => {
+        const google = {
+            charts: {
+                load: () => { return jest.fn() },
+                setOnLoadCallback: (draw) => {
+                    return draw()
+                },
+                draw: () => { return jest.fn() },
+            },
+            visualization: {
+                DataTable: () => {
+                    return {
+                        addColumn: () => { return jest.fn() },
+                        addRows: () => { return jest.fn() },
+                    }
+                },
+                LineChart: () => {
+                    return {
+                        draw: () => { return jest.fn() },
+                    }
+                },
+            },
+        }
+        const spySetOnLoadCallback = jest.spyOn(google.charts, 'setOnLoadCallback')
+        const spyDataTable = jest.spyOn(google.visualization, 'DataTable')
+        const spyLineChart = jest.spyOn(google.visualization, 'LineChart')
+
+        global.window.google = google
+
+        loadScript.mockImplementation(() => {
+            return Promise.resolve(loadScript)
+        })
+
+        loadChart(chartData, elm, columns, options, false, onError)
+
+        loadScript().then(() => {
+            expect(spyLineChart).toHaveBeenCalled()
+            expect(spyDataTable).toHaveBeenCalled()
+            expect(spySetOnLoadCallback).toHaveBeenCalled()
+        })
+    })
 })
