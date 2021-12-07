@@ -1,6 +1,3 @@
-import {
-    fn,
-} from 'moment'
 import loadScript from 'utils/loadScript'
 import loadChart from '../loadChart'
 
