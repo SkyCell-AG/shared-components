@@ -1,7 +1,7 @@
 /* global google */
+import drop from 'lodash/drop'
 
 import loadScript from 'utils/loadScript'
-import drop from 'lodash/drop'
 
 const url = 'https://www.gstatic.com/charts/loader.js'
 

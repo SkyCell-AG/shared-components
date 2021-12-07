@@ -4,11 +4,6 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
-import {
-    SKYCELL_SAVY_BLE,
-    CARTASENSE,
-} from '../utils/loggerTypesMap'
-
 import downloadDocument from '../utils/downloadDocument'
 
 import Button from '../Button'
@@ -24,10 +19,10 @@ const propTypes = {
     showCsvButton: PropTypes.bool,
     showTemperatureRangeAllOptions: PropTypes.bool,
     sensorData: PropTypes.arrayOf(PropTypes.any),
+    sensorCodes: PropTypes.arrayOf(PropTypes.any),
     showTempRange: PropTypes.bool.isRequired,
     onCheckShowTempRange: PropTypes.func.isRequired,
     serialNumber: PropTypes.string,
-    loggerType: PropTypes.string,
     printChart: PropTypes.func,
     selectedTemperatureRange: PropTypes.string,
     radioOptions: PropTypes.arrayOf(PropTypes.shape({
@@ -35,10 +30,6 @@ const propTypes = {
         value: PropTypes.string,
     })),
     onChangeSelectedTemperatureRange: PropTypes.func,
-    otherLoggers: PropTypes.arrayOf(PropTypes.shape({
-        value: PropTypes.string,
-        loggerType: PropTypes.string,
-    })),
     isContainer: PropTypes.bool,
 }
 
@@ -48,11 +39,10 @@ const defaultProps = {
     showCsvButton: false,
     showTemperatureRangeAllOptions: false,
     sensorData: undefined,
+    sensorCodes: undefined,
     serialNumber: '',
-    loggerType: '',
     selectedTemperatureRange: '',
     radioOptions: [],
-    otherLoggers: [],
     printChart: noop,
     onChangeSelectedTemperatureRange: noop,
     isContainer: false,
@@ -67,87 +57,47 @@ const DownloadOptions = (props) => {
         showCsvButton,
         showTemperatureRangeAllOptions,
         serialNumber,
-        loggerType,
         showTempRange,
         onCheckShowTempRange,
         sensorData,
+        sensorCodes,
         printChart,
         selectedTemperatureRange,
         radioOptions,
-        otherLoggers,
         onChangeSelectedTemperatureRange,
         isContainer,
     } = props
 
-    const getOtherLoggersData = useCallback((sensorDataElement) => {
-        const cleanSensorData = sensorDataElement.filter((element) => {
-            return element
-        })
-
-        let pushedRows = 0
-        const otherLoggersData = otherLoggers.map((otherLoggerInfo) => {
-            let result = cleanSensorData[pushedRows + 1]
-
-            let pushedRowsIncrement = 1
-
-            if (otherLoggerInfo.loggerType === SKYCELL_SAVY_BLE) {
-                result = [
-                    cleanSensorData[pushedRows + 1],
-                    cleanSensorData[(pushedRows + 1) + 1],
-                ]
-
-                pushedRowsIncrement = 2
-            }
-
-            pushedRows += pushedRowsIncrement
-
-            return [
-                otherLoggerInfo.value,
-                result,
-            ]
-        }).flat(2)
-
-        return otherLoggersData
-    }, [otherLoggers])
-
     const exportCsv = useCallback(() => {
         const csvContent = `${sensorData.map((sensorDataElement) => {
             const csvArray = [
-                serialNumber,
-                sensorDataElement[0],
-                (loggerType === SKYCELL_SAVY_BLE || isContainer) ? sensorDataElement[1] : '',
-                (loggerType === CARTASENSE) ? sensorDataElement[1] : sensorDataElement[4],
-                ...getOtherLoggersData(sensorDataElement),
-            ]
+                isContainer ? serialNumber : undefined,
+                ...sensorDataElement,
+            ].filter(Boolean)
 
             return csvArray.join(',')
         }).join('\n')}`
 
-        const baseColumns = 'SERIAL_NUMBER,TIMESTAMP,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE'
-
-        const columns = otherLoggers.map((element) => {
-            if (element.loggerType === SKYCELL_SAVY_BLE) {
-                return 'SERIAL_NUMBER,AMBIENT_TEMPERATURE,INTERNAL_TEMPERATURE'
-            }
-            return 'SERIAL_NUMBER,INTERNAL_TEMPERATURE'
-        }).join(',')
+        const baseColumns = [
+            isContainer ? 'SERIAL_NUMBER' : undefined,
+            'TIMESTAMP',
+            ...sensorCodes,
+        ].filter(Boolean).join(',')
 
         downloadDocument(
             {
                 headers: {
                     'content-type': 'text/csv',
                 },
-                data: `${baseColumns},${columns}\n${csvContent}`,
+                data: `${baseColumns}\n${csvContent}`,
             },
             `sensor_data_${serialNumber}`,
         )
     }, [
         sensorData,
-        otherLoggers,
+        sensorCodes,
         serialNumber,
-        loggerType,
         isContainer,
-        getOtherLoggersData,
     ])
 
     return (
@@ -159,7 +109,7 @@ const DownloadOptions = (props) => {
                     onCheckShowTempRange={onCheckShowTempRange}
                     title="Temperature Range"
                 />
-            ) }
+            )}
             {showTemperatureRangeAllOptions && (
                 <Radio
                     className={classes.selectedTemperatureRange}
