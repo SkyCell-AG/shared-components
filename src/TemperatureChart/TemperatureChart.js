@@ -29,6 +29,7 @@ const propTypes = {
         energyLevel: PropTypes.shape(),
         excursionAxis: PropTypes.shape(),
     }),
+    width: PropTypes.number.isRequired,
 }
 
 const defaultProps = {
@@ -111,6 +112,7 @@ const TemperatureChart = ({
     excursion,
     style,
     temperatureTimeAxis,
+    width,
 }) => {
     const scale = useMemo(() => {
         return getScale({
@@ -152,7 +154,7 @@ const TemperatureChart = ({
         return temperatureTimeAxis.map((element) => {
             const date = new Date(element)
 
-            return `${date.getUTCDate()}/${date.getUTCMonth()}/${date.getUTCFullYear()} ${date.getUTCHours()}:${date.getUTCMinutes()}`
+            return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
         })
     }, [temperatureTimeAxis])
 
@@ -184,7 +186,7 @@ const TemperatureChart = ({
     ])
 
     return (
-        <VictoryChart width={1300}>
+        <VictoryChart width={width}>
             <VictoryAxis
                 style={axisStyle}
                 gridComponent={(

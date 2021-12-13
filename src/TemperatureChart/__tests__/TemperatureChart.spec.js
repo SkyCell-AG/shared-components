@@ -32,6 +32,7 @@ describe('TemperatureChart', () => {
                 excursion={4}
                 upperTempBound={8}
                 lowerTempBound={2}
+                width={1300}
             />,
         )
 
@@ -54,6 +55,7 @@ describe('TemperatureChart', () => {
                 excursion={4}
                 upperTempBound={8}
                 lowerTempBound={2}
+                width={1300}
             />,
         )
 
@@ -76,6 +78,7 @@ describe('TemperatureChart', () => {
                 ]}
                 upperTempBound={8}
                 lowerTempBound={2}
+                width={1300}
             />,
         )
 
