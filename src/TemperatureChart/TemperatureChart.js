@@ -20,6 +20,7 @@ const propTypes = {
     upperTempBound: PropTypes.number,
     lowerTempBound: PropTypes.number,
     excursion: PropTypes.number,
+    temperatureTimeAxis: PropTypes.arrayOf(PropTypes.string),
     style: PropTypes.shape({
         axisLineStyle: PropTypes.shape(),
         rangeLineStyle: PropTypes.shape(),
@@ -37,6 +38,7 @@ const defaultProps = {
     upperTempBound: 8,
     lowerTempBound: 2,
     excursion: undefined,
+    temperatureTimeAxis: [],
     style: {
         axisLineStyle: undefined,
         simulated: undefined,
@@ -108,6 +110,7 @@ const TemperatureChart = ({
     lowerTempBound,
     excursion,
     style,
+    temperatureTimeAxis,
 }) => {
     const scale = useMemo(() => {
         return getScale({
@@ -121,7 +124,7 @@ const TemperatureChart = ({
 
     const energyLevelScaled = useMemo(() => {
         if (!energyLevel) {
-            return []
+            return undefined
         }
 
         return energyLevel.map((val) => { return val * scale })
@@ -144,6 +147,14 @@ const TemperatureChart = ({
     const tickPercentFormat = useCallback((val) => {
         return `${Math.round(val / scale)}%`
     }, [scale])
+
+    const tickTemperatureTimeValues = useMemo(() => {
+        return temperatureTimeAxis.map((element) => {
+            const date = new Date(element)
+
+            return `${date.getUTCDate()}/${date.getUTCMonth()}/${date.getUTCFullYear()} ${date.getUTCHours()}:${date.getUTCMinutes()}`
+        })
+    }, [temperatureTimeAxis])
 
     const generateBoundaryData = useCallback((boundary) => {
         return [
@@ -173,7 +184,16 @@ const TemperatureChart = ({
     ])
 
     return (
-        <VictoryChart>
+        <VictoryChart width={1300}>
+            <VictoryAxis
+                style={axisStyle}
+                gridComponent={(
+                    <LineSegment
+                        style={axisLineStyle}
+                    />
+                )}
+                tickValues={tickTemperatureTimeValues}
+            />
             <VictoryAxis style={{
                 ...axisStyle,
                 axis: {
