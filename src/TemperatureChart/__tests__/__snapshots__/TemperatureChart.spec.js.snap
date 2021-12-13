@@ -3396,7 +3396,13 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         tspanComponent={<TSpan />}
       />
     }
-    tickValues={Array []}
+    tickValues={
+      Array [
+        "3/11/2021 9:10",
+        "3/11/2021 9:20",
+        "3/11/2021 9:30",
+      ]
+    }
   />
   <VictoryAxis
     axisComponent={

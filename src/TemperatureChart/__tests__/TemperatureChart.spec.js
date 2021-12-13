@@ -24,6 +24,11 @@ describe('TemperatureChart', () => {
                     98,
                     96,
                 ]}
+                temperatureTimeAxis={[
+                    '2021-12-03T09:10',
+                    '2021-12-03T09:20',
+                    '2021-12-03T09:30',
+                ]}
                 excursion={4}
                 upperTempBound={8}
                 lowerTempBound={2}
