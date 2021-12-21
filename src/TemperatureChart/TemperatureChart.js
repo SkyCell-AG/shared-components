@@ -36,8 +36,8 @@ const defaultProps = {
     ambient: undefined,
     simulated: undefined,
     energyLevel: undefined,
-    upperTempBound: 8,
-    lowerTempBound: 2,
+    upperTempBound: null,
+    lowerTempBound: null,
     excursion: undefined,
     temperatureTimeAxis: [],
     style: {
