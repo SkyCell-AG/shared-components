@@ -119,8 +119,8 @@ const DateRangeSelector = ({
     ] = useReducer(reducer, {})
 
     const dayPassed = from && to ? rangeToDayPassed({
-        from: strToDate(from),
-        to: strToDate(to),
+        from: strToDate(fromStr),
+        to: strToDate(toStr),
     }) : undefined
 
     const submitDateRange = useCallback(({
@@ -238,11 +238,11 @@ const DateRangeSelector = ({
                         className={classes.dateContainer}
                         onClick={openDayPicker}
                         onKeyDown={openDayPicker}
+                        data-testid="daypicker-input"
                     >
                         <div
                             className={
                                 clsx(
-                                    classes.date,
                                     dayPickerOpened && !fromSelected && classes.editedDate,
                                 )
                             }
@@ -253,7 +253,6 @@ const DateRangeSelector = ({
                         <div
                             className={
                                 clsx(
-                                    classes.date,
                                     dayPickerOpened && fromSelected && classes.editedDate,
                                 )
                             }
