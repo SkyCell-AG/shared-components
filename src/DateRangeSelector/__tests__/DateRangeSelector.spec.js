@@ -91,6 +91,8 @@ describe('shared-components/DateRangeSelector', () => {
                 disabled: false,
             },
         )
+
+        expect(wrapper.find('[data-testid="daypicker-input"]').childAt(0).prop('className')).toBeFalsy()
         expect(wrapper.find('[data-testid="daypicker-input"]').childAt(2).prop('className')).toMatch(/editedDate/)
     })
 
