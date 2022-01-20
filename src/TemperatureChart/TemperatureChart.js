@@ -8,7 +8,6 @@ import {
     VictoryChart,
     VictoryAxis,
     LineSegment,
-    VictoryLabel,
 } from 'victory'
 
 import getScale from './getScaleOffset'
@@ -19,7 +18,7 @@ const propTypes = {
     energyLevel: PropTypes.arrayOf(PropTypes.number),
     upperTempBound: PropTypes.number,
     lowerTempBound: PropTypes.number,
-    excursion: PropTypes.number,
+    excursion: PropTypes.string,
     temperatureTimeAxis: PropTypes.arrayOf(PropTypes.string),
     style: PropTypes.shape({
         axisLineStyle: PropTypes.shape(),
@@ -150,13 +149,11 @@ const TemperatureChart = ({
         return `${Math.round(val / scale)}%`
     }, [scale])
 
-    const tickTemperatureTimeValues = useMemo(() => {
-        return temperatureTimeAxis.map((element) => {
-            const date = new Date(element)
+    const tickTemperatureTimeValues = useCallback((t) => {
+        const date = new Date(t)
 
-            return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
-        })
-    }, [temperatureTimeAxis])
+        return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+    }, [])
 
     const generateBoundaryData = useCallback((boundary) => {
         return [
@@ -185,6 +182,29 @@ const TemperatureChart = ({
         lowerTempBound,
     ])
 
+    const getTemperaturePositions = useCallback((temperature) => {
+        return temperature.map((element, i) => {
+            return {
+                x: i + 1,
+                y: element,
+            }
+        })
+    }, [])
+
+    const ambientTemperature = useMemo(() => {
+        return getTemperaturePositions(ambient)
+    }, [
+        getTemperaturePositions,
+        ambient,
+    ])
+
+    const simulatedTemperature = useMemo(() => {
+        return getTemperaturePositions(simulated)
+    }, [
+        getTemperaturePositions,
+        simulated,
+    ])
+
     return (
         <VictoryChart width={width}>
             <VictoryAxis
@@ -194,7 +214,12 @@ const TemperatureChart = ({
                         style={axisLineStyle}
                     />
                 )}
-                tickValues={tickTemperatureTimeValues}
+                domain={[
+                    1,
+                    temperatureTimeAxis.length - 1,
+                ]}
+                tickValues={temperatureTimeAxis}
+                tickFormat={tickTemperatureTimeValues}
             />
             <VictoryAxis style={{
                 ...axisStyle,
@@ -203,12 +228,6 @@ const TemperatureChart = ({
                     strokeWidth: 1,
                 },
             }}
-            />
-            <VictoryLabel
-                x={15}
-                y={55}
-                style={axisStyle.axisLabel}
-                text="Temperature"
             />
             <VictoryAxis
                 dependentAxis
@@ -241,7 +260,7 @@ const TemperatureChart = ({
                 />
             )}
             <VictoryLine
-                data={simulated}
+                data={simulatedTemperature}
                 style={style.simulated || {
                     data: {
                         stroke: '#61c6e9',
@@ -262,7 +281,7 @@ const TemperatureChart = ({
                 />
             )}
             <VictoryLine
-                data={ambient}
+                data={ambientTemperature}
                 style={style.ambient || {
                     data: {
                         stroke: '#cf3b8a',
