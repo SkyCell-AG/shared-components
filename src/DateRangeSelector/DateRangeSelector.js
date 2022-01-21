@@ -74,6 +74,7 @@ const reducer = createReducer({
     }) => {
         return {
             ...state,
+            inputUpdated: true,
             [`${name}Input`]: value,
         }
     },
@@ -116,6 +117,7 @@ const reducer = createReducer({
             ...state,
             dayPickerOpened: true,
             fromSelected: false,
+            inputUpdated: false,
         }
     },
     [SET_RANGE]: (state, {
@@ -149,6 +151,7 @@ const DateRangeSelector = ({
             to,
             toInput,
             fromSelected,
+            inputUpdated,
             dayPickerOpened,
         },
         dispatch,
@@ -225,6 +228,26 @@ const DateRangeSelector = ({
         fromSelected,
     ])
 
+    const onBlurInput = useCallback(() => {
+        if (!inputUpdated) {
+            return
+        }
+
+        dispatch({
+            type: SET_VALUES_FROM_INPUTS,
+        })
+    }, [inputUpdated])
+
+    const onInputChange = useCallback((event) => {
+        dispatch({
+            type: UPDATE_INPUT,
+            payload: {
+                value: event.target.value,
+                name: event.target.name,
+            },
+        })
+    }, [])
+
     useEffect(() => {
         dispatch({
             type: SYNC_INPUTS,
@@ -297,20 +320,9 @@ const DateRangeSelector = ({
                         >
                             <input
                                 value={fromInput}
-                                onChange={(event) => {
-                                    dispatch({
-                                        type: UPDATE_INPUT,
-                                        payload: {
-                                            value: event.target.value,
-                                            name: 'from',
-                                        },
-                                    })
-                                }}
-                                onBlur={() => {
-                                    dispatch({
-                                        type: SET_VALUES_FROM_INPUTS,
-                                    })
-                                }}
+                                name="from"
+                                onChange={onInputChange}
+                                onBlur={onBlurInput}
                             />
                         </div>
                         -
@@ -323,20 +335,9 @@ const DateRangeSelector = ({
                         >
                             <input
                                 value={toInput}
-                                onChange={(event) => {
-                                    dispatch({
-                                        type: UPDATE_INPUT,
-                                        payload: {
-                                            value: event.target.value,
-                                            name: 'to',
-                                        },
-                                    })
-                                }}
-                                onBlur={() => {
-                                    dispatch({
-                                        type: SET_VALUES_FROM_INPUTS,
-                                    })
-                                }}
+                                name="to"
+                                onChange={onInputChange}
+                                onBlur={onBlurInput}
                             />
                         </div>
                     </div>
