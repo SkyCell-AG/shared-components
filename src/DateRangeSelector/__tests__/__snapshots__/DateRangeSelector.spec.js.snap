@@ -79,13 +79,19 @@ exports[`shared-components/DateRangeSelector should show time range 1`] = `
       <div
         className=""
       >
-        18.01.2022
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+        />
       </div>
       -
       <div
         className=""
       >
-        18.01.2022
+        <input
+          onBlur={[Function]}
+          onChange={[Function]}
+        />
       </div>
     </div>
     <div

@@ -2842,6 +2842,13 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         role="img"
       />
     }
+    data-testid="temperatureTimeAxis"
+    domain={
+      Array [
+        1,
+        2,
+      ]
+    }
     fixLabelOverlap={false}
     gridComponent={
       <LineSegment
@@ -3385,6 +3392,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         shapeRendering="auto"
       />
     }
+    tickFormat={[Function]}
     tickLabelComponent={
       <VictoryLabel
         backgroundComponent={<Rect />}
@@ -3398,9 +3406,9 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     }
     tickValues={
       Array [
-        "3/11/2021 9:10",
-        "3/11/2021 9:20",
-        "3/11/2021 9:30",
+        "2021-12-03T09:10",
+        "2021-12-03T09:20",
+        "2021-12-03T09:30",
       ]
     }
   />
@@ -3985,26 +3993,6 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         tspanComponent={<TSpan />}
       />
     }
-  />
-  <VictoryLabel
-    backgroundComponent={<Rect />}
-    capHeight={0.71}
-    direction="inherit"
-    groupComponent={<g />}
-    lineHeight={1}
-    style={
-      Object {
-        "fill": "#00000066",
-        "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-        "fontSize": 8,
-        "padding": 30,
-      }
-    }
-    text="Temperature"
-    textComponent={<Text />}
-    tspanComponent={<TSpan />}
-    x={15}
-    y={55}
   />
   <VictoryAxis
     axisComponent={
@@ -5203,9 +5191,18 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     }
     data={
       Array [
-        2,
-        3,
-        1,
+        Object {
+          "x": 1,
+          "y": 2,
+        },
+        Object {
+          "x": 2,
+          "y": 3,
+        },
+        Object {
+          "x": 3,
+          "y": 1,
+        },
       ]
     }
     dataComponent={
@@ -6320,9 +6317,18 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     }
     data={
       Array [
-        20,
-        52,
-        32,
+        Object {
+          "x": 1,
+          "y": 20,
+        },
+        Object {
+          "x": 2,
+          "y": 52,
+        },
+        Object {
+          "x": 3,
+          "y": 32,
+        },
       ]
     }
     dataComponent={
@@ -8037,7 +8043,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         tspanComponent={<TSpan />}
       />
     }
-    axisValue={4}
+    axisValue="2021-12-03T09:20"
     containerComponent={
       <VictoryContainer
         className="VictoryContainer"
