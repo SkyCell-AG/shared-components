@@ -149,7 +149,7 @@ const TemperatureChart = ({
         return `${Math.round(val / scale)}%`
     }, [scale])
 
-    const tickTemperatureTimeValues = useCallback((t) => {
+    const tickTemperatureTimeFormat = useCallback((t) => {
         const date = new Date(t)
 
         return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
@@ -208,6 +208,7 @@ const TemperatureChart = ({
     return (
         <VictoryChart width={width}>
             <VictoryAxis
+                data-testid="temperatureTimeAxis"
                 style={axisStyle}
                 gridComponent={(
                     <LineSegment
@@ -219,7 +220,7 @@ const TemperatureChart = ({
                     temperatureTimeAxis.length - 1,
                 ]}
                 tickValues={temperatureTimeAxis}
-                tickFormat={tickTemperatureTimeValues}
+                tickFormat={tickTemperatureTimeFormat}
             />
             <VictoryAxis style={{
                 ...axisStyle,

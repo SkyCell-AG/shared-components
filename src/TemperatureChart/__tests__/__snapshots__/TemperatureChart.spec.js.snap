@@ -2842,6 +2842,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         role="img"
       />
     }
+    data-testid="temperatureTimeAxis"
     domain={
       Array [
         1,
@@ -8042,7 +8043,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         tspanComponent={<TSpan />}
       />
     }
-    axisValue={4}
+    axisValue="2021-12-03T09:20"
     containerComponent={
       <VictoryContainer
         className="VictoryContainer"
