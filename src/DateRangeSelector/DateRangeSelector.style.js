@@ -56,8 +56,11 @@ const useStyles = makeStyles(() => {
         dayPickerContainer: {
             display: 'none',
             position: 'absolute',
+            zIndex: 1,
             width: '550px',
             marginLeft: '-310px',
+            marginTop: '20px',
+            background: 'white',
         },
 
         dayPickerOpened: {
