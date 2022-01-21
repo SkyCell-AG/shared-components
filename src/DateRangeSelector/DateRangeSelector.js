@@ -49,12 +49,46 @@ const defaultProps = {
     ],
 }
 
+const UPDATE_INPUT = 'UPDATE_INPUT'
+const SYNC_INPUTS = 'SYNC_INPUTS'
+const SET_VALUES_FROM_INPUTS = 'SET_VALUES_FROM_INPUTS'
 const SET_RANGE = 'SET_RANGE'
 const CLOSE_DAY_PICKER = 'CLOSE_DAY_PICKER'
 const OPEN_DAY_PICKER = 'OPEN_DAY_PICKER'
 const SELECT_FROM = 'SELECT_FROM'
 
 const reducer = createReducer({
+    [SET_VALUES_FROM_INPUTS]: (state) => {
+        return {
+            ...state,
+            from: strToDate(state.fromInput),
+            to: strToDate(state.toInput),
+            dayPickerOpened: false,
+        }
+    },
+    [UPDATE_INPUT]: (state, {
+        payload: {
+            value,
+            name,
+        },
+    }) => {
+        return {
+            ...state,
+            [`${name}Input`]: value,
+        }
+    },
+    [SYNC_INPUTS]: (state, {
+        payload: {
+            from,
+            to,
+        },
+    }) => {
+        return {
+            ...state,
+            fromInput: dateToStr(from, dateMask),
+            toInput: dateToStr(to, dateMask),
+        }
+    },
     [SELECT_FROM]: (state, {
         payload: {
             date,
@@ -111,7 +145,9 @@ const DateRangeSelector = ({
     const [
         {
             from,
+            fromInput,
             to,
+            toInput,
             fromSelected,
             dayPickerOpened,
         },
@@ -191,6 +227,18 @@ const DateRangeSelector = ({
 
     useEffect(() => {
         dispatch({
+            type: SYNC_INPUTS,
+            payload: {
+                from, to,
+            },
+        })
+    }, [
+        from,
+        to,
+    ])
+
+    useEffect(() => {
+        dispatch({
             type: SET_RANGE,
             payload: {
                 from: strToDate(fromStr),
@@ -247,7 +295,23 @@ const DateRangeSelector = ({
                                 )
                             }
                         >
-                            {dateToStr(from, dateMask)}
+                            <input
+                                value={fromInput}
+                                onChange={(event) => {
+                                    dispatch({
+                                        type: UPDATE_INPUT,
+                                        payload: {
+                                            value: event.target.value,
+                                            name: 'from',
+                                        },
+                                    })
+                                }}
+                                onBlur={() => {
+                                    dispatch({
+                                        type: SET_VALUES_FROM_INPUTS,
+                                    })
+                                }}
+                            />
                         </div>
                         -
                         <div
@@ -257,7 +321,23 @@ const DateRangeSelector = ({
                                 )
                             }
                         >
-                            {dateToStr(to, dateMask)}
+                            <input
+                                value={toInput}
+                                onChange={(event) => {
+                                    dispatch({
+                                        type: UPDATE_INPUT,
+                                        payload: {
+                                            value: event.target.value,
+                                            name: 'to',
+                                        },
+                                    })
+                                }}
+                                onBlur={() => {
+                                    dispatch({
+                                        type: SET_VALUES_FROM_INPUTS,
+                                    })
+                                }}
+                            />
                         </div>
                     </div>
                     <div
