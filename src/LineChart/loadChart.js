@@ -1,5 +1,6 @@
 /* global google */
 import drop from 'lodash/drop'
+import omit from 'lodash/omit'
 
 import loadScript from 'utils/loadScript'
 
@@ -42,6 +43,17 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
 
         const drawChart = () => {
             const dashboard = new google.visualization.Dashboard(elm)
+            const getSeries = () => {
+                return options.series.map((
+                    option,
+                ) => {
+                    return omit(option, [
+                        'pointSize',
+                        'lineWidth',
+                    ])
+                })
+            }
+
             const control = new google.visualization.ControlWrapper({
                 controlType: 'ChartRangeFilter',
                 containerId: 'rangeFilter',
@@ -51,6 +63,7 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
                         chartType: 'LineChart',
                         chartOptions: {
                             ...options,
+                            series: getSeries(),
                         },
                     },
                 },
