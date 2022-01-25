@@ -23,6 +23,7 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
             packages: [
                 'corechart',
                 'line',
+                'controls',
             ],
         })
 
@@ -33,7 +34,42 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
             ]
         })
 
+        const dateOffset = (24 * 60 * 60 * 1000) * 1
+
+        const yesterday = new Date()
+
+        yesterday.setTime(yesterday.getTime() - dateOffset)
+
         const drawChart = () => {
+            const dashboard = new google.visualization.Dashboard(elm)
+            const control = new google.visualization.ControlWrapper({
+                controlType: 'ChartRangeFilter',
+                containerId: 'rangeFilter',
+                options: {
+                    filterColumnIndex: 0,
+                    ui: {
+                        chartType: 'LineChart',
+                        chartOptions: {
+                            ...options,
+                        },
+                    },
+                },
+                state: {
+                    range: {
+                        start: yesterday,
+                        end: new Date(),
+                    },
+                },
+            })
+
+            const chart = new google.visualization.ChartWrapper({
+                chartType: 'LineChart',
+                containerId: 'chart',
+                options: {
+                    ...options,
+                },
+            })
+
             const data = new google.visualization.DataTable()
 
             createColumns(data, columns)
@@ -55,9 +91,8 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
 
             data.addRows(updatedChartDataWithFillers)
 
-            const chart = new google.visualization.LineChart(elm)
-
-            chart.draw(data, options)
+            dashboard.bind(control, chart)
+            dashboard.draw(data)
         }
 
         return google.charts.setOnLoadCallback(drawChart)

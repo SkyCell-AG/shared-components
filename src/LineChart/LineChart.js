@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 import loadChart from './loadChart'
 import defaultOptions from './options'
+import useStyles from './LineChart.style'
 
 const propTypes = {
     value: PropTypes.arrayOf(PropTypes.array),
@@ -33,6 +34,7 @@ const LineChart = (props) => {
     } = props
 
     const elm = useRef()
+    const classes = useStyles()
 
     useLayoutEffect(() => {
         loadChart(value, elm.current, columns, {
@@ -46,12 +48,20 @@ const LineChart = (props) => {
         value,
         isDateRange,
     ])
-
     return (
         <div
             className={className}
             ref={elm}
-        />
+        >
+            <div
+                className={classes.chart}
+                id="chart"
+            />
+            <div
+                className={classes.rangeFilter}
+                id="rangeFilter"
+            />
+        </div>
     )
 }
 
