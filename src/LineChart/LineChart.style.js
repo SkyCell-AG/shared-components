@@ -5,10 +5,10 @@ import {
 const useStyles = makeStyles(() => {
     return {
         chart: {
-            height: '100%',
+            height: '80%',
         },
         rangeFilter: {
-            height: 100,
+            height: '20%',
         },
     }
 })
