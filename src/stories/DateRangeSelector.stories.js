@@ -39,4 +39,17 @@ Primary.args = {
     onChange: console.log,
 }
 
+export const Mini = Template.bind({})
+
+Mini.args = {
+    value: {
+        from: new Date().getTime() - 3 * 24 * 60 * 60 * 1000,
+        to: new Date().getTime(),
+    },
+    mini: true,
+    showTimeRange: true,
+    setDateRange: console.log,
+    onChange: console.log,
+}
+
 export default DateRangeSelectorStory
