@@ -3,5 +3,14 @@
 exports[`app/Apps/shared-components/LineChart LineChart page snapshot 1`] = `
 <div
   className=""
-/>
+>
+  <div
+    className="makeStyles-chart-1"
+    id="chart"
+  />
+  <div
+    className="makeStyles-rangeFilter-2"
+    id="rangeFilter"
+  />
+</div>
 `;
