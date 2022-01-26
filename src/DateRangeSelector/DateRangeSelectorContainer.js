@@ -56,8 +56,8 @@ const DateRangeSelectorContainer = ({
         },
     }) => {
         const updatedData = {
-            from: new Date(from.setHours(0, 0, 0)),
-            to: new Date(to.setHours(23, 59, 59)),
+            from: new Date(from).setHours(0, 0, 0),
+            to: new Date(to).setHours(23, 59, 59),
             [name]: newValue,
         }
 

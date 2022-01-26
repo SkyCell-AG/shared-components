@@ -10,6 +10,7 @@ describe('shared-components/DateRangeSelectorContainer', () => {
     it('should match snapshot', () => {
         const wrapper = shallow(
             <DateRangeSelectorContainer
+                setDateRange={jest.fn()}
                 value={{
                     from: '16.08.2020',
                     to: '18.08.2020',
@@ -24,6 +25,7 @@ describe('shared-components/DateRangeSelectorContainer', () => {
     it('renders without crashing', () => {
         mount(
             <DateRangeSelectorContainer
+                setDateRange={jest.fn()}
                 value={{
                     from: '16.08.2020',
                     to: '18.08.2020',
