@@ -1,6 +1,7 @@
 /* global google */
 import drop from 'lodash/drop'
 import omit from 'lodash/omit'
+import moment from 'moment'
 
 import loadScript from 'utils/loadScript'
 
@@ -35,11 +36,14 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
             ]
         })
 
-        const dateOffset = (24 * 60 * 60 * 1000) * 1
+        const yesterday = moment().subtract(1, 'days').format()
 
-        const yesterday = new Date()
-
-        yesterday.setTime(yesterday.getTime() - dateOffset)
+        const lastDateEntry = moment(chartData[chartData.length - 1][0])
+        const isAfterLastEntry = moment().isAfter(lastDateEntry)
+        const start = isAfterLastEntry ? moment(lastDateEntry).subtract(1, 'days').format() : yesterday
+        const end = isAfterLastEntry
+            ? moment(chartData[chartData.length - 1][0]).format()
+            : moment().format()
 
         const drawChart = () => {
             const dashboard = new google.visualization.Dashboard(elm)
@@ -63,14 +67,15 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
                         chartType: 'LineChart',
                         chartOptions: {
                             ...options,
+                            chartArea: omit(options.chartArea, ['top']),
                             series: getSeries(),
                         },
                     },
                 },
                 state: {
                     range: {
-                        start: yesterday,
-                        end: new Date(),
+                        start: new Date(start),
+                        end: new Date(end),
                     },
                 },
             })
