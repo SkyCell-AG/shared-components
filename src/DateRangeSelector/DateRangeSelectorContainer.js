@@ -4,10 +4,8 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
-import {
-    dayPassedToRange,
-    dateToDateStr,
-} from 'utils/DateUtils'
+import dayPassedToRange from 'utils/DateUtils/dayPassedToRange'
+import dateToDateStr from 'utils/DateUtils/dateToDateStr'
 
 import DateRangeSelector from './DateRangeSelector'
 
@@ -58,7 +56,19 @@ const DateRangeSelectorContainer = ({
         const updatedData = {
             from: new Date(from).setHours(0, 0, 0),
             to: new Date(to).setHours(23, 59, 59),
-            [name]: newValue,
+            [name]: new Date(newValue).setHours(
+                ...(
+                    name === 'from' ? [
+                        0,
+                        0,
+                        0,
+                    ] : [
+                        23,
+                        59,
+                        59,
+                    ]
+                ),
+            ),
         }
 
         onChange(updatedData, {

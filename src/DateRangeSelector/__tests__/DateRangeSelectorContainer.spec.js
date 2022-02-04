@@ -1,10 +1,16 @@
 import React from 'react'
 import {
     shallow,
-    mount,
 } from 'enzyme'
 
+import dayPassedToRange from 'utils/DateUtils/dayPassedToRange'
+
 import DateRangeSelectorContainer from '../DateRangeSelectorContainer'
+import DateRangeSelector from '../DateRangeSelector'
+
+jest.mock('utils/DateUtils/dayPassedToRange', () => {
+    return jest.fn()
+})
 
 describe('shared-components/DateRangeSelectorContainer', () => {
     it('should match snapshot', () => {
@@ -12,8 +18,8 @@ describe('shared-components/DateRangeSelectorContainer', () => {
             <DateRangeSelectorContainer
                 setDateRange={jest.fn()}
                 value={{
-                    from: '16.08.2020',
-                    to: '18.08.2020',
+                    from: new Date(2020, 8, 16).getTime(),
+                    to: new Date(2020, 8, 18).getTime(),
                 }}
                 onChange={jest.fn()}
             />,
@@ -22,15 +28,73 @@ describe('shared-components/DateRangeSelectorContainer', () => {
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('renders without crashing', () => {
-        mount(
-            <DateRangeSelectorContainer
-                setDateRange={jest.fn()}
-                value={{
-                    from: '16.08.2020',
-                    to: '18.08.2020',
-                }}
-            />,
-        )
+    it('onChange', () => {
+        const onChange = jest.fn()
+        const setRange = jest.fn()
+
+        const initValue = {
+            from: new Date(2020, 8, 16).setHours(0, 0, 0),
+            to: new Date(2020, 8, 18).setHours(23, 59, 59),
+        }
+
+        const wrapper = shallow(<DateRangeSelectorContainer
+            setDateRange={setRange}
+            onChange={onChange}
+            value={initValue}
+        />)
+            .find(DateRangeSelector)
+
+        const newFrom = new Date(2020, 8, 19).setHours(0, 0, 0)
+
+        wrapper.props().onChangeRange(null, {
+            target: {
+                name: 'from',
+                value: newFrom,
+            },
+        })
+
+        const newValue = {
+            ...initValue,
+            from: newFrom,
+        }
+
+        expect(onChange).toBeCalledWith(newValue, {
+            name: 'from',
+            value: {
+                from: newFrom,
+                to: initValue.to,
+            },
+        })
+        expect(setRange).toBeCalledWith(true)
+    })
+
+    it('on select option', () => {
+        dayPassedToRange.mockReturnValue({
+            from: 'from',
+            to: 'to',
+        })
+        const onChange = jest.fn()
+        const setRange = jest.fn()
+
+        const initValue = {
+            from: new Date(2020, 8, 16).setHours(0, 0, 0),
+            to: new Date(2020, 8, 18).setHours(23, 59, 59),
+        }
+
+        const wrapper = shallow(<DateRangeSelectorContainer
+            setDateRange={setRange}
+            onChange={onChange}
+            value={initValue}
+        />)
+            .find(DateRangeSelector)
+
+        wrapper.props().selectOption('24h')
+
+        expect(dayPassedToRange).toBeCalledWith('24h')
+        expect(onChange).toBeCalledWith({
+            from: 'from',
+            to: 'to',
+        })
+        expect(setRange).toBeCalledWith(false)
     })
 })

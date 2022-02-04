@@ -7,7 +7,8 @@ import DateRangeSelector from 'DateRangeSelector'
 const DateRangeSelectorStory = {
     title: 'DateRangeSelector',
     component: DateRangeSelector,
-    argTypes: {},
+    argTypes: {
+    },
 }
 
 const Template = (props) => {
@@ -37,6 +38,7 @@ Primary.args = {
     showTimeRange: true,
     setDateRange: console.log,
     onChange: console.log,
+    mini: false,
 }
 
 export default DateRangeSelectorStory
