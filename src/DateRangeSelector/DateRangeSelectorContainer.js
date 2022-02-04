@@ -35,8 +35,8 @@ const DateRangeSelectorContainer = ({
     ...rest
 }) => {
     const {
-        from,
-        to,
+        from = new Date(),
+        to = new Date(),
     } = value
 
     const selectOption = useCallback((selected) => {
