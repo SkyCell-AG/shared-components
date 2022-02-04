@@ -57,15 +57,17 @@ const DateRangeSelectorContainer = ({
             from: new Date(from).setHours(0, 0, 0),
             to: new Date(to).setHours(23, 59, 59),
             [name]: new Date(newValue).setHours(
-                ...(name === 'from' ? [
-                    0,
-                    0,
-                    0,
-                ] : [
-                    23,
-                    59,
-                    59,
-                ]),
+                ...(
+                    name === 'from' ? [
+                        0,
+                        0,
+                        0,
+                    ] : [
+                        23,
+                        59,
+                        59,
+                    ]
+                ),
             ),
         }
 
