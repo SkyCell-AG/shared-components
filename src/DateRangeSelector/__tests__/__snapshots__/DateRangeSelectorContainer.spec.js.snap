@@ -2,7 +2,7 @@
 
 exports[`shared-components/DateRangeSelectorContainer should match snapshot 1`] = `
 <DateRangeSelector
-  from="Invalid date"
+  from="16.09.2020"
   mini={false}
   onChangeRange={[Function]}
   options={
@@ -23,6 +23,6 @@ exports[`shared-components/DateRangeSelectorContainer should match snapshot 1`] 
   }
   selectOption={[Function]}
   showTimeRange={false}
-  to="Invalid date"
+  to="18.09.2020"
 />
 `;

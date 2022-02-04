@@ -4,10 +4,8 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
-import {
-    dayPassedToRange,
-    dateToDateStr,
-} from 'utils/DateUtils'
+import dayPassedToRange from 'utils/DateUtils/dayPassedToRange'
+import dateToDateStr from 'utils/DateUtils/dateToDateStr'
 
 import DateRangeSelector from './DateRangeSelector'
 
