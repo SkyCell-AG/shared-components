@@ -149,11 +149,26 @@ const TemperatureChart = ({
         return `${Math.round(val / scale)}%`
     }, [scale])
 
-    const tickTemperatureTimeFormat = useCallback((t) => {
-        const date = new Date(t)
+    const tickTemperatureTimeValues = useMemo(() => {
+        return temperatureTimeAxis.map((element) => {
+            const date = new Date(element)
 
-        return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+            return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+        })
+    }, [temperatureTimeAxis])
+
+    const tickTemperatureTimeFormat = useCallback((t) => {
+        return t
     }, [])
+
+    const excursionIndex = useMemo(() => {
+        return temperatureTimeAxis.findIndex((element) => {
+            return element === excursion
+        }) + 1
+    }, [
+        temperatureTimeAxis,
+        excursion,
+    ])
 
     const generateBoundaryData = useCallback((boundary) => {
         return [
@@ -219,7 +234,7 @@ const TemperatureChart = ({
                     1,
                     temperatureTimeAxis.length - 1,
                 ]}
-                tickValues={temperatureTimeAxis}
+                tickValues={tickTemperatureTimeValues}
                 tickFormat={tickTemperatureTimeFormat}
             />
             <VictoryAxis style={{
@@ -305,7 +320,7 @@ const TemperatureChart = ({
                     data-testid="excursionAxis"
                     dependentAxis
                     label="Excursion"
-                    axisValue={excursion}
+                    axisValue={excursionIndex}
                     style={style.excursionAxis || {
                         axis: {
                             stroke: 'red',
