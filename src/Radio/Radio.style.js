@@ -33,6 +33,21 @@ const useStyles = makeStyles(() => {
             flexDirection: 'column',
         },
         radioItemLabel: {},
+        requiredMark: {
+            position: 'absolute',
+            left: -9,
+            width: 6,
+            height: 27,
+            backgroundColor: theme.palette.primary.main,
+            display: 'none',
+            borderRadius: 3,
+        },
+        isRequired: {
+            '& $requiredMark': {
+                display: 'block',
+            },
+            backgroundColor: theme.palette.primary[30],
+        },
     }
 })
 
