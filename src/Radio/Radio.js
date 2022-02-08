@@ -27,6 +27,7 @@ const propTypes = {
     small: PropTypes.bool,
     className: PropTypes.string,
     showInColumns: PropTypes.bool,
+    required: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -39,6 +40,7 @@ const defaultProps = {
     small: false,
     className: '',
     showInColumns: false,
+    required: false,
 }
 
 const Radio = ({
@@ -52,6 +54,7 @@ const Radio = ({
     small,
     className,
     showInColumns,
+    required,
     ...rest
 }) => {
     const classes = useStyles(rest)
@@ -63,46 +66,53 @@ const Radio = ({
     return (
         <>
             {title && (<Label title={title} />)}
-            <RadioGroup
-                aria-label="labelType"
-                name={name}
-                value={value}
-                className={clsx({
-                    [classes.radio]: true,
-                    [className]: true,
-                    [classes.showInColumns]: showInColumns,
+            <div className={clsx(className,
+                {
+                    [classes.isRequired]: required,
                 })}
-                onChange={handleOnChange}
-                disabled={disabled}
-                data-testid={`radio-${name}`}
             >
-                {options.map((radio) => {
-                    return (
-                        <FormControlLabel
-                            key={`radio-${radio.value}`}
-                            value={radio.value}
-                            className={clsx({
-                                [classes.formControlStyle]: true,
-                                [classes.radioSmall]: small,
-                            })}
-                            classes={{
-                                label: classes.radioItemLabel,
-                            }}
-                            control={(
-                                <MaterialRadio
-                                    color="primary"
-                                    classes={{
-                                        root: compact && classes.radioRoot,
-                                    }}
-                                />
-                            )}
-                            data-value={radio.value}
-                            label={radio.label}
-                            disabled={disabled}
-                        />
-                    )
-                })}
-            </RadioGroup>
+                <div className={classes.requiredMark} />
+                <RadioGroup
+                    aria-label="labelType"
+                    name={name}
+                    value={value}
+                    className={clsx({
+                        [classes.radio]: true,
+                        [className]: true,
+                        [classes.showInColumns]: showInColumns,
+                    })}
+                    onChange={handleOnChange}
+                    disabled={disabled}
+                    data-testid={`radio-${name}`}
+                >
+                    {options.map((radio) => {
+                        return (
+                            <FormControlLabel
+                                key={`radio-${radio.value}`}
+                                value={radio.value}
+                                className={clsx({
+                                    [classes.formControlStyle]: true,
+                                    [classes.radioSmall]: small,
+                                })}
+                                classes={{
+                                    label: classes.radioItemLabel,
+                                }}
+                                control={(
+                                    <MaterialRadio
+                                        color="primary"
+                                        classes={{
+                                            root: compact && classes.radioRoot,
+                                        }}
+                                    />
+                                )}
+                                data-value={radio.value}
+                                label={radio.label}
+                                disabled={disabled}
+                            />
+                        )
+                    })}
+                </RadioGroup>
+            </div>
         </>
     )
 }

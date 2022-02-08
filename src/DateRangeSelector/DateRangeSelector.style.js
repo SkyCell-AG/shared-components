@@ -43,30 +43,6 @@ const useStyles = makeStyles(() => {
             alignItems: 'center',
             marginLeft: theme.spacing(2.5),
         },
-
-        dateContainer: {
-            display: 'flex',
-            fontSize: '1.2rem',
-        },
-
-        editedDate: {
-            color: 'silver',
-        },
-
-        dayPickerContainer: {
-            display: 'none',
-            position: 'absolute',
-            zIndex: 1,
-            width: '550px',
-            marginLeft: '-310px',
-            marginTop: '20px',
-            background: 'white',
-        },
-
-        dayPickerOpened: {
-            display: 'block',
-        },
-
         datePicker: {
             marginLeft: theme.spacing(1.25),
         },

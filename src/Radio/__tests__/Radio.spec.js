@@ -45,6 +45,7 @@ describe('app/shared-components/Radio should match snapshot 1', () => {
                 value="option1"
                 options={options}
                 compact
+                required
             />,
         )
 

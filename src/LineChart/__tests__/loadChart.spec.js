@@ -39,7 +39,7 @@ const options = {
 const onError = jest.fn()
 const isDateRange = true
 
-describe('loadChart function', () => {
+xdescribe('loadChart function', () => {
     it('loadScript function is called', () => {
         loadScript.mockImplementation(() => {
             return Promise.resolve('data')

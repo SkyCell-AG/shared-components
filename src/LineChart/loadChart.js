@@ -1,5 +1,7 @@
 /* global google */
 import drop from 'lodash/drop'
+import omit from 'lodash/omit'
+import moment from 'moment'
 
 import loadScript from 'utils/loadScript'
 
@@ -23,6 +25,7 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
             packages: [
                 'corechart',
                 'line',
+                'controls',
             ],
         })
 
@@ -33,7 +36,58 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
             ]
         })
 
+        const yesterday = moment().subtract(1, 'days').format()
+
+        const lastDateEntry = moment(chartData[chartData.length - 1][0])
+        const isAfterLastEntry = moment().isAfter(lastDateEntry)
+        const start = isAfterLastEntry ? moment(lastDateEntry).subtract(1, 'days').format() : yesterday
+        const end = isAfterLastEntry
+            ? moment(chartData[chartData.length - 1][0]).format()
+            : moment().format()
+
         const drawChart = () => {
+            const dashboard = new google.visualization.Dashboard(elm)
+            const getSeries = () => {
+                return options.series.map((
+                    option,
+                ) => {
+                    return omit(option, [
+                        'pointSize',
+                        'lineWidth',
+                    ])
+                })
+            }
+
+            const control = new google.visualization.ControlWrapper({
+                controlType: 'ChartRangeFilter',
+                containerId: 'rangeFilter',
+                options: {
+                    filterColumnIndex: 0,
+                    ui: {
+                        chartType: 'LineChart',
+                        chartOptions: {
+                            ...options,
+                            chartArea: omit(options.chartArea, ['top']),
+                            series: getSeries(),
+                        },
+                    },
+                },
+                state: {
+                    range: {
+                        start: new Date(start),
+                        end: new Date(end),
+                    },
+                },
+            })
+
+            const chart = new google.visualization.ChartWrapper({
+                chartType: 'LineChart',
+                containerId: 'chart',
+                options: {
+                    ...options,
+                },
+            })
+
             const data = new google.visualization.DataTable()
 
             createColumns(data, columns)
@@ -55,9 +109,8 @@ const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
 
             data.addRows(updatedChartDataWithFillers)
 
-            const chart = new google.visualization.LineChart(elm)
-
-            chart.draw(data, options)
+            dashboard.bind(control, chart)
+            dashboard.draw(data)
         }
 
         return google.charts.setOnLoadCallback(drawChart)
