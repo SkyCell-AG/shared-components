@@ -98,4 +98,10 @@ NoTitleCustomStyle.args = {
     showInColumns: true,
 }
 
+export const Required = Template.bind({})
+Required.args = {
+    title: 'required radio group',
+    required: true,
+}
+
 export default RadioStory

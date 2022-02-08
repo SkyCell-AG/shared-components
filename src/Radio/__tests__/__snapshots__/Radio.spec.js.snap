@@ -7,61 +7,68 @@ exports[`app/shared-components/Radio should match snapshot 1 should match snapsh
     hasError=""
     title="Temperature Range"
   />
-  <ForwardRef(RadioGroup)
-    aria-label="labelType"
-    className="makeStyles-radio-1 "
-    data-testid="radio-labelType"
-    disabled={false}
-    name="labelType"
-    onChange={[Function]}
-    value="value"
+  <div
+    className=""
   >
-    <ForwardRef(FormControlLabel)
-      className="makeStyles-formControlStyle-4"
-      classes={
-        Object {
-          "label": "makeStyles-radioItemLabel-6",
-        }
-      }
-      control={
-        <ForwardRef(Radio)
-          classes={
-            Object {
-              "root": false,
-            }
-          }
-          color="primary"
-        />
-      }
-      data-value="option1"
-      disabled={false}
-      key="radio-option1"
-      label="label1"
-      value="option1"
+    <div
+      className="makeStyles-requiredMark-7"
     />
-    <ForwardRef(FormControlLabel)
-      className="makeStyles-formControlStyle-4"
-      classes={
-        Object {
-          "label": "makeStyles-radioItemLabel-6",
-        }
-      }
-      control={
-        <ForwardRef(Radio)
-          classes={
-            Object {
-              "root": false,
-            }
-          }
-          color="primary"
-        />
-      }
-      data-value="option2"
+    <ForwardRef(RadioGroup)
+      aria-label="labelType"
+      className="makeStyles-radio-1 "
+      data-testid="radio-labelType"
       disabled={false}
-      key="radio-option2"
-      label="label2"
-      value="option2"
-    />
-  </ForwardRef(RadioGroup)>
+      name="labelType"
+      onChange={[Function]}
+      value="value"
+    >
+      <ForwardRef(FormControlLabel)
+        className="makeStyles-formControlStyle-4"
+        classes={
+          Object {
+            "label": "makeStyles-radioItemLabel-6",
+          }
+        }
+        control={
+          <ForwardRef(Radio)
+            classes={
+              Object {
+                "root": false,
+              }
+            }
+            color="primary"
+          />
+        }
+        data-value="option1"
+        disabled={false}
+        key="radio-option1"
+        label="label1"
+        value="option1"
+      />
+      <ForwardRef(FormControlLabel)
+        className="makeStyles-formControlStyle-4"
+        classes={
+          Object {
+            "label": "makeStyles-radioItemLabel-6",
+          }
+        }
+        control={
+          <ForwardRef(Radio)
+            classes={
+              Object {
+                "root": false,
+              }
+            }
+            color="primary"
+          />
+        }
+        data-value="option2"
+        disabled={false}
+        key="radio-option2"
+        label="label2"
+        value="option2"
+      />
+    </ForwardRef(RadioGroup)>
+  </div>
 </Fragment>
 `;
