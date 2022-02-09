@@ -49,20 +49,21 @@ const defaultProps = {
     },
 }
 
-const grey = '#00000066'
+const grey = '#EBEBEB'
+const darkGrey = '#939393'
 
 const axisStyle = {
     axisLabel: {
-        fontSize: 8,
+        fontSize: 14,
         padding: 30,
-        fill: grey,
+        fill: darkGrey,
         fontFamily: 'Arimo, Roboto, Arial, sans-serif',
     },
     tickLabels: {
-        fontSize: 8,
+        fontSize: 14,
         padding: 2,
         fontFamily: 'Arimo, Roboto, Arial, sans-serif',
-        fill: grey,
+        fill: darkGrey,
     },
 }
 
@@ -90,13 +91,13 @@ const rangeLineStyle = {
             3,
             2,
         ],
-        strokeWidth: 1.5,
+        strokeWidth: 3.5,
     },
     parent: {
         border: `1px solid ${grey}`,
     },
     labels: {
-        fontSize: 8,
+        fontSize: 14,
         padding: 2,
         fill: '#edae49',
     },
@@ -241,7 +242,7 @@ const TemperatureChart = ({
                 ...axisStyle,
                 axis: {
                     stroke: grey,
-                    strokeWidth: 1,
+                    strokeWidth: 0.5,
                 },
             }}
             />
@@ -280,7 +281,7 @@ const TemperatureChart = ({
                 style={style.simulated || {
                     data: {
                         stroke: '#61c6e9',
-                        strokeWidth: 1.5,
+                        strokeWidth: 3.5,
                     },
                 }}
             />
@@ -291,7 +292,7 @@ const TemperatureChart = ({
                     style={style.energyLevel || {
                         data: {
                             stroke: '#9e9e9e',
-                            strokeWidth: 1.5,
+                            strokeWidth: 3.5,
                         },
                     }}
                 />
@@ -301,7 +302,7 @@ const TemperatureChart = ({
                 style={style.ambient || {
                     data: {
                         stroke: '#cf3b8a',
-                        strokeWidth: 1.5,
+                        strokeWidth: 3.5,
                     },
                 }}
             />
@@ -326,11 +327,13 @@ const TemperatureChart = ({
                             stroke: 'red',
                         },
                         tickLabels: {
-                            fill: 'none',
+                            fill: 'transparent',
                         },
                         axisLabel: {
-                            fontSize: 8,
-                            padding: -10,
+                            fontSize: 14,
+                            fill: darkGrey,
+                            fontFamily: 'Arimo, Roboto, Arial, sans-serif',
+                            padding: -20,
                         },
                     }}
                 />
