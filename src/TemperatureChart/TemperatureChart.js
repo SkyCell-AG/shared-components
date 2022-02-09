@@ -49,20 +49,21 @@ const defaultProps = {
     },
 }
 
-const grey = '#00000066'
+const grey = '#EBEBEB'
+const darkGrey = '#939393'
 
 const axisStyle = {
     axisLabel: {
-        fontSize: 8,
+        fontSize: 14,
         padding: 30,
-        fill: grey,
+        fill: darkGrey,
         fontFamily: 'Arimo, Roboto, Arial, sans-serif',
     },
     tickLabels: {
-        fontSize: 8,
+        fontSize: 14,
         padding: 2,
         fontFamily: 'Arimo, Roboto, Arial, sans-serif',
-        fill: grey,
+        fill: darkGrey,
     },
 }
 
@@ -90,13 +91,13 @@ const rangeLineStyle = {
             3,
             2,
         ],
-        strokeWidth: 1.5,
+        strokeWidth: 3.5,
     },
     parent: {
         border: `1px solid ${grey}`,
     },
     labels: {
-        fontSize: 8,
+        fontSize: 14,
         padding: 2,
         fill: '#edae49',
     },
@@ -149,11 +150,26 @@ const TemperatureChart = ({
         return `${Math.round(val / scale)}%`
     }, [scale])
 
-    const tickTemperatureTimeFormat = useCallback((t) => {
-        const date = new Date(t)
+    const tickTemperatureTimeValues = useMemo(() => {
+        return temperatureTimeAxis.map((element) => {
+            const date = new Date(element)
 
-        return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+            return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+        })
+    }, [temperatureTimeAxis])
+
+    const tickTemperatureTimeFormat = useCallback((t) => {
+        return t
     }, [])
+
+    const excursionIndex = useMemo(() => {
+        return temperatureTimeAxis.findIndex((element) => {
+            return element === excursion
+        }) + 1
+    }, [
+        temperatureTimeAxis,
+        excursion,
+    ])
 
     const generateBoundaryData = useCallback((boundary) => {
         return [
@@ -219,14 +235,14 @@ const TemperatureChart = ({
                     1,
                     temperatureTimeAxis.length - 1,
                 ]}
-                tickValues={temperatureTimeAxis}
+                tickValues={tickTemperatureTimeValues}
                 tickFormat={tickTemperatureTimeFormat}
             />
             <VictoryAxis style={{
                 ...axisStyle,
                 axis: {
                     stroke: grey,
-                    strokeWidth: 1,
+                    strokeWidth: 0.5,
                 },
             }}
             />
@@ -265,7 +281,7 @@ const TemperatureChart = ({
                 style={style.simulated || {
                     data: {
                         stroke: '#61c6e9',
-                        strokeWidth: 1.5,
+                        strokeWidth: 3.5,
                     },
                 }}
             />
@@ -276,7 +292,7 @@ const TemperatureChart = ({
                     style={style.energyLevel || {
                         data: {
                             stroke: '#9e9e9e',
-                            strokeWidth: 1.5,
+                            strokeWidth: 3.5,
                         },
                     }}
                 />
@@ -286,7 +302,7 @@ const TemperatureChart = ({
                 style={style.ambient || {
                     data: {
                         stroke: '#cf3b8a',
-                        strokeWidth: 1.5,
+                        strokeWidth: 3.5,
                     },
                 }}
             />
@@ -305,17 +321,19 @@ const TemperatureChart = ({
                     data-testid="excursionAxis"
                     dependentAxis
                     label="Excursion"
-                    axisValue={excursion}
+                    axisValue={excursionIndex}
                     style={style.excursionAxis || {
                         axis: {
                             stroke: 'red',
                         },
                         tickLabels: {
-                            fill: 'none',
+                            fill: 'transparent',
                         },
                         axisLabel: {
-                            fontSize: 8,
-                            padding: -10,
+                            fontSize: 14,
+                            fill: darkGrey,
+                            fontFamily: 'Arimo, Roboto, Arial, sans-serif',
+                            padding: -20,
                         },
                     }}
                 />

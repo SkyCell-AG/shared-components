@@ -121,6 +121,6 @@ describe('TemperatureChart', () => {
 
         const child = wrapper.find(VictoryAxis)
 
-        expect(child.at(0).props().tickFormat('2021-12-03T09:10')).toEqual('3/11/2021 9:10')
+        expect(child.at(0).props().tickFormat('3/11/2021 9:10')).toEqual('3/11/2021 9:10')
     })
 })

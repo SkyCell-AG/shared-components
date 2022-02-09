@@ -2857,7 +2857,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         shapeRendering="auto"
         style={
           Object {
-            "stroke": "#00000066",
+            "stroke": "#EBEBEB",
           }
         }
       />
@@ -2871,15 +2871,15 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     style={
       Object {
         "axisLabel": Object {
-          "fill": "#00000066",
+          "fill": "#939393",
           "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 30,
         },
         "tickLabels": Object {
-          "fill": "#00000066",
+          "fill": "#939393",
           "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 2,
         },
       }
@@ -3406,9 +3406,9 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     }
     tickValues={
       Array [
-        "2021-12-03T09:10",
-        "2021-12-03T09:20",
-        "2021-12-03T09:30",
+        "3/11/2021 9:10",
+        "3/11/2021 9:20",
+        "3/11/2021 9:30",
       ]
     }
   />
@@ -3457,19 +3457,19 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     style={
       Object {
         "axis": Object {
-          "stroke": "#00000066",
-          "strokeWidth": 1,
+          "stroke": "#EBEBEB",
+          "strokeWidth": 0.5,
         },
         "axisLabel": Object {
-          "fill": "#00000066",
+          "fill": "#939393",
           "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 30,
         },
         "tickLabels": Object {
-          "fill": "#00000066",
+          "fill": "#939393",
           "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 2,
         },
       }
@@ -4031,7 +4031,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         shapeRendering="auto"
         style={
           Object {
-            "stroke": "#00000066",
+            "stroke": "#EBEBEB",
           }
         }
       />
@@ -4048,15 +4048,15 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
           "stroke": "transparent",
         },
         "axisLabel": Object {
-          "fill": "#00000066",
+          "fill": "#939393",
           "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 30,
         },
         "tickLabels": Object {
-          "fill": "#00000066",
+          "fill": "#939393",
           "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 2,
         },
       }
@@ -4619,7 +4619,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         shapeRendering="auto"
         style={
           Object {
-            "stroke": "#00000066",
+            "stroke": "#EBEBEB",
           }
         }
       />
@@ -4635,15 +4635,15 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     style={
       Object {
         "axisLabel": Object {
-          "fill": "#00000066",
+          "fill": "#939393",
           "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 30,
         },
         "tickLabels": Object {
-          "fill": "#00000066",
+          "fill": "#939393",
           "fontFamily": "Arimo, Roboto, Arial, sans-serif",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 2,
         },
       }
@@ -5240,7 +5240,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
       Object {
         "data": Object {
           "stroke": "#61c6e9",
-          "strokeWidth": 1.5,
+          "strokeWidth": 3.5,
         },
       }
     }
@@ -5799,7 +5799,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
       Object {
         "data": Object {
           "stroke": "#9e9e9e",
-          "strokeWidth": 1.5,
+          "strokeWidth": 3.5,
         },
       }
     }
@@ -6366,7 +6366,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
       Object {
         "data": Object {
           "stroke": "#cf3b8a",
-          "strokeWidth": 1.5,
+          "strokeWidth": 3.5,
         },
       }
     }
@@ -6934,15 +6934,15 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
             3,
             2,
           ],
-          "strokeWidth": 1.5,
+          "strokeWidth": 3.5,
         },
         "labels": Object {
           "fill": "#edae49",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 2,
         },
         "parent": Object {
-          "border": "1px solid #00000066",
+          "border": "1px solid #EBEBEB",
         },
       }
     }
@@ -7510,15 +7510,15 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
             3,
             2,
           ],
-          "strokeWidth": 1.5,
+          "strokeWidth": 3.5,
         },
         "labels": Object {
           "fill": "#edae49",
-          "fontSize": 8,
+          "fontSize": 14,
           "padding": 2,
         },
         "parent": Object {
-          "border": "1px solid #00000066",
+          "border": "1px solid #EBEBEB",
         },
       }
     }
@@ -8043,7 +8043,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         tspanComponent={<TSpan />}
       />
     }
-    axisValue="2021-12-03T09:20"
+    axisValue={2}
     containerComponent={
       <VictoryContainer
         className="VictoryContainer"
@@ -8076,11 +8076,13 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
           "stroke": "red",
         },
         "axisLabel": Object {
-          "fontSize": 8,
-          "padding": -10,
+          "fill": "#939393",
+          "fontFamily": "Arimo, Roboto, Arial, sans-serif",
+          "fontSize": 14,
+          "padding": -20,
         },
         "tickLabels": Object {
-          "fill": "none",
+          "fill": "transparent",
         },
       }
     }
