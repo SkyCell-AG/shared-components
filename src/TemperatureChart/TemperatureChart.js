@@ -8,6 +8,8 @@ import {
     VictoryChart,
     VictoryAxis,
     LineSegment,
+    VictoryScatter,
+    VictoryGroup,
 } from 'victory'
 
 import getScale from './getScaleOffset'
@@ -28,7 +30,6 @@ const propTypes = {
         energyLevel: PropTypes.shape(),
         excursionAxis: PropTypes.shape(),
     }),
-    width: PropTypes.number.isRequired,
 }
 
 const defaultProps = {
@@ -54,14 +55,14 @@ const darkGrey = '#939393'
 
 const axisStyle = {
     axisLabel: {
-        fontSize: 14,
-        padding: 30,
+        fontSize: 36,
+        padding: 70,
         fill: darkGrey,
         fontFamily: 'Arimo, Roboto, Arial, sans-serif',
     },
     tickLabels: {
-        fontSize: 14,
-        padding: 2,
+        fontSize: 36,
+        padding: 20,
         fontFamily: 'Arimo, Roboto, Arial, sans-serif',
         fill: darkGrey,
     },
@@ -97,8 +98,8 @@ const rangeLineStyle = {
         border: `1px solid ${grey}`,
     },
     labels: {
-        fontSize: 14,
-        padding: 2,
+        fontSize: 36,
+        padding: 20,
         fill: '#edae49',
     },
 }
@@ -112,7 +113,6 @@ const TemperatureChart = ({
     excursion,
     style,
     temperatureTimeAxis,
-    width,
 }) => {
     const scale = useMemo(() => {
         return getScale({
@@ -222,29 +222,21 @@ const TemperatureChart = ({
     ])
 
     return (
-        <VictoryChart width={width}>
+        <VictoryChart
+            width={2300}
+            height={1000}
+        >
             <VictoryAxis
                 data-testid="temperatureTimeAxis"
                 style={axisStyle}
-                gridComponent={(
-                    <LineSegment
-                        style={axisLineStyle}
-                    />
-                )}
+                fixLabelOverlap
                 domain={[
                     1,
                     temperatureTimeAxis.length - 1,
                 ]}
                 tickValues={tickTemperatureTimeValues}
                 tickFormat={tickTemperatureTimeFormat}
-            />
-            <VictoryAxis style={{
-                ...axisStyle,
-                axis: {
-                    stroke: grey,
-                    strokeWidth: 0.5,
-                },
-            }}
+                tickCount={Math.ceil(tickTemperatureTimeValues.length / 57) || 1}
             />
             <VictoryAxis
                 dependentAxis
@@ -276,36 +268,54 @@ const TemperatureChart = ({
                     )}
                 />
             )}
-            <VictoryLine
-                data={simulatedTemperature}
-                style={style.simulated || {
-                    data: {
-                        stroke: '#61c6e9',
-                        strokeWidth: 3.5,
-                    },
-                }}
-            />
+            <VictoryGroup data={simulatedTemperature}>
+                <VictoryLine
+                    style={style.simulated || {
+                        data: {
+                            stroke: '#61c6e9',
+                            strokeWidth: 4,
+                        },
+                    }}
+                />
+                <VictoryScatter
+                    style={{
+                        data: {
+                            fill: '#61c6e9',
+                        },
+                    }}
+                    size={6}
+                />
+            </VictoryGroup>
             {energyLevel && (
                 <VictoryLine
-                    data-testid="energyLevelLine"
                     data={energyLevelScaled}
+                    data-testid="energyLevelLine"
                     style={style.energyLevel || {
                         data: {
                             stroke: '#9e9e9e',
-                            strokeWidth: 3.5,
+                            strokeWidth: 4,
                         },
                     }}
                 />
             )}
-            <VictoryLine
-                data={ambientTemperature}
-                style={style.ambient || {
-                    data: {
-                        stroke: '#cf3b8a',
-                        strokeWidth: 3.5,
-                    },
-                }}
-            />
+            <VictoryGroup data={ambientTemperature}>
+                <VictoryLine
+                    style={style.ambient || {
+                        data: {
+                            stroke: '#cf3b8a',
+                            strokeWidth: 4,
+                        },
+                    }}
+                />
+                <VictoryScatter
+                    style={{
+                        data: {
+                            fill: '#cf3b8a',
+                        },
+                    }}
+                    size={6}
+                />
+            </VictoryGroup>
             <VictoryLine
                 data={tempRangeTopData}
                 style={style.rangeLineStyle || rangeLineStyle}
@@ -323,17 +333,20 @@ const TemperatureChart = ({
                     label="Excursion"
                     axisValue={excursionIndex}
                     style={style.excursionAxis || {
+                        tickLabels: {
+                            fontSize: 36,
+                            padding: 2,
+                            fontFamily: 'Arimo, Roboto, Arial, sans-serif',
+                            fill: 'transparent',
+                        },
                         axis: {
                             stroke: 'red',
                         },
-                        tickLabels: {
-                            fill: 'transparent',
-                        },
                         axisLabel: {
-                            fontSize: 14,
+                            fontSize: 36,
                             fill: darkGrey,
                             fontFamily: 'Arimo, Roboto, Arial, sans-serif',
-                            padding: -20,
+                            padding: -60,
                         },
                     }}
                 />
