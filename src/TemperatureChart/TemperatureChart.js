@@ -52,6 +52,10 @@ const defaultProps = {
 
 const grey = '#EBEBEB'
 const darkGrey = '#939393'
+const purple = '#cf3b8a'
+const blue = '#61c6e9'
+const width = 2300
+const height = 1000
 
 const axisStyle = {
     axisLabel: {
@@ -223,8 +227,8 @@ const TemperatureChart = ({
 
     return (
         <VictoryChart
-            width={2300}
-            height={1000}
+            width={width}
+            height={height}
         >
             <VictoryAxis
                 data-testid="temperatureTimeAxis"
@@ -272,7 +276,7 @@ const TemperatureChart = ({
                 <VictoryLine
                     style={style.simulated || {
                         data: {
-                            stroke: '#61c6e9',
+                            stroke: blue,
                             strokeWidth: 4,
                         },
                     }}
@@ -280,7 +284,7 @@ const TemperatureChart = ({
                 <VictoryScatter
                     style={{
                         data: {
-                            fill: '#61c6e9',
+                            fill: blue,
                         },
                     }}
                     size={6}
@@ -302,7 +306,7 @@ const TemperatureChart = ({
                 <VictoryLine
                     style={style.ambient || {
                         data: {
-                            stroke: '#cf3b8a',
+                            stroke: purple,
                             strokeWidth: 4,
                         },
                     }}
@@ -310,7 +314,7 @@ const TemperatureChart = ({
                 <VictoryScatter
                     style={{
                         data: {
-                            fill: '#cf3b8a',
+                            fill: purple,
                         },
                     }}
                     size={6}
