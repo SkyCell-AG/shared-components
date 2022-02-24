@@ -55,7 +55,7 @@ const Card = (props) => {
                 [classes.fullHeight]: fullHeight,
             })}
         >
-            <CardContent className={clsx(classes.contentClass, contentClass)}>
+            <CardContent className={contentClass}>
                 {title
                     && (
                         <Typography className={clsx(classes.title, titleClass)}>

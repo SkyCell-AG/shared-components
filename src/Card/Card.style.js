@@ -17,9 +17,6 @@ const useStyles = makeStyles(() => {
             overflow: 'visible !important',
             position: 'relative',
         },
-        contentClass: {
-            padding: 10,
-        },
         fullHeight: {
             height: '100%',
         },
