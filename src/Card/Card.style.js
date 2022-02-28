@@ -20,6 +20,9 @@ const useStyles = makeStyles(() => {
         fullHeight: {
             height: '100%',
         },
+        contentClass: {
+            padding: 10,
+        },
         title: {
             fontWeight: '400',
             fontSize: '20px !important',
