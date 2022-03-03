@@ -41,10 +41,12 @@ const useStyles = makeStyles(() => {
 
         input: {
             alignItems: 'center',
-            marginLeft: theme.spacing(2.5),
+            marginLeft: theme.spacing(1.25),
+            marginRight: theme.spacing(1.25),
         },
         datePicker: {
-            marginLeft: theme.spacing(1.25),
+            marginLeft: theme.spacing(0.625),
+            marginRight: theme.spacing(0.625),
         },
     }
 })
