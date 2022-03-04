@@ -108,6 +108,8 @@ const rangeLineStyle = {
     },
 }
 
+const nubmerOfTicks = 7
+
 const TemperatureChart = ({
     ambient,
     simulated,
@@ -240,7 +242,7 @@ const TemperatureChart = ({
                 ]}
                 tickValues={tickTemperatureTimeValues}
                 tickFormat={tickTemperatureTimeFormat}
-                tickCount={Math.ceil(tickTemperatureTimeValues.length / 57) || 1}
+                tickCount={nubmerOfTicks}
             />
             <VictoryAxis
                 dependentAxis

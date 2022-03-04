@@ -3388,7 +3388,7 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
         shapeRendering="auto"
       />
     }
-    tickCount={1}
+    tickCount={7}
     tickFormat={[Function]}
     tickLabelComponent={
       <VictoryLabel
