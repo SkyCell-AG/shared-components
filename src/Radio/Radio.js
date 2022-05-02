@@ -11,6 +11,7 @@ import {
 
 import Label from 'Label'
 
+import InputSingleLine from 'InputSingleLine'
 import useStyles from './Radio.style'
 
 const propTypes = {
@@ -28,6 +29,7 @@ const propTypes = {
     className: PropTypes.string,
     showInColumns: PropTypes.bool,
     required: PropTypes.bool,
+    isReadOnly: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -41,6 +43,7 @@ const defaultProps = {
     className: '',
     showInColumns: false,
     required: false,
+    isReadOnly: false,
 }
 
 const Radio = ({
@@ -55,6 +58,7 @@ const Radio = ({
     className,
     showInColumns,
     required,
+    isReadOnly,
     ...rest
 }) => {
     const classes = useStyles(rest)
@@ -62,6 +66,18 @@ const Radio = ({
     const handleOnChange = useCallback((event) => {
         onChange(event.target.value, event)
     }, [onChange])
+
+    if (isReadOnly) {
+        return (
+            <>
+                {title && (<Label title={title} />)}
+                <InputSingleLine
+                    value={value}
+                    disabled
+                />
+            </>
+        )
+    }
 
     return (
         <>

@@ -85,6 +85,8 @@ export const Primary = Template.bind({})
 Primary.args = {
     title: 'Default radio group',  
     showInColumns: false, 
+    value: 'option2',
+    isReadOnly: false,
 }
 
 export const Column = Template.bind({})
