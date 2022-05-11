@@ -13,14 +13,15 @@ describe('shared-components/DownloadOptions', () => {
     it('should match snapshot', () => {
         const wrapper = shallow(
             <DownloadOptions
-                showTempRange
                 isContainer
-                onCheckShowTempRange={jest.fn()}
+                showCsvButton
                 sensorCodes={[
                     'AMBIENT_TEMPERATURE_868618a0d672d4e4',
                     'INTERNAL_TEMPERATURE_868618a0d672d4e4',
                 ]}
-            />,
+            >
+                <span>TEST</span>
+            </DownloadOptions>,
         )
 
         expect(wrapper).toMatchSnapshot()
@@ -31,9 +32,6 @@ describe('shared-components/DownloadOptions', () => {
             <DownloadOptions
                 showPdfButton
                 showCsvButton
-                showTemperatureRangeOption
-                showTemperatureRangeAllOptions
-                showTempRange
                 serialNumber="031-10279"
                 loggerType="SKYCELL_SAVY_BLE"
                 sensorData={[[
@@ -45,7 +43,6 @@ describe('shared-components/DownloadOptions', () => {
                     null,
                     null,
                 ]]}
-                onCheckShowTempRange={jest.fn()}
                 sensorCodes={[
                     'AMBIENT_TEMPERATURE_868618a0d672d4e4',
                     'INTERNAL_TEMPERATURE_868618a0d672d4e4',
@@ -70,7 +67,6 @@ describe('shared-components/DownloadOptions', () => {
         const wrapper = shallow(
             <DownloadOptions
                 showCsvButton
-                showTempRange
                 serialNumber="031-10279"
                 loggerType="SKYCELL_SAVY_BLE"
                 sensorData={[[
@@ -85,10 +81,6 @@ describe('shared-components/DownloadOptions', () => {
                     null,
                     null,
                 ]]}
-                otherLoggers={[{
-                    value: '000019378', loggerType: 'CARTASENSE',
-                }]}
-                onCheckShowTempRange={jest.fn()}
                 sensorCodes={[
                     'AMBIENT_TEMPERATURE',
                     'INTERNAL_TEMPERATURE',
@@ -129,10 +121,6 @@ describe('shared-components/DownloadOptions', () => {
                     null,
                     null,
                 ]]}
-                otherLoggers={[{
-                    value: 'bea4359jer9g9', loggerType: 'SKYCELL_SAVY_BLE',
-                }]}
-                onCheckShowTempRange={jest.fn()}
                 sensorCodes={[
                     'AMBIENT_TEMPERATURE_868618a0d672d4e4',
                     'INTERNAL_TEMPERATURE_868618a0d672d4e4',

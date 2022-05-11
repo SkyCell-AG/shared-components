@@ -10,8 +10,22 @@ exports[`shared-components/DownloadOptions should match snapshot 1`] = `
   title="Options"
   titleClass=""
 >
+  <span>
+    TEST
+  </span>
   <div
     className="makeStyles-containerBtn-1"
-  />
+  >
+    <Button
+      className="makeStyles-btnControl-2"
+      disabled={false}
+      icon={null}
+      isUpperCase={true}
+      label="csv"
+      onClick={[Function]}
+      saving={false}
+      secondary={false}
+    />
+  </div>
 </Card>
 `;
