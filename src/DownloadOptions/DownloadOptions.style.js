@@ -16,9 +16,6 @@ const useStyles = makeStyles(() => {
         btnControl: {
             paddingTop: 20,
         },
-        selectedTemperatureRange: {
-            justifyContent: 'center !important',
-        },
     }
 })
 

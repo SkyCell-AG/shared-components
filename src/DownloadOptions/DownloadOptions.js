@@ -8,65 +8,45 @@ import downloadDocument from '../utils/downloadDocument'
 
 import Button from '../Button'
 import Card from '../Card'
-import Radio from '../Radio'
-import TemperatureRange from '../TemperatureRange'
 
 import useStyles from './DownloadOptions.style'
 
 const propTypes = {
-    showTemperatureRangeOption: PropTypes.bool,
     showPdfButton: PropTypes.bool,
     showCsvButton: PropTypes.bool,
-    showTemperatureRangeAllOptions: PropTypes.bool,
     sensorData: PropTypes.arrayOf(PropTypes.any),
     sensorCodes: PropTypes.arrayOf(PropTypes.any),
-    showTempRange: PropTypes.bool.isRequired,
-    onCheckShowTempRange: PropTypes.func.isRequired,
     serialNumber: PropTypes.string,
     printChart: PropTypes.func,
-    selectedTemperatureRange: PropTypes.string,
-    radioOptions: PropTypes.arrayOf(PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string,
-    })),
-    onChangeSelectedTemperatureRange: PropTypes.func,
     isContainer: PropTypes.bool,
+    title: PropTypes.string,
+    children: PropTypes.node,
 }
 
 const defaultProps = {
-    showTemperatureRangeOption: false,
     showPdfButton: false,
     showCsvButton: false,
-    showTemperatureRangeAllOptions: false,
     sensorData: undefined,
     sensorCodes: undefined,
     serialNumber: '',
-    selectedTemperatureRange: '',
-    radioOptions: [],
     printChart: noop,
-    onChangeSelectedTemperatureRange: noop,
     isContainer: false,
+    children: undefined,
+    title: 'Options',
 }
 
-const DownloadOptions = (props) => {
+const DownloadOptions = ({
+    showPdfButton,
+    showCsvButton,
+    serialNumber,
+    sensorData,
+    sensorCodes,
+    printChart,
+    isContainer,
+    title,
+    children,
+}) => {
     const classes = useStyles()
-
-    const {
-        showTemperatureRangeOption,
-        showPdfButton,
-        showCsvButton,
-        showTemperatureRangeAllOptions,
-        serialNumber,
-        showTempRange,
-        onCheckShowTempRange,
-        sensorData,
-        sensorCodes,
-        printChart,
-        selectedTemperatureRange,
-        radioOptions,
-        onChangeSelectedTemperatureRange,
-        isContainer,
-    } = props
 
     const exportCsv = useCallback(() => {
         const csvContent = `${sensorData.map((sensorDataElement) => {
@@ -101,25 +81,8 @@ const DownloadOptions = (props) => {
     ])
 
     return (
-        <Card title="Options">
-            {showTemperatureRangeOption && (
-                <TemperatureRange
-                    name="temperatureRange"
-                    showTempRange={showTempRange}
-                    onCheckShowTempRange={onCheckShowTempRange}
-                    title="Temperature Range"
-                />
-            )}
-            {showTemperatureRangeAllOptions && (
-                <Radio
-                    className={classes.selectedTemperatureRange}
-                    name="selectedTemperatureRange"
-                    compact
-                    value={selectedTemperatureRange}
-                    options={radioOptions}
-                    onChange={onChangeSelectedTemperatureRange}
-                />
-            )}
+        <Card title={title}>
+            {children}
             <div className={classes.containerBtn}>
                 {showPdfButton && (
                     <Button

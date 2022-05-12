@@ -15,7 +15,7 @@ const Template = (props) => {
 
 export const Primary = Template.bind({})
 
-Primary.args = {
+const defaultArgs = {
     sensorData: [
         [
             "2021-12-06T22:30",
@@ -102,5 +102,19 @@ Primary.args = {
     loggerType: 'CARTASENSE',
     isContainer: true
 }
+
+Primary.args = defaultArgs
+
+const TemplateWithChild = (props) => {
+    return (
+        <DownloadOptions {...props} >
+            <span>Put something here</span>
+        </DownloadOptions>
+    )
+}
+
+export const WithChildrenButton = TemplateWithChild.bind({})
+
+WithChildrenButton.args = defaultArgs
 
 export default DownloadOptionsStory
