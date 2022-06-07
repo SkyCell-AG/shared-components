@@ -41,4 +41,16 @@ Primary.args = {
     mini: false,
 }
 
+export const StringValues = Template.bind({})
+StringValues.args = {
+    value: {
+        from: '01.06.2012 00:00 +0300',
+        to: '07.06.2022 23:59 +0300',
+    },
+    showTimeRange: true,
+    setDateRange: console.log,
+    onChange: console.log,
+    mini: false,
+}
+
 export default DateRangeSelectorStory

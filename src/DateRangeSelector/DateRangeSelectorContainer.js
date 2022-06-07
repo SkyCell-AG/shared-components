@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
 import dayPassedToRange from 'utils/DateUtils/dayPassedToRange'
-import dateToDateStr from 'utils/DateUtils/dateToDateStr'
+import strOrDateToDateStr from 'utils/DateUtils/strOrDateToDateStr'
 
 import DateRangeSelector from './DateRangeSelector'
 
@@ -89,8 +89,8 @@ const DateRangeSelectorContainer = ({
             {...rest}
             selectOption={selectOption}
             onChangeRange={onChangeRange}
-            from={dateToDateStr(from)}
-            to={dateToDateStr(to)}
+            from={strOrDateToDateStr(from)}
+            to={strOrDateToDateStr(to)}
         />
     )
 }
