@@ -17,8 +17,8 @@ const propTypes = {
     selectOption: PropTypes.func.isRequired,
     onChangeRange: PropTypes.func.isRequired,
     showTimeRange: PropTypes.bool,
-    from: PropTypes.string.isRequired,
-    to: PropTypes.string.isRequired,
+    from: PropTypes.string,
+    to: PropTypes.string,
 }
 
 const defaultProps = {
@@ -38,6 +38,8 @@ const defaultProps = {
             value: 14,
         },
     ],
+    from: null,
+    to: null,
 }
 
 const DateRangeSelector = ({

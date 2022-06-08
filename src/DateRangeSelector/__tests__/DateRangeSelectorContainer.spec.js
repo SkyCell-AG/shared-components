@@ -2,15 +2,17 @@ import React from 'react'
 import {
     shallow,
 } from 'enzyme'
+import moment from 'moment'
 
 import dayPassedToRange from 'utils/DateUtils/dayPassedToRange'
 
 import DateRangeSelectorContainer from '../DateRangeSelectorContainer'
 import DateRangeSelector from '../DateRangeSelector'
 
-jest.mock('utils/DateUtils/dayPassedToRange', () => {
-    return jest.fn()
-})
+jest.mock('utils/DateUtils/dayPassedToRange')
+
+// const expectedFrom = moment(new Date()).add(-1, 'days').toDate()
+// const expectedTo = new Date()
 
 describe('shared-components/DateRangeSelectorContainer', () => {
     it('should match snapshot', () => {
@@ -70,8 +72,8 @@ describe('shared-components/DateRangeSelectorContainer', () => {
 
     it('on select option', () => {
         dayPassedToRange.mockReturnValue({
-            from: 'from',
-            to: 'to',
+            from: moment('2022-06-12T00:00:00.000Z').add(-1, 'days').toDate(),
+            to: moment('2022-06-12T00:00:00.000Z'),
         })
         const onChange = jest.fn()
         const setRange = jest.fn()
@@ -92,8 +94,8 @@ describe('shared-components/DateRangeSelectorContainer', () => {
 
         expect(dayPassedToRange).toBeCalledWith('24h')
         expect(onChange).toBeCalledWith({
-            from: 'from',
-            to: 'to',
+            from: 1654905600000,
+            to: 1655078399000,
         })
         expect(setRange).toBeCalledWith(false)
     })

@@ -24,11 +24,9 @@ export default {
     component: ContainerTemperatureChart,
     decorators: [(Story) => {
         return (
-            <LocalizationProvider dateAdapter={MomentUtils}>
-                <RelayEnvironmentProvider environment={RelayEnvironment}>
-                    <Story />
-                </RelayEnvironmentProvider>
-            </LocalizationProvider>
+            <RelayEnvironmentProvider environment={RelayEnvironment}>
+                <Story />
+            </RelayEnvironmentProvider>
         )
     }],
     title: 'ContainerTemperatureChart',

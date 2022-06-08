@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-import AdapterDateFns from '@mui/lab/AdapterDateFns'
-import LocalizationProvider from '@mui/lab/LocalizationProvider'
 
+import {dateToStr} from 'utils/DateUtils'
 import DateRangeSelector from 'DateRangeSelector'
 
 const DateRangeSelectorStory = {
@@ -15,16 +14,21 @@ const Template = (props) => {
     const [curValue, setValue] = useState(props.value)
 
     return (
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DateRangeSelector
                 {...props}
                 value={curValue}
                 onChange={(val) => {
-                    console.log('val', val)
+                    console.log('------------------------')
+                    console.log('Stories onChange handler with value =', val)
+                    console.log('Stories onChange handler with value.from =', val.from? dateToStr(val.from): val.from)
+                    console.log('Stories onChange handler with value.to =',val.to ?  dateToStr(val.to) : val.to)                    
+                    console.log('------------------------')
                     setValue(val)
                 }}
+                setDateRange={(params)=>{
+                    console.log('what is this for params=?', params)
+                }}
             />
-        </LocalizationProvider>
     )
 }
 
@@ -36,8 +40,6 @@ Primary.args = {
         to: new Date().getTime(),
     },
     showTimeRange: true,
-    setDateRange: console.log,
-    onChange: console.log,
     mini: false,
 }
 
@@ -48,8 +50,17 @@ StringValues.args = {
         to: '07.06.2022 23:59 +0300',
     },
     showTimeRange: true,
-    setDateRange: console.log,
-    onChange: console.log,
+    mini: false,
+}
+
+
+export const EmptyValues = Template.bind({})
+EmptyValues.args = {
+    value: {
+        from: null,
+        to: null,
+    },
+    showTimeRange: true,
     mini: false,
 }
 
