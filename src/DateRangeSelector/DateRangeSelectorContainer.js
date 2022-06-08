@@ -4,8 +4,6 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
-// import moment from 'moment'
-
 import {
     toDateRangeLimitSafe,
     dayPassedToRange,
