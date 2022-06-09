@@ -11,9 +11,6 @@ import DateRangeSelector from '../DateRangeSelector'
 
 jest.mock('utils/DateUtils/dayPassedToRange')
 
-// const expectedFrom = moment(new Date()).add(-1, 'days').toDate()
-// const expectedTo = new Date()
-
 describe('shared-components/DateRangeSelectorContainer', () => {
     it('should match snapshot', () => {
         const wrapper = shallow(

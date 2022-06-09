@@ -57,7 +57,6 @@ describe('shared-components/DateSelect', () => {
 
     it('should return null when called with null date', () => {
         const onChange = jest.fn()
-        // const date = '2018-06-10T16:04:00.000Z'
 
         const wrapper = shallow(
             <DateSelect
