@@ -46,18 +46,17 @@ describe('shared-components/DateSelect', () => {
             },
         )
         expect(onChange).toHaveBeenCalledWith(
-            new Date('2018-06-10T00:00:00.000Z'), {
+            new Date('2018-06-10T16:04:00.000Z'), {
                 target: {
                     name: 'from',
-                    value: new Date('2018-06-10T00:00:00.000Z'),
+                    value: new Date('2018-06-10T16:04:00.000Z'),
                 },
             },
         )
     })
 
-    it('should set hour to 23:59 when called "to"', () => {
+    it('should return null when called with null date', () => {
         const onChange = jest.fn()
-        const date = '2018-06-10T16:04:00.000Z'
 
         const wrapper = shallow(
             <DateSelect
@@ -71,18 +70,18 @@ describe('shared-components/DateSelect', () => {
         const child = wrapper.find(DatePicker)
 
         child.at(0).props().onChange(
-            date, {
+            null, {
                 target: {
                     name: 'to',
-                    value: date,
+                    value: null,
                 },
             },
         )
         expect(onChange).toHaveBeenCalledWith(
-            new Date('2018-06-10T23:59:59.000Z'), {
+            null, {
                 target: {
                     name: 'to',
-                    value: new Date('2018-06-10T23:59:59.000Z'),
+                    value: null,
                 },
             },
         )

@@ -10,3 +10,9 @@ it('strToDate with date', () => {
         strOrDateToDateStr(new Date('2001-03-31T14:32:00.000Z')),
     ).toEqual('31.03.2001')
 })
+
+it('strToDate with null', () => {
+    expect(
+        strOrDateToDateStr(null),
+    ).toEqual(null)
+})

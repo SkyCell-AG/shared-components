@@ -1,3 +1,4 @@
+import React from 'react'
 import { addDecorator } from '@storybook/react'
 import {
   initializeWorker,
@@ -7,6 +8,8 @@ import {
   createTheme,
   ThemeProvider,
 } from '@mui/material/styles'
+import LocalizationProvider from '@mui/lab/LocalizationProvider'
+import MomentUtils from '@date-io/moment'
 
 import skyTheme from '@skycell-ag/theme'
 
@@ -25,9 +28,15 @@ const theme = createTheme(skyTheme)
 
 const withThemeProvider = (Story) => {
   return (
-        <ThemeProvider theme={theme}>
-          <Story />
-        </ThemeProvider>
+    <React.StrictMode>
+      <LocalizationProvider 
+      dateAdapter={MomentUtils}
+      locale="en-gb">
+          <ThemeProvider theme={theme}>
+            <Story />
+          </ThemeProvider>
+        </LocalizationProvider >
+      </React.StrictMode>
   )
 }
 

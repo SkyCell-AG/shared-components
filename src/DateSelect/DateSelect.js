@@ -58,12 +58,12 @@ const DateSelect = (props) => {
     } = props
 
     const handleOnChange = useCallback((date) => {
-        const newValue = new Date(date)
+        const newValue = date ? new Date(date) : date
 
         onChange(newValue, {
             target: {
                 name,
-                value: name === 'from' ? new Date(newValue.setHours(0, 0, 0)) : new Date(newValue.setHours(23, 59, 59)),
+                value: newValue,
             },
         })
     }, [

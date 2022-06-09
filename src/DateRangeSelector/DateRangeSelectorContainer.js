@@ -4,8 +4,11 @@ import React, {
 import PropTypes from 'prop-types'
 import noop from 'lodash/noop'
 
-import dayPassedToRange from 'utils/DateUtils/dayPassedToRange'
-import strOrDateToDateStr from 'utils/DateUtils/strOrDateToDateStr'
+import {
+    toDateRangeLimitSafe,
+    dayPassedToRange,
+    strOrDateToDateStr,
+} from 'utils/DateUtils'
 
 import DateRangeSelector from './DateRangeSelector'
 
@@ -22,17 +25,28 @@ const propTypes = {
     }).isRequired,
     onChange: PropTypes.func,
     setDateRange: PropTypes.func.isRequired,
+    mini: PropTypes.bool,
+    showTimeRange: PropTypes.bool,
+    options: PropTypes.arrayOf(PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.number.isRequired,
+    })),
 }
 
 const defaultProps = {
     onChange: noop,
+    mini: false,
+    showTimeRange: false,
+    options: undefined,
 }
 
 const DateRangeSelectorContainer = ({
     value = {},
     onChange,
     setDateRange,
-    ...rest
+    mini,
+    showTimeRange,
+    options,
 }) => {
     const {
         from = new Date(),
@@ -40,7 +54,12 @@ const DateRangeSelectorContainer = ({
     } = value
 
     const selectOption = useCallback((selected) => {
-        onChange(dayPassedToRange(selected))
+        const newValue = dayPassedToRange(selected)
+
+        onChange({
+            from: toDateRangeLimitSafe(newValue.from),
+            to: toDateRangeLimitSafe(newValue.to, true),
+        })
         setDateRange(false)
     }, [
         onChange,
@@ -54,21 +73,9 @@ const DateRangeSelectorContainer = ({
         },
     }) => {
         const updatedData = {
-            from: new Date(from).setHours(0, 0, 0),
-            to: new Date(to).setHours(23, 59, 59),
-            [name]: new Date(newValue).setHours(
-                ...(
-                    name === 'from' ? [
-                        0,
-                        0,
-                        0,
-                    ] : [
-                        23,
-                        59,
-                        59,
-                    ]
-                ),
-            ),
+            from: toDateRangeLimitSafe(from),
+            to: toDateRangeLimitSafe(to, true),
+            [name]: toDateRangeLimitSafe(newValue, name === 'to'),
         }
 
         onChange(updatedData, {
@@ -86,11 +93,13 @@ const DateRangeSelectorContainer = ({
 
     return (
         <DateRangeSelector
-            {...rest}
             selectOption={selectOption}
             onChangeRange={onChangeRange}
             from={strOrDateToDateStr(from)}
             to={strOrDateToDateStr(to)}
+            options={options}
+            showTimeRange={showTimeRange}
+            mini={mini}
         />
     )
 }
