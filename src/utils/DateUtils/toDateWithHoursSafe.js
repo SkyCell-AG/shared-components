@@ -6,7 +6,7 @@ const toDateWithHoursSafe = (d, hours) => {
     }
     const date = (typeof d === 'string') ? strToDate(d) : new Date(d)
 
-    return d ? date.setHours(...hours) : d
+    return date.setHours(...hours)
 }
 
 export default toDateWithHoursSafe
