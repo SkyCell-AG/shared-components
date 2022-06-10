@@ -1,5 +1,12 @@
+import strToDate from './strToDate'
+
 const toDateWithHoursSafe = (d, hours) => {
-    return d ? new Date(d).setHours(...hours) : d
+    if (!d) {
+        return d
+    }
+    const date = (typeof d === 'string') ? strToDate(d) : new Date(d)
+
+    return date.setHours(...hours)
 }
 
 export default toDateWithHoursSafe
