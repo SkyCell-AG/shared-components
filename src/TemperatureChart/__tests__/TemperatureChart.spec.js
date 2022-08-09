@@ -45,8 +45,8 @@ describe('TemperatureChart', () => {
                     96,
                 ]}
                 excursion="2021-12-03T09:20"
-                upperTempBound={8}
-                lowerTempBound={2}
+                maxTemperature={8}
+                minTemperature={2}
                 width={1300}
             />,
         )
@@ -84,8 +84,8 @@ describe('TemperatureChart', () => {
                     ],
                 }}
                 excursion="2021-12-03T09:20"
-                upperTempBound={8}
-                lowerTempBound={2}
+                maxTemperature={8}
+                minTemperature={2}
                 width={1300}
             />,
         )
@@ -123,8 +123,8 @@ describe('TemperatureChart', () => {
                         },
                     ],
                 }}
-                upperTempBound={8}
-                lowerTempBound={2}
+                maxTemperature={8}
+                minTemperature={2}
                 width={1300}
             />,
         )
@@ -167,8 +167,8 @@ describe('TemperatureChart', () => {
                     96,
                 ]}
                 excursion="2021-12-03T09:20"
-                upperTempBound={8}
-                lowerTempBound={2}
+                maxTemperature={8}
+                minTemperature={2}
                 width={1300}
             />,
         )

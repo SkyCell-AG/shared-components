@@ -8419,11 +8419,11 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
       Array [
         Object {
           "x": 0,
-          "y": null,
+          "y": 8,
         },
         Object {
           "x": 2,
-          "y": null,
+          "y": 8,
         },
       ]
     }
@@ -8995,11 +8995,11 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
       Array [
         Object {
           "x": 0,
-          "y": null,
+          "y": 2,
         },
         Object {
           "x": 2,
-          "y": null,
+          "y": 2,
         },
       ]
     }
