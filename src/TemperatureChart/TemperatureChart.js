@@ -121,33 +121,39 @@ const TemperatureChart = ({
     excursion,
     style,
 }) => {
-    const ambient = data.map(({
-        d,
-    }) => {
-        const [
-            _sim,
-            amb,
-        ] = d
+    const ambient = useMemo(() => {
+        return data.map(({
+            d,
+        }) => {
+            const [
+                _sim,
+                amb,
+            ] = d
 
-        return amb
-    })
+            return amb
+        })
+    }, [data])
 
-    const simulated = data.map(({
-        d,
-    }) => {
-        const [
-            sim,
-            _amb,
-        ] = d
+    const simulated = useMemo(() => {
+        return data.map(({
+            d,
+        }) => {
+            const [
+                sim,
+                _amb,
+            ] = d
 
-        return sim
-    })
+            return sim
+        })
+    }, [data])
 
-    const temperatureTimeAxis = data.map(({
-        t,
-    }) => {
-        return t
-    })
+    const temperatureTimeAxis = useMemo(() => {
+        return data.map(({
+            t,
+        }) => {
+            return t
+        })
+    }, [data])
 
     const scale = useMemo(() => {
         return getScale({
