@@ -15,13 +15,16 @@ import {
 import getScale from './getScaleOffset'
 
 const propTypes = {
-    ambient: PropTypes.arrayOf(PropTypes.number),
-    simulated: PropTypes.arrayOf(PropTypes.number),
+    containerSensorData: PropTypes.shape({
+        data: PropTypes.arrayOf(PropTypes.shape({
+            d: PropTypes.arrayOf(PropTypes.number),
+            t: PropTypes.string,
+        })),
+    }),
     energyLevel: PropTypes.arrayOf(PropTypes.number),
-    upperTempBound: PropTypes.number,
-    lowerTempBound: PropTypes.number,
+    maxTemperature: PropTypes.number,
+    minTemperature: PropTypes.number,
     excursion: PropTypes.string,
-    temperatureTimeAxis: PropTypes.arrayOf(PropTypes.string),
     style: PropTypes.shape({
         axisLineStyle: PropTypes.shape(),
         rangeLineStyle: PropTypes.shape(),
@@ -33,13 +36,11 @@ const propTypes = {
 }
 
 const defaultProps = {
-    ambient: undefined,
-    simulated: undefined,
+    containerSensorData: {},
     energyLevel: undefined,
-    upperTempBound: null,
-    lowerTempBound: null,
+    maxTemperature: null,
+    minTemperature: null,
     excursion: undefined,
-    temperatureTimeAxis: [],
     style: {
         axisLineStyle: undefined,
         simulated: undefined,
@@ -111,15 +112,43 @@ const rangeLineStyle = {
 const nubmerOfTicks = 7
 
 const TemperatureChart = ({
-    ambient,
-    simulated,
+    containerSensorData: {
+        data,
+    },
     energyLevel,
-    upperTempBound,
-    lowerTempBound,
+    maxTemperature,
+    minTemperature,
     excursion,
     style,
-    temperatureTimeAxis,
 }) => {
+    const ambient = data.map(({
+        d,
+    }) => {
+        const [
+            _sim,
+            amb,
+        ] = d
+
+        return amb
+    })
+
+    const simulated = data.map(({
+        d,
+    }) => {
+        const [
+            sim,
+            _amb,
+        ] = d
+
+        return sim
+    })
+
+    const temperatureTimeAxis = data.map(({
+        t,
+    }) => {
+        return t
+    })
+
     const scale = useMemo(() => {
         return getScale({
             ambient,
@@ -156,21 +185,16 @@ const TemperatureChart = ({
         return `${Math.round(val / scale)}%`
     }, [scale])
 
-    const tickTemperatureTimeValues = useMemo(() => {
-        return temperatureTimeAxis.map((element) => {
-            const date = new Date(element)
-
-            return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
-        })
-    }, [temperatureTimeAxis])
-
     const tickTemperatureTimeFormat = useCallback((t) => {
         return t
     }, [])
 
     const excursionIndex = useMemo(() => {
         return temperatureTimeAxis.findIndex((element) => {
-            return element === excursion
+            const date = new Date(excursion)
+            const excursionFormatted = `${(`0${date.getDate()}`).slice(-2)}.${(`0${date.getMonth() + 1}`).slice(-2)}.${date.getFullYear()} ${(`0${date.getHours()}`).slice(-2)}:${(`0${date.getMinutes()}`).slice(-2)}:${(`0${date.getSeconds()}`).slice(-2)}`
+
+            return element === excursionFormatted
         }) + 1
     }, [
         temperatureTimeAxis,
@@ -191,17 +215,17 @@ const TemperatureChart = ({
     }, [simulated])
 
     const tempRangeTopData = useMemo(() => {
-        return generateBoundaryData(upperTempBound)
+        return generateBoundaryData(maxTemperature)
     }, [
         generateBoundaryData,
-        upperTempBound,
+        maxTemperature,
     ])
 
     const tempRangeBottomData = useMemo(() => {
-        return generateBoundaryData(lowerTempBound)
+        return generateBoundaryData(minTemperature)
     }, [
         generateBoundaryData,
-        lowerTempBound,
+        minTemperature,
     ])
 
     const getTemperaturePositions = useCallback((temperature) => {
@@ -240,7 +264,7 @@ const TemperatureChart = ({
                     1,
                     temperatureTimeAxis.length - 1,
                 ]}
-                tickValues={tickTemperatureTimeValues}
+                tickValues={temperatureTimeAxis}
                 tickFormat={tickTemperatureTimeFormat}
                 tickCount={nubmerOfTicks}
             />

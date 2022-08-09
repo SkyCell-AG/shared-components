@@ -3403,9 +3403,9 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
     }
     tickValues={
       Array [
-        "3/11/2021 9:10",
-        "3/11/2021 9:20",
-        "3/11/2021 9:30",
+        "03.12.2021 09:10:00",
+        "03.12.2021 09:20:00",
+        "03.12.2021 09:30:00",
       ]
     }
   />
@@ -8419,11 +8419,11 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
       Array [
         Object {
           "x": 0,
-          "y": 8,
+          "y": null,
         },
         Object {
           "x": 2,
-          "y": 8,
+          "y": null,
         },
       ]
     }
@@ -8995,11 +8995,11 @@ exports[`TemperatureChart TemperatureChart success 1`] = `
       Array [
         Object {
           "x": 0,
-          "y": 2,
+          "y": null,
         },
         Object {
           "x": 2,
-          "y": 2,
+          "y": null,
         },
       ]
     }
