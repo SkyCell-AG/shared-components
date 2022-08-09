@@ -13,29 +13,40 @@ describe('TemperatureChart', () => {
     it('TemperatureChart success', () => {
         const wrapper = shallow(
             <TemperatureChart
-                ambient={[
-                    20,
-                    52,
-                    32,
-                ]}
-                simulated={[
-                    2,
-                    3,
-                    1,
-                ]}
+                containerSensorData={{
+                    data: [
+                        {
+                            d: [
+                                2,
+                                20,
+                            ],
+                            t: '03.12.2021 09:10:00',
+                        },
+                        {
+                            d: [
+                                3,
+                                52,
+                            ],
+                            t: '03.12.2021 09:20:00',
+
+                        },
+                        {
+                            d: [
+                                1,
+                                32,
+                            ],
+                            t: '03.12.2021 09:30:00',
+                        },
+                    ],
+                }}
                 energyLevel={[
                     100,
                     98,
                     96,
                 ]}
-                temperatureTimeAxis={[
-                    '2021-12-03T09:10',
-                    '2021-12-03T09:20',
-                    '2021-12-03T09:30',
-                ]}
                 excursion="2021-12-03T09:20"
-                upperTempBound={8}
-                lowerTempBound={2}
+                maxTemperature={8}
+                minTemperature={2}
                 width={1300}
             />,
         )
@@ -46,19 +57,35 @@ describe('TemperatureChart', () => {
     it('Should not render energyLevel if energyLevel undefined', () => {
         const wrapper = shallow(
             <TemperatureChart
-                ambient={[
-                    20,
-                    52,
-                    32,
-                ]}
-                simulated={[
-                    2,
-                    3,
-                    1,
-                ]}
+                containerSensorData={{
+                    data: [
+                        {
+                            d: [
+                                2,
+                                20,
+                            ],
+                            t: '03.12.2021 09:10:00',
+                        },
+                        {
+                            d: [
+                                3,
+                                52,
+                            ],
+                            t: '03.12.2021 09:20:00',
+
+                        },
+                        {
+                            d: [
+                                1,
+                                32,
+                            ],
+                            t: '03.12.2021 09:30:00',
+                        },
+                    ],
+                }}
                 excursion="2021-12-03T09:20"
-                upperTempBound={8}
-                lowerTempBound={2}
+                maxTemperature={8}
+                minTemperature={2}
                 width={1300}
             />,
         )
@@ -70,18 +97,34 @@ describe('TemperatureChart', () => {
     it('Should not render excursion if excursion undefined', () => {
         const wrapper = shallow(
             <TemperatureChart
-                ambient={[
-                    20,
-                    52,
-                    32,
-                ]}
-                simulated={[
-                    2,
-                    3,
-                    1,
-                ]}
-                upperTempBound={8}
-                lowerTempBound={2}
+                containerSensorData={{
+                    data: [
+                        {
+                            d: [
+                                2,
+                                20,
+                            ],
+                            t: '03.12.2021 09:10:00',
+                        },
+                        {
+                            d: [
+                                3,
+                                52,
+                            ],
+                            t: '03.12.2021 09:20:00',
+
+                        },
+                        {
+                            d: [
+                                1,
+                                32,
+                            ],
+                            t: '03.12.2021 09:30:00',
+                        },
+                    ],
+                }}
+                maxTemperature={8}
+                minTemperature={2}
                 width={1300}
             />,
         )
@@ -92,29 +135,40 @@ describe('TemperatureChart', () => {
     it('tickFormat function returns the right data', () => {
         const wrapper = shallow(
             <TemperatureChart
-                ambient={[
-                    20,
-                    52,
-                    32,
-                ]}
-                simulated={[
-                    2,
-                    3,
-                    1,
-                ]}
+                containerSensorData={{
+                    data: [
+                        {
+                            d: [
+                                2,
+                                20,
+                            ],
+                            t: '03.12.2021 09:10:00',
+                        },
+                        {
+                            d: [
+                                3,
+                                52,
+                            ],
+                            t: '03.12.2021 09:20:00',
+
+                        },
+                        {
+                            d: [
+                                1,
+                                32,
+                            ],
+                            t: '03.12.2021 09:30:00',
+                        },
+                    ],
+                }}
                 energyLevel={[
                     100,
                     98,
                     96,
                 ]}
-                temperatureTimeAxis={[
-                    '2021-12-03T09:10',
-                    '2021-12-03T09:20',
-                    '2021-12-03T09:30',
-                ]}
                 excursion="2021-12-03T09:20"
-                upperTempBound={8}
-                lowerTempBound={2}
+                maxTemperature={8}
+                minTemperature={2}
                 width={1300}
             />,
         )
