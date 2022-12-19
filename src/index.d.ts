@@ -39,7 +39,7 @@ declare module '@skycell-ag/shared-components' {
         onChange: (_: string, event: {target: {name: string, value: date}}) => void;
     }
 
-    const Radio: React.FC<v>
+    const Radio: React.FC<RadioProps>
 
 
     interface DownloadOptionsProps {
