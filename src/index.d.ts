@@ -34,6 +34,25 @@ declare module '@skycell-ag/shared-components' {
 
     const DateRangeSelector: React.FC<DateRangeSelectorProps>
 
+    interface RadioProps {
+        disabled?: boolean,
+        title?: string,
+        options?: {
+            value: string,
+            label: string,
+        }[],
+        name?: string,
+        value?: string,
+        compact?: boolean,
+        small?: boolean,
+        className?: string,
+        showInColumns?: boolean,
+        required?: boolean,
+        onChange: (_: string, event: {target: {name: string, value: string}}) => void;
+    }
+
+    const Radio: React.FC<RadioProps>
+
     interface DownloadOptionsProps {
         serialNumber: string,
         showTemperatureRangeOption: boolean,
