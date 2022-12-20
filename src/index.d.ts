@@ -48,6 +48,7 @@ declare module '@skycell-ag/shared-components' {
         className?: string,
         showInColumns?: boolean,
         required?: boolean,
+        classes: object,
         onChange: (_: string, event: {target: {name: string, value: string}}) => void;
     }
 
