@@ -36,7 +36,9 @@ const propTypes = {
 }
 
 const defaultProps = {
-    containerSensorData: {},
+    containerSensorData: {
+        data: [],
+    },
     energyLevel: undefined,
     maxTemperature: null,
     minTemperature: null,
