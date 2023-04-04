@@ -21,7 +21,8 @@ const fillerNulls = (columns) => {
 
 const loadChart = (chartData, elm, columns, options, isDateRange, onError) => {
     loadScript(url).then(() => {
-        google.charts.load('current', {
+        /* Take fixed version of google charts because latest = 52 contains breaking changes  */
+        google.charts.load('51', {
             packages: [
                 'corechart',
                 'line',
