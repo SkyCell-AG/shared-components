@@ -21,6 +21,27 @@ declare module '@skycell-ag/shared-components' {
 
     const TemperatureChart: React.FC<TemperatureChartProps>
 
+    interface TemperatureChart2Props {
+        sensorData?: {
+            d?: number[],
+            t?: string,
+        }[],
+        sensorLabels: string[],
+        onError?: (error: string) => void,
+        isChartPrinting?: boolean,
+        onFullScreen?: () => void,
+        userOptions?: any,
+        temperatureChartFullscreen?: boolean,
+        setTemperatureChartFullscreen?: (value: boolean) => void,
+        customColumns?: any[],
+        customData?: any[],
+        allowFullScreen?: boolean,
+        customClassName?: string,
+        isDateRange: boolean,
+    }
+
+    const TemperatureChart2: React.FC<TemperatureChart2Props>
+
     interface RouteProps {
         destinations: [number, number][]
     }
@@ -119,4 +140,17 @@ declare module '@skycell-ag/shared-components' {
         children: JSX.Element
     }
     const I18nLocaleProvider: React.FC<I18nLocaleProviderProps>
+
+    interface CardProps {
+        children: JSX.Element,
+        title?: string,
+        icon?: string,
+        className?: string,
+        contentClass?: string,
+        titleClass?: string,
+        fullHeight?: boolean,
+        status?: string,
+    }
+
+    const Card: React.FC<CardProps>
 }
