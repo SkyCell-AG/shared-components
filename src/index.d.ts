@@ -49,8 +49,15 @@ declare module '@skycell-ag/shared-components' {
     const Route: React.FC<RouteProps>
 
     interface DateRangeSelectorProps {
-        value: {from: string, to: string};
-        onChange: (_: string, event: {target: {name: string, value: Date}}) => void;
+        value: {from: string| number, to: string| number};
+        onChange?: (_: string, event: {target: {name: string, value: Date}}) => void;
+        setDateRange: (_: boolean) => void;
+        showTimeRange?: boolean;
+        mini?: boolean;
+        options?: {
+            label: string,
+            value: number,
+        }[],
     }
 
     const DateRangeSelector: React.FC<DateRangeSelectorProps>
@@ -142,7 +149,7 @@ declare module '@skycell-ag/shared-components' {
     const I18nLocaleProvider: React.FC<I18nLocaleProviderProps>
 
     interface CardProps {
-        children: JSX.Element,
+        children: JSX.Element | JSX.Element[],
         title?: string,
         icon?: string,
         className?: string,
