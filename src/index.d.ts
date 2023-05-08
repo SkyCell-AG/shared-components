@@ -83,15 +83,16 @@ declare module '@skycell-ag/shared-components' {
     const Radio: React.FC<RadioProps>
 
     interface DownloadOptionsProps {
-        serialNumber: string,
-        showTemperatureRangeOption: boolean,
-        showPdfButton: boolean,
-        showCsvButton: boolean,
-        showTempRange: boolean,
-        onCheckShowTempRange: () => boolean,
-        sensorData: any[],
-        sensorCodes: any[],
-        printChart: () => void,
+        serialNumber?: string,
+        showTemperatureRangeOption?: boolean,
+        showPdfButton?: boolean,
+        showCsvButton?: boolean,
+        showTempRange?: boolean,
+        onCheckShowTempRange?: () => boolean,
+        sensorData?: any[],
+        sensorCodes?: any[],
+        printChart?: () => void,
+        isContainer?: boolean,
     }
 
     const DownloadOptions: React.FC<DownloadOptionsProps>
@@ -160,4 +161,16 @@ declare module '@skycell-ag/shared-components' {
     }
 
     const Card: React.FC<CardProps>
+
+    interface CheckboxProps {
+        title?: string,
+        disabled?: boolean,
+        indeterminate?: boolean,
+        onChange?: (args:any)=> void,
+        name?: string,
+        value?: boolean,
+        className?: string,
+    }
+
+    const Checkbox: React.FC<CheckboxProps>
 }
