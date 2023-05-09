@@ -29,7 +29,7 @@ declare module '@skycell-ag/shared-components' {
         sensorLabels: string[],
         onError?: (error: string) => void,
         isChartPrinting?: boolean,
-        onFullScreen?: () => void,
+        onFullScreen?: (e: any) => void,
         userOptions?: any,
         temperatureChartFullscreen?: boolean,
         setTemperatureChartFullscreen?: (value: boolean) => void,
