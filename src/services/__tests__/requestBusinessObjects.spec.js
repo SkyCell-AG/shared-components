@@ -39,7 +39,7 @@ test('should use requestBusinessObjects', async () => {
 
     expect(axios.request).toHaveBeenCalledWith(
         {
-            baseURL: 'test/business-objects/v1/',
+            baseURL: 'test/skycore-backend/v1/',
             headers: {
                 Authorization: `Bearer ${token}`,
             },

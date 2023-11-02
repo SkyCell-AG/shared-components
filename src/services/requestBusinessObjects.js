@@ -12,7 +12,7 @@ const requestBusinessObjects = ({
 
     return axios.request({
         ...rest,
-        baseURL: `${skymindApiURL}/business-objects/v1/`,
+        baseURL: `${skymindApiURL}/skycore-backend/v1/`,
         headers: {
             ...headers,
             Authorization: `Bearer ${token}`,
