@@ -43,8 +43,10 @@ const useStyles = makeStyles(() => {
             borderRadius: 3,
         },
         isRequired: {
+            position: 'relative',
             '& $requiredMark': {
                 display: 'block',
+                height: '100%',
             },
             backgroundColor: theme.palette.primary[30],
         },
