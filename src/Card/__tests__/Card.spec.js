@@ -7,7 +7,9 @@ import Card from '../Card'
 
 it('Card snapshot', () => {
     const wrapper = shallow(
-        <Card />,
+        <Card>
+            TEST
+        </Card>,
     )
 
     expect(wrapper).toMatchSnapshot()

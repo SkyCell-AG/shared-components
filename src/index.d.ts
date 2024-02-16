@@ -102,9 +102,6 @@ declare module '@skycell-ag/shared-components' {
     }
     const Loading: React.FC<LoadingProps>
 
-    interface LoadingScreenProps {}
-    const LoadingScreen: React.FC<LoadingScreenProps>
-
     interface AvatarProps {
         img: string;
     }
@@ -117,13 +114,10 @@ declare module '@skycell-ag/shared-components' {
         valueField: string;
         labelField: string;
     }
-    const Typeahead: React.FC<TypeaheadProps>
 
     interface ContainerTemperatureChartProps {
         serialNumber: string;
     }
-    const ContainerTemperatureChart: React.FC<ContainerTemperatureChartProps>
-
     interface dayPassedToRangeProps {
         from: string;
         to: string;
@@ -142,7 +136,6 @@ declare module '@skycell-ag/shared-components' {
     interface ErrorBoundaryProps {
         children: JSX.Element
     }
-    const ErrorBoundary: React.FC<ErrorBoundaryProps>
 
     interface I18nLocaleProviderProps {
         children: JSX.Element

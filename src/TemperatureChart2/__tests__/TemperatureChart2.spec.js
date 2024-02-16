@@ -33,6 +33,7 @@ it('TemperatureChart success', () => {
                     t: '29.03.2021 11:00',
                 },
             ]}
+            isDateRange={false}
         />,
     )
 
@@ -42,6 +43,7 @@ it('TemperatureChart success', () => {
 it('TemperatureChart no fullscreen button', () => {
     const wrapper = shallow(
         <TemperatureChart2
+            isDateRange={false}
             allowFullScreen={false}
             sensorData={[
                 {

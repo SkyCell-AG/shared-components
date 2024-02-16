@@ -7,13 +7,11 @@ import {
 } from '@mui/material'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-
-import {
-    PENDING,
-} from 'utils/requestStatuses'
 import Loading from 'Loading'
 
 import useStyles from './Card.style'
+
+export const PENDING = 'PENDING'
 
 const propTypes = {
     children: PropTypes.node.isRequired,
