@@ -12,6 +12,7 @@ exports[`TemperatureChart success 1`] = `
       customColumns={Array []}
       customData={Array []}
       isChartPrinting={false}
+      isDateRange={false}
       onError={[Function]}
       onFullScreen={[Function]}
       sensorData={
@@ -114,6 +115,7 @@ exports[`TemperatureChart success 1`] = `
             ],
           ]
         }
+        isDateRange={false}
         onError={[Function]}
         userOptions={
           Object {

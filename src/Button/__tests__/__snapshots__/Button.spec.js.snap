@@ -6,7 +6,7 @@ exports[`Button Button secondary snapshot 1`] = `
 >
   <div
     className="makeStyles-buttonSecondary-4 makeStyles-button-2 makeStyles-disabled-5"
-    data-testid="button-undefined"
+    data-testid="button-TEST"
     onMouseDown={[Function]}
   >
     <ForwardRef(CircularProgress)
@@ -17,7 +17,9 @@ exports[`Button Button secondary snapshot 1`] = `
      
     <div
       className="makeStyles-buttonTitleUppercase-7 makeStyles-buttonTitle-6"
-    />
+    >
+      TEST
+    </div>
   </div>
 </div>
 `;
@@ -28,12 +30,15 @@ exports[`Button Button snapshot 1`] = `
 >
   <div
     className="makeStyles-buttonPrimary-3 makeStyles-button-2"
-    data-testid="button-undefined"
+    data-testid="button-TEST"
+    onMouseDown={[MockFunction]}
   >
      
     <div
       className="makeStyles-buttonTitleUppercase-7 makeStyles-buttonTitle-6"
-    />
+    >
+      TEST
+    </div>
   </div>
 </div>
 `;

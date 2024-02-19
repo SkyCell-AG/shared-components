@@ -6,6 +6,8 @@ exports[`Card snapshot 1`] = `
 >
   <ForwardRef(CardContent)
     className="makeStyles-contentClass-3"
-  />
+  >
+    TEST
+  </ForwardRef(CardContent)>
 </ForwardRef(Card)>
 `;

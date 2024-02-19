@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "10.1.0",
+  "version": "11.0.0",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
