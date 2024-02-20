@@ -1,6 +1,6 @@
 {
   "name": "@skycell-ag/shared-components",
-  "version": "11.0.0",
+  "version": "11.1.0",
   "private": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -18,11 +18,10 @@
     "test": "react-scripts test",
     "lint": "eslint ./src",
     "eject": "react-scripts eject",
-    "storybook": "npm run relay --watch && start-storybook -p 6006 -s public",
-    "build-storybook": "npm run relay && build-storybook -s public",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
-    "relay": "relay-compiler --src ./src --schema ./src/schema.gql"
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
   },
   "browserslist": {
     "production": [
@@ -39,17 +38,14 @@
   "dependencies": {
     "@date-io/moment": "2.10.6",
     "clsx": "1.1.1",
-    "date-fns": "^2.28.0",
     "lodash": "4.17.21",
     "moment": "2.29.1",
     "quagga": "0.12.1",
     "react-simple-maps": "2.3.0",
-    "relay-runtime": "11.0.1",
     "topojson-client": "3.1.0",
     "victory": "35.4.9"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.7.0",
     "@mui/icons-material": "^5.0.1",
     "@mui/lab": "^5.0.0-alpha.48",
     "@mui/material": "^5.0.4",
@@ -58,13 +54,11 @@
     "@skycell-ag/theme": "^1.1.7",
     "axios": "^0.21.1",
     "i18next": "^20.3.1",
-    "jss": "^10.5.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-i18next": "12.x",
     "react-query": "^3.17.1",
-    "react-relay": "^11.0.1",
     "react-scripts": "^4.0.1",
     "web-vitals": "^1.1.0"
   },
@@ -90,22 +84,18 @@
     "babel-plugin-file-loader": "2.0.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-module-resolver": "4.1.0",
-    "babel-plugin-relay": "11.0.1",
     "chalk": "4.1.0",
     "cross-env": "7.0.3",
     "enzyme": "3.11.0",
     "enzyme-to-json": "3.6.1",
-    "graphql": "15.5.0",
     "jest-enzyme": "7.1.2",
     "msw": "0.34.0",
     "msw-storybook-addon": "1.2.0",
     "prop-types": "15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-query": "3.17.1",
     "react-scripts": "4.0.1",
-    "react-test-renderer": "17.0.1",
-    "relay-compiler": "11.0.1"
+    "react-test-renderer": "17.0.1"
   },
   "license": "MIT",
   "jest": {
