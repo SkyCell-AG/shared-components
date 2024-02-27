@@ -1,7 +1,6 @@
 import {
-    renderHook,
-} from '@testing-library/react-hooks'
-import TestRenderer from 'react-test-renderer'
+    renderHook, act
+} from '@testing-library/react'
 
 import useMediaDevices from '../useMediaDevices'
 import isMediaDevicesAvailable from '../isMediaDevicesAvailable'
@@ -45,10 +44,6 @@ describe('BarcodeReader/hooks/useMediaDevices', () => {
         })
     })
     it('should return cameraStream', async () => {
-        const {
-            act,
-        } = TestRenderer
-
         const promise = mockUserMediaPromise({})
 
         useEnumerateDevices.mockReturnValue({

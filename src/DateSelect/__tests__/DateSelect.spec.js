@@ -4,7 +4,7 @@ import {
 } from 'enzyme'
 import {
     DatePicker,
-} from '@mui/lab'
+} from '@mui/x-date-pickers'
 
 import DateSelect from '../DateSelect'
 

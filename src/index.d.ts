@@ -93,6 +93,7 @@ declare module '@skycell-ag/shared-components' {
         sensorCodes?: any[],
         printChart?: () => void,
         isContainer?: boolean,
+        children?: JSX.Element,
     }
 
     const DownloadOptions: React.FC<DownloadOptionsProps>

@@ -1,7 +1,6 @@
 import {
-    renderHook,
-} from '@testing-library/react-hooks'
-import TestRenderer from 'react-test-renderer'
+    renderHook, act,
+} from '@testing-library/react'
 import useEnumerateDevices from '../useEnumerateDevices'
 import isMediaDevicesAvailable from '../isMediaDevicesAvailable'
 
@@ -40,10 +39,6 @@ describe('BarcodeReader/hooks/useEnumerateDevices', () => {
     })
 
     it('should return correct facing mode for 2 videoinput', async () => {
-        const {
-            act,
-        } = TestRenderer
-
         const promise = mockEnumerateDevicesPromise([
             {
                 kind: 'videoinput',
@@ -63,10 +58,6 @@ describe('BarcodeReader/hooks/useEnumerateDevices', () => {
     })
 
     it('should return correct facing mode for 0 videoinput', async () => {
-        const {
-            act,
-        } = TestRenderer
-
         const promise = mockEnumerateDevicesPromise([])
 
         const {
