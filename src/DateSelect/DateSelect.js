@@ -8,7 +8,7 @@ import {
 } from '@mui/material'
 import {
     DatePicker,
-} from '@mui/lab'
+} from '@mui/x-date-pickers'
 import {
     useTheme,
 } from '@mui/material/styles'
